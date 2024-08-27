@@ -77,10 +77,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `----'`-------------------------------'
    */
     [_FN] = LAYOUT(
-		         _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,
-		         _______, KC_P, KC_O, KC_I, KC_U, KC_Y, KC_F7,
-		_______, KC_BSPC, KC_SCLN, KC_L, KC_K, KC_J, KC_H, KC_F8,
-		_______, _______, KC_LGUI, KC_M, KC_N, KC_F12, KC_F11, KC_F9,
+		         _______, KC_F1,   KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,
+		         _______, KC_P,    KC_O,  KC_I,  KC_U,   KC_Y,   KC_F7,
+		_______, KC_BSPC, KC_SCLN, KC_L,  KC_K,  KC_J,   KC_H,   KC_F8,
+		_______, _______, KC_LGUI, KC_M,  KC_N,  KC_F12, KC_F11, KC_F9,
 		_______, _______, _______, _______, _______, KC_F10
     )
 };

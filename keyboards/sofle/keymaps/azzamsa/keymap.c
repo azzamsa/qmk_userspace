@@ -1,29 +1,179 @@
 #include QMK_KEYBOARD_H
 
+enum layer_names {
+    // Typing Layer
+    _BASE,
+    _NAV,
+    _MOUSE,
+    _MEDIA,
+    _FUNC,
+    _NUM,
+    _SYM,
+
+    // Gaming layer
+    _LEFTG,
+    _RIGHTG,
+    _FUNCG,
+};
+
+enum keycodes {
+    // SMTD keycodes begin
+    SMTD_KEYCODES_BEGIN = SAFE_RANGE,
+
+    // left home row
+    CKC_A,
+    CKC_R,
+    CKC_S,
+    CKC_T,
+
+    CKC_ESC,
+    CKC_SPC,
+    CKC_TAB,
+
+    // right home row
+    CKC_N,
+    CKC_E,
+    CKC_I,
+    CKC_O,
+
+    CKC_ENT,
+    CKC_BSPC,
+    CKC_DEL,
+
+    SMTD_KEYCODES_END,
+    // SMTD keycodes end
+};
+
+// include after enum def, otherwise it won't work.
+#include "features/sm_td.h"
+
+// aliases - mostly to keep the format/style consistent
+#define XXX KC_NO
+#define ___ KC_TRANSPARENT
+
+#define GAME TO(_LEFTG)
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT(
-        KC_5,  KC_ESC,  KC_1,     KC_2,    KC_3,    KC_4,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_T,  KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_G,  KC_LSFT, KC_A,     KC_S,    KC_D,    KC_F,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_B,  KC_LCTL, KC_Z,     KC_X,    KC_C,    KC_V,    XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                        KC_PSCR,  KC_ENT, OSL(2),  KC_SPC,  OSL(1),     XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+    [_BASE] = LAYOUT(
+       GAME, XXX,   XXX,   XXX,   XXX,     XXX,                        XXX,      XXX,     XXX,     XXX,    XXX,     XXX,
+        XXX, KC_Q,  KC_W,  KC_F,  KC_P,    KC_B,                       KC_J,     KC_L,    KC_U,    KC_Y,   KC_QUOT, XXX,
+        XXX, CKC_A, CKC_R, CKC_S, CKC_T,   KC_G,                       KC_M,     CKC_N,   CKC_E,   CKC_I,  CKC_O,   XXX,
+        XXX, KC_Z,  KC_X,  KC_C,  KC_D,    KC_V,    ___,      ___,     KC_K,     KC_H,    KC_COMM, KC_DOT, KC_SLSH, XXX,
+                    XXX,   XXX,   CKC_ESC, CKC_SPC, CKC_TAB,  CKC_ENT, CKC_BSPC, CKC_DEL, XXX,     XXX
     ),
 
-    [1] = LAYOUT(
-        KC_0,     KC_GRV,   KC_6,    KC_7,     KC_8,     KC_9,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_P,     _______,  KC_Y,    KC_U,     KC_I,     KC_O,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_SCLN,  _______,  KC_H,    KC_J,     KC_K,     KC_L,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_SLSH,  _______,  KC_N,    KC_M,     KC_COMM,  KC_DOT,  XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                            KC_F12,  _______,  XXXXXXX,  KC_DEL,  _______,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+    [_NAV] = LAYOUT(
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX,                XXX,      XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX,                KC_AGIN,  KC_UNDO, KC_CUT,  KC_COPY, KC_PSTE, XXX,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                KC_CAPS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, ___,  ___,     KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
+                      XXX,     XXX,     XXX,     XXX, XXX,  CKC_ENT, CKC_BSPC, CKC_DEL, XXX,     XXX
     ),
 
+    [_MOUSE] = LAYOUT(
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX,                XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX,                XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                XXX,     KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, ___,  ___,     XXX,     KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXX,
+                      XXX,     XXX,     XXX,     XXX, XXX,  KC_BTN3, KC_BTN1, KC_BTN2, XXX,     XXX
+    ),
 
-    [2] = LAYOUT(
-        KC_F5,    _______, KC_F1,     KC_F2,   KC_F3,    KC_F4,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______,  _______, _______,  _______,  _______,  _______,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______,  _______, _______,  _______,  _______,  _______,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______,  _______, _______,  _______,  _______,  _______,  XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                           _______,  _______,  _______,  _______,  XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+    [_MEDIA] = LAYOUT(
+       XXX, XXX,     XXX,      XXX,     XXX,     XXX,                XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+       XXX, XXX,     XXX,      XXX,     XXX,     XXX,                XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+       XXX, KC_LGUI, KC_LALT,  KC_LCTL, KC_LSFT, XXX,                XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXX,
+       XXX, XXX,     XXX,      XXX,     XXX,     XXX, ___,  ___,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+                     XXX,      XXX,     XXX,     XXX, XXX,  KC_MSTP, KC_MPLY, KC_MUTE, XXX,     XXX
+    ),
+
+    [_FUNC] = LAYOUT(
+       XXX, XXX,    XXX,   XXX,   XXX,    XXX,                     XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+       XXX, KC_F12, KC_F7, KC_F8, KC_F9,  KC_PSCR,                 XXX, XXX,     XXX,     XXX,     XXX,  XXX,
+       XXX, KC_F11, KC_F4, KC_F5, KC_F6,  KC_SCRL,                 XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+       XXX, KC_F10, KC_F1, KC_F2, KC_F3,  KC_PAUS, ___,       ___, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                    XXX,   XXX,   KC_APP, KC_SPC,  KC_TAB,    XXX, XXX, XXX,     XXX,     XXX
+    ),
+
+    [_NUM] = LAYOUT(
+        XXX, XXX,     XXX,  XXX,  XXX,  XXX,                   XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC,               XXX, XXX,     XXX,     XXX,     XXX,  XXX,
+        XXX, KC_SCLN, KC_4, KC_5, KC_6, KC_EQL,                XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_GRV,  KC_1, KC_2, KC_3, KC_BSLS, ___,     ___, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                      XXX,  XXX,  KC_DOT,  KC_0, KC_MINS, XXX, XXX, XXX,     XXX,     XXX
+    ),
+
+    [_SYM] = LAYOUT(
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX,                     XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,                 XXX, XXX,     XXX,     XXX,     XXX,  XXX,
+        XXX, KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,                 XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE, ___,       ___, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                      XXX,     XXX,     KC_GT,   KC_RPRN, KC_UNDS,   XXX, XXX, XXX,     XXX,     XXX
+    ),
+
+    [_LEFTG] = LAYOUT(
+        KC_5,  KC_ESC,  KC_1,    KC_2,   KC_3,        KC_4,                        XXX, XXX, XXX, XXX, XXX, XXX,
+        KC_T,  KC_TAB,  KC_Q,    KC_W,   KC_E,        KC_R,                        XXX, XXX, XXX, XXX, XXX, XXX,
+        KC_G,  KC_LSFT, KC_A,    KC_S,   KC_D,        KC_F,                        XXX, XXX, XXX, XXX, XXX, XXX,
+        KC_B,  KC_LCTL, KC_Z,    KC_X,   KC_C,        KC_V,   ___,           ___,  XXX, XXX, XXX, XXX, XXX, XXX,
+                        KC_PSCR, KC_ENT, OSL(_FUNCG), KC_SPC, OSL(_RIGHTG),  XXX,  XXX, XXX, XXX, XXX
+    ),
+
+    [_RIGHTG] = LAYOUT(
+        KC_0,     KC_GRV,  KC_6,    KC_7,  KC_8,     KC_9,                     XXX, XXX, XXX, XXX, XXX, XXX,
+        KC_P,     ___,     KC_Y,    KC_U,  KC_I,     KC_O,                     XXX, XXX, XXX, XXX, XXX, XXX,
+        KC_SCLN,  ___,     KC_H,    KC_J,  KC_K,     KC_L,                     XXX, XXX, XXX, XXX, XXX, XXX,
+        KC_SLSH,  ___,     KC_N,    KC_M,  KC_COMM,  KC_DOT,  ___,  ___,  XXX, XXX, XXX, XXX, XXX, XXX,
+                           KC_F12,  ___,   XXX,      KC_DEL,  ___,  XXX,  XXX, XXX, XXX, XXX
+    ),
+
+    [_FUNCG] = LAYOUT(
+        KC_F5,  ___,  KC_F1,  KC_F2,  KC_F3,  KC_F4,                XXX, XXX, XXX, XXX, XXX, XXX,
+        ___,    ___,  ___,    ___,    ___,    ___,                  XXX, XXX, XXX, XXX, XXX, XXX,
+        ___,    ___,  ___,    ___,    ___,    ___,                  XXX, XXX, XXX, XXX, XXX, XXX,
+        ___,    ___,  ___,    ___,    ___,    ___,  ___,  ___, XXX, XXX, XXX, XXX, XXX, XXX,
+                              ___,    ___,    ___,  ___,  XXX, XXX, XXX, XXX, XXX, XXX
     ),
 
 };
+
+// ==============================================
+// SMTD
+// https://github.com/stasmarkin/sm_td/
+void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+    // States are one of the two:
+    // - touch → tap
+    // - touch → hold → release
+    switch (keycode) {
+        // left home row
+        SMTD_MT(CKC_A, KC_A, KC_LGUI)
+        SMTD_MT(CKC_R, KC_R, KC_LALT)
+        SMTD_MT(CKC_S, KC_S, KC_LCTL)
+        SMTD_MT(CKC_T, KC_T, KC_LSFT)
+
+        SMTD_LT(CKC_ESC, KC_ESC, _MEDIA, 2)
+        SMTD_LT(CKC_SPC, KC_SPACE, _NAV, 2)
+        SMTD_LT(CKC_TAB, KC_TAB, _MOUSE, 2)
+
+        // right home row
+        SMTD_MT(CKC_N, KC_N, KC_LSFT)
+        SMTD_MT(CKC_E, KC_E, KC_LCTL)
+        SMTD_MT(CKC_I, KC_I, KC_LALT)
+        SMTD_MT(CKC_O, KC_O, KC_LGUI)
+
+        SMTD_LT(CKC_ENT, KC_ENT, _SYM, 2)
+        SMTD_LT(CKC_BSPC, KC_BSPC, _NUM, 2)
+        SMTD_LT(CKC_DEL, KC_DEL, _FUNC, 2)
+    }
+}
+
+// ==============================================
+// CORE
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    if (!process_smtd(keycode, record)) {
+        return false;
+    }
+
+    return true;
+}
+

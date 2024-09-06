@@ -141,9 +141,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SMTD
 // https://github.com/stasmarkin/sm_td/
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
-    // States are one of the two:
-    // - touch → tap
-    // - touch → hold → release
     switch (keycode) {
         // left side
         SMTD_MT(CKC_A, KC_A, KC_LGUI)

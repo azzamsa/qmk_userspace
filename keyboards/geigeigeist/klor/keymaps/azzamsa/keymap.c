@@ -102,11 +102,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SMTD
 // https://github.com/stasmarkin/sm_td/
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
-    // States are one of the two:
-    // - touch → tap
-    // - touch → hold → release
     switch (keycode) {
-        // left home row
+        // left side
         SMTD_MT(CKC_A, KC_A, KC_LGUI)
         SMTD_MT(CKC_R, KC_R, KC_LALT)
         SMTD_MT(CKC_S, KC_S, KC_LCTL)
@@ -116,7 +113,7 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         SMTD_LT(CKC_SPC, KC_SPACE, _NAV)
         SMTD_LT(CKC_TAB, KC_TAB, _MOUSE)
 
-        // right home row
+        // righ side
         SMTD_MT(CKC_N, KC_N, KC_LSFT)
         SMTD_MT(CKC_E, KC_E, KC_LCTL)
         SMTD_MT(CKC_I, KC_I, KC_LALT)
@@ -127,6 +124,59 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         SMTD_LT(CKC_DEL, KC_DEL, _FUNC)
     }
 }
+
+uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
+    switch (keycode) {
+        // left side
+        case CKC_A:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_R:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_S:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_T:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_ESC:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_SPC:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_TAB:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+
+        // right side
+        case CKC_N:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_E:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_I:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_O:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_ENT:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_BSPC:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+        case CKC_DEL:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 30;
+            break;
+   }
+
+    return get_smtd_timeout_default(timeout);
+}
+
 
 // ==============================================
 // CORE

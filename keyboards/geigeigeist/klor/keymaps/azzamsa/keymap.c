@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAV] = LAYOUT(
              XXX,     XXX,     XXX,     XXX,     XXX,                KC_AGIN,  KC_UNDO, KC_CUT,  KC_COPY, KC_PSTE,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                KC_CAPS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                CW_TOGG,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
         XXX, XXX,     XXX,     CKC_DEL, XXX,     XXX, ___,  ___,     KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
                                XXX,     XXX,     XXX, XXX,  CKC_ENT, CKC_BSPC, CKC_DEL, XXX
     ),
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-// ==============================================
+//
 // SMTD
 // https://github.com/stasmarkin/sm_td/
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
@@ -192,8 +192,8 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
 }
 
 
-// ==============================================
-// CORE
+//
+// core
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_smtd(keycode, record)) {
         return false;
@@ -202,3 +202,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     return true;
 }
 
+//
+// shift functions
+const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
+
+const key_override_t *key_overrides[] = {
+	&capsword_key_override
+};

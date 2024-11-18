@@ -1,4 +1,4 @@
-# Eternal Keyboard
+# Eternal Keyboard Keymap
 
 ## Flashing
 

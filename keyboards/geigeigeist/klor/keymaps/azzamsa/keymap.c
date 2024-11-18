@@ -125,67 +125,33 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     }
 }
 
+// Most of the keys were set to `300` and `20`, which I took from the sm_td author's keymaps.
+// Because I can't type anything using the default settings.
 uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
     switch (keycode) {
         // left side
         case CKC_A:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // default: 50
             break;
         case CKC_R:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_S:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_T:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
+
         case CKC_ESC:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_SPC:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_TAB:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
 
         // right side
         case CKC_N:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_E:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_I:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_O:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 5;
             break;
+
         case CKC_ENT:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_BSPC:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
         case CKC_DEL:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 20;
-            break;
    }
 
     return get_smtd_timeout_default(timeout);

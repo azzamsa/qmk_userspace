@@ -11,11 +11,8 @@ enum layer_names {
 };
 
 enum keycodes {
-    // SMTD keycodes begin
-    SMTD_KEYCODES_BEGIN = SAFE_RANGE,
-
     // left home row
-    CKC_A,
+    CKC_A = SAFE_RANGE,
     CKC_R,
     CKC_S,
     CKC_T,
@@ -32,14 +29,10 @@ enum keycodes {
 
     CKC_ENT,
     CKC_BSPC,
-    CKC_DEL,
+    CKC_DEL
 
-    SMTD_KEYCODES_END,
     // SMTD keycodes end
 };
-
-// include after enum def, otherwise it won't work.
-#include "features/sm_td.h"
 
 // aliases - mostly to keep the format/style consistent
 #define XXX KC_NO
@@ -98,10 +91,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+// include after keymap def, otherwise it won't work.
+#include "features/sm_td.h"
+
+
 //
 // SMTD
 // https://github.com/stasmarkin/sm_td/
-void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     switch (keycode) {
         // left side
         SMTD_MT(CKC_A, KC_A, KC_LGUI)
@@ -123,6 +120,8 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         SMTD_LT(CKC_BSPC, KC_BSPC, _NUM)
         SMTD_LT(CKC_DEL, KC_DEL, _FUNC)
     }
+
+    return SMTD_RESOLUTION_UNHANDLED;
 }
 
 // Most of the keys were set to `300` and `20`, which I took from the sm_td author's keymaps.

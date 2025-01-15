@@ -11,11 +11,8 @@ enum layer_names {
 };
 
 enum keycodes {
-    // SMTD keycodes begin
-    SMTD_KEYCODES_BEGIN = SAFE_RANGE,
-
     // left home row
-    CKC_A,
+    CKC_A = SAFE_RANGE,
     CKC_R,
     CKC_S,
     CKC_T,
@@ -32,14 +29,10 @@ enum keycodes {
 
     CKC_ENT,
     CKC_BSPC,
-    CKC_DEL,
+    CKC_DEL
 
-    SMTD_KEYCODES_END,
     // SMTD keycodes end
 };
-
-// include after enum def, otherwise it won't work.
-#include "features/sm_td.h"
 
 // aliases - mostly to keep the format/style consistent
 #define XXX KC_NO
@@ -98,31 +91,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+// include after keymap def, otherwise it won't work.
+#include "features/sm_td.h"
+
+
 //
 // SMTD
 // https://github.com/stasmarkin/sm_td/
-void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     switch (keycode) {
         // left side
-        SMTD_MT(CKC_A, KC_A, KC_LGUI)
-        SMTD_MT(CKC_R, KC_R, KC_LALT)
-        SMTD_MT(CKC_S, KC_S, KC_LCTL)
-        SMTD_MT(CKC_T, KC_T, KC_LSFT)
+        SMTD_MT_ON_MKEY(CKC_A, KC_A, KC_LGUI)
+        SMTD_MT_ON_MKEY(CKC_R, KC_R, KC_LALT)
+        SMTD_MT_ON_MKEY(CKC_S, KC_S, KC_LCTL)
+        SMTD_MT_ON_MKEY(CKC_T, KC_T, KC_LSFT)
 
-        SMTD_LT(CKC_ESC, KC_ESC, _MEDIA)
-        SMTD_LT(CKC_SPC, KC_SPACE, _NAV)
-        SMTD_LT(CKC_TAB, KC_TAB, _MOUSE)
+        SMTD_LT_ON_MKEY(CKC_ESC, KC_ESC, _MEDIA)
+        SMTD_LT_ON_MKEY(CKC_SPC, KC_SPACE, _NAV)
+        SMTD_LT_ON_MKEY(CKC_TAB, KC_TAB, _MOUSE)
 
         // righ side
-        SMTD_MT(CKC_N, KC_N, KC_LSFT)
-        SMTD_MT(CKC_E, KC_E, KC_LCTL)
-        SMTD_MT(CKC_I, KC_I, KC_LALT)
-        SMTD_MT(CKC_O, KC_O, KC_LGUI)
+        SMTD_MT_ON_MKEY(CKC_N, KC_N, KC_LSFT)
+        SMTD_MT_ON_MKEY(CKC_E, KC_E, KC_LCTL)
+        SMTD_MT_ON_MKEY(CKC_I, KC_I, KC_LALT)
+        SMTD_MT_ON_MKEY(CKC_O, KC_O, KC_LGUI)
 
-        SMTD_LT(CKC_ENT, KC_ENT, _SYM)
-        SMTD_LT(CKC_BSPC, KC_BSPC, _NUM)
-        SMTD_LT(CKC_DEL, KC_DEL, _FUNC)
+        SMTD_LT_ON_MKEY(CKC_ENT, KC_ENT, _SYM)
+        SMTD_LT_ON_MKEY(CKC_BSPC, KC_BSPC, _NUM)
+        SMTD_LT_ON_MKEY(CKC_DEL, KC_DEL, _FUNC)
     }
+
+    return SMTD_RESOLUTION_UNHANDLED;
 }
 
 // Most of the keys were set to `300` and `20`, which I took from the sm_td author's keymaps.
@@ -148,10 +147,6 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
         case CKC_O:
             if (timeout == SMTD_TIMEOUT_RELEASE) return 5;
             break;
-
-        case CKC_ENT:
-        case CKC_BSPC:
-        case CKC_DEL:
    }
 
     return get_smtd_timeout_default(timeout);

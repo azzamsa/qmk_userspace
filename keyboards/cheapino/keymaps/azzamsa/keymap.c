@@ -10,6 +10,7 @@
 #define TAB_R G(S(KC_RBRC))
 #define SPACE_L A(G(KC_LEFT))
 #define SPACE_R A(G(KC_RGHT))
+// Momentarily
 #define LA_SYM MO(_SYM)
 #define LA_NAV MO(_NAV)
 
@@ -37,31 +38,31 @@ enum keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
-        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
-        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                                   XXX,     LA_NAV,  KC_LSFT, KC_SPC,  LA_SYM,  XXX
+        KC_Q, KC_W, KC_F, KC_P,   KC_B,      KC_J,   KC_L,    KC_U,    KC_Y,   KC_QUOT,
+        KC_A, KC_R, KC_S, KC_T,   KC_G,      KC_M,   KC_N,    KC_E,    KC_I,   KC_O,
+        KC_Z, KC_X, KC_C, KC_D,   KC_V,      KC_K,   KC_H,    KC_COMM, KC_DOT, KC_SLSH,
+                    XXX,  KC_SPC, LA_NAV,    LA_SYM, KC_LSFT, XXX
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_ESC,  KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD, KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
-        KC_MINS, KC_ASTR, KC_EQL,  KC_UNDS, KC_DLR,  KC_HASH, OS_CMD,  OS_ALT,  OS_CTRL, OS_SHFT,
-        KC_PLUS, KC_PIPE, KC_AT,   KC_SCLN, KC_PERC, XXX,     KC_BSLS, KC_AMPR, KC_QUES, KC_EXLM,
-                                   XXX,     ___,     ___,     ___,     ___,     XXX
+        KC_EXLM, KC_AT,  KC_HASH, KC_DLR,  KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
+        KC_COLN, KC_GRV, KC_LCBR, KC_RCBR, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_SUP,
+        KC_TILD, XXX,    XXX,     KC_SCLN, KC_PIPE,    KC_UNDS, KC_BSLS, KC_AMPR, KC_QUES, KC_SLASH,
+                         XXX,     ___,     ___,        ___,     ___,     XXX
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-        KC_TAB,  SW_WIN,  TAB_L,   TAB_R,   KC_VOLU, QK_BOOT,   HOME,    KC_UP,   END,     KC_DEL,
-        OS_SHFT, OS_CTRL, OS_ALT,  OS_CMD,  KC_VOLD, KC_CAPS, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC,
-        SPACE_L, SPACE_R, BACK,    FWD,     KC_MPLY, XXX,     KC_PGDN, KC_PGUP, SW_LANG, KC_ENT,
-                                   XXX,     ___,     ___,     ___,     ___,     XXX
+        QK_BOOT, SW_WIN,  TAB_L,  TAB_R,  KC_VOLU,    KC_TAB,  KC_ESC,  KC_ENT,  KC_BSPC, KC_DEL,
+        OS_SHFT, OS_CTRL, OS_ALT, OS_SUP, KC_VOLD,    KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+        SPACE_L, SPACE_R, BACK,   FWD,    KC_MPLY,    KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+                          XXX,    ___,    ___,        ___,     ___,     XXX
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-        KC_7,    KC_5,    KC_3,    KC_1,    KC_9,    KC_8,    KC_0,    KC_2,    KC_4,    KC_6,
-        OS_SHFT, OS_CTRL, OS_ALT,  OS_CMD,  KC_F11,  KC_F10,  OS_CMD,  OS_ALT,  OS_CTRL, OS_SHFT,
-        KC_F7,   KC_F5,   KC_F3,   KC_F1,   KC_F9,   KC_F8,   KC_F12,  KC_F2,   KC_F4,   KC_F6,
-                                   XXX,     ___,     ___,     ___,     ___,     XXX
+        KC_1,    KC_2,    KC_3,   KC_4,   KC_5,      KC_6,   KC_7,    KC_8,    KC_9,    KC_0,
+        OS_SHFT, OS_CTRL, OS_ALT, OS_SUP, KC_F11,    KC_F12, OS_SHFT, OS_CTRL, OS_ALT,  OS_SUP,
+        KC_F1,   KC_F2,   KC_F3,  KC_F4,  KC_F5,     KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10,
+                          XXX,    ___,    ___,       ___,    ___,     XXX
     ),
 };
 
@@ -83,7 +84,7 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     case OS_SHFT:
     case OS_CTRL:
     case OS_ALT:
-    case OS_CMD:
+    case OS_SUP:
         return true;
     default:
         return false;
@@ -112,7 +113,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         keycode, record
     );
     update_oneshot(
-        &os_cmd_state, KC_LCMD, OS_CMD,
+        &os_cmd_state, KC_LGUI, OS_SUP,
         keycode, record
     );
 

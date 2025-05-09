@@ -1,45 +1,42 @@
 #include QMK_KEYBOARD_H
 
-enum layer_names {
+#include "features/oneshot.h"
+
+// GUI
+#define HOME G(KC_LEFT)
+#define END G(KC_RGHT)
+#define FWD G(KC_RBRC)
+#define BACK G(KC_LBRC)
+#define TAB_L G(S(KC_LBRC))
+#define TAB_R G(S(KC_RBRC))
+// Alt
+#define SPACE_L A(G(KC_LEFT))
+#define SPACE_R A(G(KC_RGHT))
+// Momentarily
+#define LA_SYM MO(_SYM)
+#define LA_NAV MO(_NAV)
+
+enum layers {
     _BASE,
-    _NAV,
-    _MOUSE,
-    _MEDIA,
-    _FUNC,
-    _NUM,
     _SYM,
+    _NAV,
+    _NUM,
 };
 
 enum keycodes {
-    // SMTD keycodes begin
-    SMTD_KEYCODES_BEGIN = SAFE_RANGE,
+    // Custom oneshot mod implementation with no timers.
+    OS_SHFT = SAFE_RANGE,
+    OS_CTRL,
+    OS_ALT,
+    OS_GUI,
 
-    // left home row
-    CKC_A,
-    CKC_R,
-    CKC_S,
-    CKC_T,
-
-    CKC_ESC,
-    CKC_SPC,
-    CKC_TAB,
-
-    // right home row
-    CKC_N,
-    CKC_E,
-    CKC_I,
-    CKC_O,
-
-    CKC_ENT,
-    CKC_BSPC,
-    CKC_DEL,
-
-    SMTD_KEYCODES_END,
-    // SMTD keycodes end
+    SW_WIN,  // Switch to next window         (cmd-tab)
+    SW_LANG, // Switch to next input language (ctl-spc)
 };
 
-// include after enum def, otherwise it won't work.
-#include "features/sm_td.h"
+// aliases - mostly to keep the format/style consistent
+#define XXX KC_NO
+#define ___ KC_TRANSPARENT
 
 // aliases - mostly to keep the format/style consistent
 #define XXX KC_NO
@@ -48,130 +45,120 @@ enum keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-             KC_Q,  KC_W,  KC_F,    KC_P,    KC_B,                       KC_J,    KC_L,     KC_U,    KC_Y,   KC_QUOT,
-        XXX, CKC_A, CKC_R, CKC_S,   CKC_T,   KC_G,                       KC_M,    CKC_N,    CKC_E,   CKC_I,  CKC_O,   XXX,
-        XXX, KC_Z,  KC_X,  KC_C,    KC_D,    KC_V,    ___,      ___,     KC_K,    KC_H,     KC_COMM, KC_DOT, KC_SLSH, XXX,
-                           XXX,     CKC_ESC, CKC_SPC, CKC_TAB,  CKC_ENT, CKC_BSPC, CKC_DEL, XXX
-    ),
-
-    [_NAV] = LAYOUT(
-             XXX,     XXX,      XXX,     XXX,     XXX,                KC_AGIN,  KC_UNDO, KC_CUT,  KC_COPY, KC_PSTE,
-        XXX, KC_LGUI, KC_LALT,  KC_LCTL, KC_LSFT, XXX,                CW_TOGG,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, XXX,     CKC_BSPC, CKC_ENT, CKC_DEL, XXX, ___,  ___,     KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
-                                XXX,     XXX,     XXX, XXX,  CKC_ENT, CKC_BSPC, CKC_DEL, XXX
-    ),
-
-    [_MOUSE] = LAYOUT(
-             XXX,     XXX,     XXX,     XXX,     XXX,                XXX,     XXX,     XXX,     XXX,     XXX,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                XXX,     KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, ___,  ___,     XXX,     KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXX,
-                               XXX,     XXX,     XXX, XXX,  KC_BTN3, KC_BTN1, KC_BTN2, XXX
-    ),
-
-    [_MEDIA] = LAYOUT(
-            XXX,     XXX,      XXX,     XXX,     XXX,                XXX,     XXX,     XXX,     XXX,     XXX,
-       XXX, KC_LGUI, KC_LALT,  KC_LCTL, KC_LSFT, XXX,                XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXX,
-       XXX, XXX,     XXX,      XXX,     XXX,     XXX, ___,  ___,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
-                               XXX,     XXX,     XXX, XXX,  KC_MSTP, KC_MPLY, KC_MUTE, XXX
-    ),
-
-    [_FUNC] = LAYOUT(
-            KC_F12, KC_F7, KC_F8,  KC_F9,  KC_PSCR,               XXX, XXX,     XXX,     XXX,     XXX,
-       XXX, KC_F11, KC_F4, KC_F5,  KC_F6,  KC_SCRL,               XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-       XXX, KC_F10, KC_F1, KC_F2,  KC_F3,  KC_PAUS, ___,     ___, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
-                           XXX,    KC_APP, KC_SPC,  KC_TAB,  XXX, XXX, XXX,     XXX
-    ),
-
-    [_NUM] = LAYOUT(
-             KC_LBRC, KC_7, KC_8,   KC_9,   KC_RBRC,                XXX, XXX,     XXX,     XXX,     XXX,
-        XXX, KC_SCLN, KC_4, KC_5,   KC_6,   KC_EQL,                 XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_GRV,  KC_1, KC_2,   KC_3,   KC_BSLS, ___,      ___, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
-                            XXX,    KC_DOT, KC_0,    KC_MINS,  XXX, XXX, XXX,     XXX
+             KC_Q,  KC_W,  KC_F,  KC_P,   KC_B,                KC_J,    KC_L,   KC_U,    KC_Y,   KC_QUOT,
+        XXX, KC_A,  KC_R,  KC_S,  KC_T,   KC_G,                KC_M,    KC_N,   KC_E,    KC_I,   KC_O,    XXX,
+        XXX, KC_Z,  KC_X,  KC_C,  KC_D,   KC_V,   ___,    ___, KC_K,    KC_H,   KC_COMM, KC_DOT, KC_SLSH, XXX,
+                           XXX,   LA_NAV, KC_SPC, XXX,    XXX, KC_LSFT, LA_SYM, XXX
     ),
 
     [_SYM] = LAYOUT(
-             KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,                XXX, XXX,      XXX,     XXX,     XXX,
-        XXX, KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,                XXX, KC_LSFT,  KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE, ___,      ___, XXX, XXX,      XXX,     XXX,     XXX,     XXX,
-                               XXX,     KC_LPRN, KC_RPRN, KC_UNDS,  XXX, XXX, XXX,      XXX
+             KC_ESC,  KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,               KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
+        XXX, KC_MINS, KC_ASTR, KC_EQL,  KC_UNDS, KC_DLR,                KC_HASH, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
+        XXX, KC_PLUS, KC_PIPE, KC_AT,   KC_SCLN, KC_PERC, ___,     ___, XXX,     KC_BSLS, KC_AMPR, KC_QUES, KC_EXLM, XXX,
+                               XXX,     ___,     ___,     XXX,     XXX, ___, ___,      XXX
     ),
+
+    [_NAV] = LAYOUT(
+             KC_TAB,  SW_WIN,  TAB_L,   KC_PSCR, KC_VOLU,                KC_DEL,  KC_CAPS, CW_TOGG, XXX,     XXX,
+        XXX, OS_GUI,  OS_ALT,  OS_CTRL, OS_SHFT, KC_VOLD,                KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, QK_BOOT, SPACE_R, BACK,    FWD,     KC_MPLY,  ___,     ___, KC_ENT,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
+                               XXX,     ___,     ___,      XXX,     XXX, ___,     ___,     XXX
+    ),
+
+    [_NUM] = LAYOUT(
+             KC_1,   KC_2,   KC_3,    KC_4,    KC_5,                KC_6,   KC_7,    KC_8,    KC_9,    KC_0,
+        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_F11,              KC_F12, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI, XXX,
+        XXX, KC_F1,  KC_F2,  KC_F3,   KC_F4,   KC_F5,  ___,    ___, KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10, XXX,
+                             XXX,     ___,     ___,    XXX,    XXX, ___,    ___,     XXX
+    ),
+
 
 };
 
-//
-// SMTD
-// https://github.com/stasmarkin/sm_td/
-void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+
+bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
-        // left side
-        SMTD_MT(CKC_A, KC_A, KC_LGUI)
-        SMTD_MT(CKC_R, KC_R, KC_LALT)
-        SMTD_MT(CKC_S, KC_S, KC_LCTL)
-        SMTD_MT(CKC_T, KC_T, KC_LSFT)
-
-        SMTD_LT(CKC_ESC, KC_ESC, _MEDIA)
-        SMTD_LT(CKC_SPC, KC_SPACE, _NAV)
-        SMTD_LT(CKC_TAB, KC_TAB, _MOUSE)
-
-        // righ side
-        SMTD_MT(CKC_N, KC_N, KC_LSFT)
-        SMTD_MT(CKC_E, KC_E, KC_LCTL)
-        SMTD_MT(CKC_I, KC_I, KC_LALT)
-        SMTD_MT(CKC_O, KC_O, KC_LGUI)
-
-        SMTD_LT(CKC_ENT, KC_ENT, _SYM)
-        SMTD_LT(CKC_BSPC, KC_BSPC, _NUM)
-        SMTD_LT(CKC_DEL, KC_DEL, _FUNC)
-    }
-}
-
-// Most of the keys were set to `300` and `20`, which I took from the sm_td author's keymaps.
-// Because I can't type anything using the default settings.
-uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
-    switch (keycode) {
-        // left side
-        case CKC_A:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // default: 50
-            break;
-        case CKC_R:
-        case CKC_S:
-        case CKC_T:
-
-        case CKC_ESC:
-        case CKC_SPC:
-        case CKC_TAB:
-
-        // right side
-        case CKC_N:
-        case CKC_E:
-        case CKC_I:
-        case CKC_O:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 5;
-            break;
-
-        case CKC_ENT:
-        case CKC_BSPC:
-        case CKC_DEL:
-   }
-
-    return get_smtd_timeout_default(timeout);
-}
-
-
-//
-// core
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (!process_smtd(keycode, record)) {
+    case LA_SYM:
+    case LA_NAV:
+        return true;
+    default:
         return false;
     }
+}
+
+bool is_oneshot_ignored_key(uint16_t keycode) {
+    switch (keycode) {
+    case LA_SYM:
+    case LA_NAV:
+    case KC_LSFT:
+    case OS_SHFT:
+    case OS_CTRL:
+    case OS_ALT:
+    case OS_GUI:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool sw_win_active = false;
+bool sw_lang_active = false;
+
+oneshot_state os_shft_state = os_up_unqueued;
+oneshot_state os_ctrl_state = os_up_unqueued;
+oneshot_state os_alt_state = os_up_unqueued;
+oneshot_state os_gui_state = os_up_unqueued;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    update_oneshot(
+        &os_shft_state, KC_LSFT, OS_SHFT,
+        keycode, record
+    );
+    update_oneshot(
+        &os_ctrl_state, KC_LCTL, OS_CTRL,
+        keycode, record
+    );
+    update_oneshot(
+        &os_alt_state, KC_LALT, OS_ALT,
+        keycode, record
+    );
+    update_oneshot(
+        &os_gui_state, KC_LGUI, OS_GUI,
+        keycode, record
+    );
 
     return true;
 }
 
-//
-// shift functions
-const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
+layer_state_t layer_state_set_user(layer_state_t state) {
+    return update_tri_layer_state(state, _SYM, _NAV, _NUM);
+}
 
-const key_override_t *key_overrides[] = {
-	&capsword_key_override
+// Combos
+const uint16_t PROGMEM caps_combo[]   = { KC_SPC,  KC_LSFT,    COMBO_END };
+
+const uint16_t PROGMEM gui_combo[]    = { KC_R,  KC_S,    COMBO_END };
+const uint16_t PROGMEM ctrlg_combo[]  = { KC_F,  KC_P,    COMBO_END };
+const uint16_t PROGMEM esc_combo[]    = { KC_S,  KC_T,    COMBO_END };
+const uint16_t PROGMEM repeat_combo[] = { KC_C,  KC_D,    COMBO_END };
+
+const uint16_t PROGMEM cln_combo[]    = { KC_L,  KC_U,    COMBO_END };
+const uint16_t PROGMEM scln_combo[]   = { KC_U,  KC_Y,    COMBO_END };
+const uint16_t PROGMEM bspc_combo[]   = { KC_N,  KC_E,    COMBO_END };
+const uint16_t PROGMEM cbspc_combo[]  = { KC_M,  KC_N,    COMBO_END };
+const uint16_t PROGMEM ent_combo[]    = { KC_H,  KC_COMM, COMBO_END };
+
+combo_t key_combos[] = {
+    COMBO(caps_combo,   CW_TOGG),
+
+    COMBO(gui_combo,    KC_LGUI),
+    COMBO(ctrlg_combo,  LCTL(KC_G)),
+    COMBO(esc_combo,    KC_ESC),
+    COMBO(repeat_combo, QK_REP),
+
+    COMBO(cln_combo,   LSFT(KC_SCLN)),
+    COMBO(scln_combo,  KC_SCLN),
+    COMBO(bspc_combo,  KC_BSPC),
+    COMBO(cbspc_combo, LCTL(KC_BSPC)),
+    COMBO(ent_combo,   KC_ENT),
 };

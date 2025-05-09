@@ -1,5 +1,4 @@
-#include QMK_KEYBOARD_H
-
+#include QMK_KEYBOARD_
 #include "features/oneshot.h"
 
 // GUI
@@ -125,3 +124,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _SYM, _NAV, _NUM);
 }
+
+// Combos
+const uint16_t PROGMEM caps_combo[]   = { KC_SPC,  KC_LSFT,    COMBO_END };
+
+const uint16_t PROGMEM esc_combo[]    = { KC_S,  KC_T,    COMBO_END };
+const uint16_t PROGMEM repeat_combo[] = { KC_C,  KC_D,    COMBO_END };
+
+const uint16_t PROGMEM cln_combo[]    = { KC_L,  KC_U,    COMBO_END };
+const uint16_t PROGMEM scln_combo[]   = { KC_U,  KC_Y,    COMBO_END };
+const uint16_t PROGMEM bspc_combo[]   = { KC_N,  KC_E,    COMBO_END };
+const uint16_t PROGMEM ent_combo[]    = { KC_H,  KC_COMM, COMBO_END };
+
+combo_t key_combos[] = {
+    COMBO(caps_combo,   CW_TOGG),
+
+    COMBO(esc_combo,    KC_ESC),
+    COMBO(repeat_combo, QK_REP),
+
+    COMBO(cln_combo,   LSFT(KC_SCLN)),
+    COMBO(scln_combo,  KC_SCLN),
+    COMBO(bspc_combo,  KC_BSPC),
+    COMBO(ent_combo,   KC_ENT),
+};

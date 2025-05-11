@@ -54,16 +54,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-        KC_TAB,  XXX,    XXX,     KC_PSCR, KC_VOLU,    KC_DEL,  KC_COPY, KC_PSTE, XXX,     KC_CAPS,
+        KC_TAB,  XXX,    XXX,     KC_PSCR, KC_COPY,    KC_DEL,  MS_BTN4, XXX,     XXX,     MS_BTN5,
         OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, KC_VOLD,    KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
         XXX,     XXX,    XXX,     XXX,     KC_MPLY,    KC_ENT,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
                           ___,     ___,    XXX,        XXX,     ___,     ___
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-        XXX,     KC_7, KC_8, KC_9, XXX,     KC_F12, KC_F7, KC_F8, KC_F9, XXX,
-        XXX,     KC_4, KC_5, KC_6, XXX,     KC_F11, KC_F4, KC_F5, KC_F6, XXX,
-        QK_BOOT, KC_1, KC_2, KC_3, KC_0,    KC_F10, KC_F1, KC_F2, KC_F3, XXX,
+        XXX,     KC_7, KC_8, KC_9, XXX,     KC_F12, KC_F7, KC_F8, KC_F9, KC_VOLU,
+        XXX,     KC_4, KC_5, KC_6, XXX,     KC_F11, KC_F4, KC_F5, KC_F6, KC_VOLD,
+        QK_BOOT, KC_1, KC_2, KC_3, KC_0,    KC_F10, KC_F1, KC_F2, KC_F3, KC_MPLY,
                        ___,   ___, XXX,     XXX,    ___,   ___
     ),
 };

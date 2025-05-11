@@ -135,7 +135,6 @@ const uint16_t PROGMEM quote_combo[]    = { KC_E,     KC_I,   COMBO_END };
 const uint16_t PROGMEM dquote_combo[]   = { KC_COMMA, KC_DOT, COMBO_END };
 
 // Needs dedicated key
-const uint16_t PROGMEM gui_combo[]      = { KC_A,  KC_R,    COMBO_END };
 const uint16_t PROGMEM esc_combo[]      = { KC_S,  KC_T,    COMBO_END };
 const uint16_t PROGMEM tab_combo[]      = { KC_C,  KC_D,    COMBO_END };
 
@@ -153,7 +152,6 @@ combo_t key_combos[] = {
     COMBO(dquote_combo,  LSFT(KC_QUOT)),
 
     // Needs dedicated key
-    COMBO(gui_combo,     KC_LGUI),
     COMBO(esc_combo,     KC_ESC),
     COMBO(tab_combo,     KC_TAB),
 
@@ -161,6 +159,6 @@ combo_t key_combos[] = {
     COMBO(bspc_combo,    KC_BSPC),
 
     // Convenience
-    COMBO(caps_combo,   CW_TOGG),
+    COMBO(caps_combo,    CW_TOGG),
     COMBO(repeat_combo,  QK_REP),
 };

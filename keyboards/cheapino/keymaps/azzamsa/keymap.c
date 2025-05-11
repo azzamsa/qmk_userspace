@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SYM] = LAYOUT_split_3x5_3(
         KC_ESC,  KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
-        KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
+        KC_SCLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
         KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_EXLM, KC_AMPR, KC_QUES, KC_BSLS,
                           ___,     ___,     XXX,        XXX,     ___,     ___
     ),
@@ -126,39 +126,41 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _SYM, _NAV, _NUM);
 }
 
+//
 // Combos
-const uint16_t PROGMEM caps_combo[]     = { KC_SPC,  KC_LSFT,    COMBO_END };
 
-const uint16_t PROGMEM gui_combo[]      = { KC_R,  KC_S,    COMBO_END };
-const uint16_t PROGMEM repeat_combo[]   = { KC_F,  KC_P,    COMBO_END };
+// Corners
+const uint16_t PROGMEM q_combo[]        = { KC_R,     KC_S,   COMBO_END };
+const uint16_t PROGMEM quote_combo[]    = { KC_E,     KC_I,   COMBO_END };
+const uint16_t PROGMEM dquote_combo[]   = { KC_COMMA, KC_DOT, COMBO_END };
+
+// Needs dedicated key
+const uint16_t PROGMEM gui_combo[]      = { KC_A,  KC_R,    COMBO_END };
 const uint16_t PROGMEM esc_combo[]      = { KC_S,  KC_T,    COMBO_END };
 const uint16_t PROGMEM tab_combo[]      = { KC_C,  KC_D,    COMBO_END };
 
-const uint16_t PROGMEM cln_combo[]      = { KC_L,  KC_U,    COMBO_END };
-const uint16_t PROGMEM scln_combo[]     = { KC_U,  KC_Y,    COMBO_END };
-const uint16_t PROGMEM quote_combo[]    = { KC_E,  KC_I,    COMBO_END };
-const uint16_t PROGMEM dquote_combo[]   = { KC_COMMA,  KC_DOT,   COMBO_END };
 const uint16_t PROGMEM bspc_combo[]     = { KC_N,  KC_E,    COMBO_END };
-const uint16_t PROGMEM cbspc_combo[]    = { KC_M,  KC_N,    COMBO_END };
 const uint16_t PROGMEM ent_combo[]      = { KC_H,  KC_COMM, COMBO_END };
 
-const uint16_t PROGMEM select_all_combo[]  = { KC_COPY,  KC_PSTE, COMBO_END };
+// Convenience
+const uint16_t PROGMEM caps_combo[]     = { KC_SPC, KC_LSFT, COMBO_END };
+const uint16_t PROGMEM repeat_combo[]   = { KC_F,   KC_P,    COMBO_END };
 
 combo_t key_combos[] = {
-    COMBO(caps_combo,   CW_TOGG),
+    // Corners
+    COMBO(q_combo,       KC_Q),
+    COMBO(quote_combo,   KC_QUOT),
+    COMBO(dquote_combo,  LSFT(KC_QUOT)),
 
+    // Needs dedicated key
     COMBO(gui_combo,     KC_LGUI),
-    COMBO(repeat_combo,  QK_REP),
     COMBO(esc_combo,     KC_ESC),
     COMBO(tab_combo,     KC_TAB),
 
-    COMBO(cln_combo,     LSFT(KC_SCLN)),
-    COMBO(scln_combo,    KC_SCLN),
-    COMBO(quote_combo,   KC_QUOT),
-    COMBO(dquote_combo,  LSFT(KC_QUOT)),
-    COMBO(bspc_combo,    KC_BSPC),
-    COMBO(cbspc_combo,   LCTL(KC_BSPC)),
     COMBO(ent_combo,     KC_ENT),
+    COMBO(bspc_combo,    KC_BSPC),
 
-    COMBO(select_all_combo, LCTL(KC_A)),
+    // Convenience
+    COMBO(caps_combo,   CW_TOGG),
+    COMBO(repeat_combo,  QK_REP),
 };

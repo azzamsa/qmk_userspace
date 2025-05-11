@@ -127,34 +127,38 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 // Combos
-const uint16_t PROGMEM caps_combo[]   = { KC_SPC,  KC_LSFT,    COMBO_END };
+const uint16_t PROGMEM caps_combo[]     = { KC_SPC,  KC_LSFT,    COMBO_END };
 
-const uint16_t PROGMEM gui_combo[]    = { KC_R,  KC_S,    COMBO_END };
-const uint16_t PROGMEM repeat_combo[] = { KC_F,  KC_P,    COMBO_END };
-const uint16_t PROGMEM esc_combo[]    = { KC_S,  KC_T,    COMBO_END };
-const uint16_t PROGMEM tab_combo[]    = { KC_C,  KC_D,    COMBO_END };
+const uint16_t PROGMEM gui_combo[]      = { KC_R,  KC_S,    COMBO_END };
+const uint16_t PROGMEM repeat_combo[]   = { KC_F,  KC_P,    COMBO_END };
+const uint16_t PROGMEM esc_combo[]      = { KC_S,  KC_T,    COMBO_END };
+const uint16_t PROGMEM tab_combo[]      = { KC_C,  KC_D,    COMBO_END };
 
-const uint16_t PROGMEM cln_combo[]    = { KC_L,  KC_U,    COMBO_END };
-const uint16_t PROGMEM scln_combo[]   = { KC_U,  KC_Y,    COMBO_END };
-const uint16_t PROGMEM bspc_combo[]   = { KC_N,  KC_E,    COMBO_END };
-const uint16_t PROGMEM cbspc_combo[]  = { KC_M,  KC_N,    COMBO_END };
-const uint16_t PROGMEM ent_combo[]    = { KC_H,  KC_COMM, COMBO_END };
+const uint16_t PROGMEM cln_combo[]      = { KC_L,  KC_U,    COMBO_END };
+const uint16_t PROGMEM scln_combo[]     = { KC_U,  KC_Y,    COMBO_END };
+const uint16_t PROGMEM quote_combo[]    = { KC_E,  KC_I,    COMBO_END };
+const uint16_t PROGMEM dquote_combo[]   = { KC_COMMA,  KC_DOT,   COMBO_END };
+const uint16_t PROGMEM bspc_combo[]     = { KC_N,  KC_E,    COMBO_END };
+const uint16_t PROGMEM cbspc_combo[]    = { KC_M,  KC_N,    COMBO_END };
+const uint16_t PROGMEM ent_combo[]      = { KC_H,  KC_COMM, COMBO_END };
 
 const uint16_t PROGMEM select_all_combo[]  = { KC_COPY,  KC_PSTE, COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(caps_combo,   CW_TOGG),
 
-    COMBO(gui_combo,    KC_LGUI),
-    COMBO(repeat_combo, QK_REP),
-    COMBO(esc_combo,    KC_ESC),
-    COMBO(tab_combo,    KC_TAB),
+    COMBO(gui_combo,     KC_LGUI),
+    COMBO(repeat_combo,  QK_REP),
+    COMBO(esc_combo,     KC_ESC),
+    COMBO(tab_combo,     KC_TAB),
 
-    COMBO(cln_combo,   LSFT(KC_SCLN)),
-    COMBO(scln_combo,  KC_SCLN),
-    COMBO(bspc_combo,  KC_BSPC),
-    COMBO(cbspc_combo, LCTL(KC_BSPC)),
-    COMBO(ent_combo,   KC_ENT),
+    COMBO(cln_combo,     LSFT(KC_SCLN)),
+    COMBO(scln_combo,    KC_SCLN),
+    COMBO(quote_combo,   KC_QUOT),
+    COMBO(dquote_combo,  LSFT(KC_QUOT)),
+    COMBO(bspc_combo,    KC_BSPC),
+    COMBO(cbspc_combo,   LCTL(KC_BSPC)),
+    COMBO(ent_combo,     KC_ENT),
 
     COMBO(select_all_combo, LCTL(KC_A)),
 };

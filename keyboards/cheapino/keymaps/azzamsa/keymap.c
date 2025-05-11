@@ -40,31 +40,31 @@ enum keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
-        KC_Q, KC_W, KC_F, KC_P,   KC_B,      KC_J,   KC_L,    KC_U,    KC_Y,   KC_QUOT,
-        KC_A, KC_R, KC_S, KC_T,   KC_G,      KC_M,   KC_N,    KC_E,    KC_I,   KC_O,
-        KC_Z, KC_X, KC_C, KC_D,   KC_V,      KC_K,   KC_H,    KC_COMM, KC_DOT, KC_SLSH,
-                    LA_NAV, KC_SPC, XXX,     XXX,    KC_LSFT, LA_SYM
+        KC_Q, KC_W, KC_F,   KC_P,   KC_B,      KC_J,   KC_L,    KC_U,    KC_Y,   KC_QUOT,
+        KC_A, KC_R, KC_S,   KC_T,   KC_G,      KC_M,   KC_N,    KC_E,    KC_I,   KC_O,
+        KC_Z, KC_X, KC_C,   KC_D,   KC_V,      KC_K,   KC_H,    KC_COMM, KC_DOT, KC_SLSH,
+                    LA_NAV, KC_SPC, XXX,       XXX,    KC_LSFT, LA_SYM
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_ESC,  KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
-        KC_SCLN, KC_ASTR, KC_EQL,  KC_UNDS, KC_PLUS,    KC_HASH, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
-        KC_PLUS, KC_PIPE, KC_AT,   KC_MINS, KC_PERC,    XXX,     KC_EXLM, KC_AMPR, KC_QUES, KC_BSLS,
-                         ___,     ___,     XXX,         XXX,     ___,     ___
-    ),
-
-    [_NAV] = LAYOUT_split_3x5_3(
-        KC_TAB,  SW_WIN,  TAB_L,   KC_PSCR, KC_VOLU,    KC_DEL,  KC_COPY, KC_PSTE, XXX,     KC_CAPS,
-        OS_GUI,  OS_ALT,  OS_CTRL, OS_SHFT, KC_VOLD,    KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-        QK_BOOT, SPACE_R, BACK,    FWD,     KC_MPLY,    KC_ENT,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        KC_ESC,  KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
+        KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
+        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_EXLM, KC_AMPR, KC_QUES, KC_BSLS,
                           ___,     ___,     XXX,        XXX,     ___,     ___
     ),
 
+    [_NAV] = LAYOUT_split_3x5_3(
+        KC_TAB,  XXX,    XXX,     KC_PSCR, KC_VOLU,    KC_DEL,  KC_COPY, KC_PSTE, XXX,     KC_CAPS,
+        OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, KC_VOLD,    KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+        XXX,     XXX,    XXX,     XXX,     KC_MPLY,    KC_ENT,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+                          ___,     ___,    XXX,        XXX,     ___,     ___
+    ),
+
     [_NUM] = LAYOUT_split_3x5_3(
-        KC_1,   KC_2,   KC_3,    KC_4,    KC_5,      KC_6,   KC_7,    KC_8,    KC_9,    KC_0,
-        OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_F11,    KC_F12, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
-        KC_F1,  KC_F2,  KC_F3,   KC_F4,   KC_F5,     KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10,
-                          ___,   ___,     XXX,       XXX,    ___,     ___
+        XXX,     KC_7, KC_8, KC_9, XXX,     KC_F12, KC_F7, KC_F8, KC_F9, XXX,
+        XXX,     KC_4, KC_5, KC_6, XXX,     KC_F11, KC_F4, KC_F5, KC_F6, XXX,
+        QK_BOOT, KC_1, KC_2, KC_3, KC_0,    KC_F10, KC_F1, KC_F2, KC_F3, XXX,
+                       ___,   ___, XXX,     XXX,    ___,   ___
     ),
 };
 

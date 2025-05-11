@@ -130,9 +130,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 const uint16_t PROGMEM caps_combo[]   = { KC_SPC,  KC_LSFT,    COMBO_END };
 
 const uint16_t PROGMEM gui_combo[]    = { KC_R,  KC_S,    COMBO_END };
-const uint16_t PROGMEM ctrlg_combo[]  = { KC_F,  KC_P,    COMBO_END };
+const uint16_t PROGMEM repeat_combo[] = { KC_F,  KC_P,    COMBO_END };
 const uint16_t PROGMEM esc_combo[]    = { KC_S,  KC_T,    COMBO_END };
-const uint16_t PROGMEM repeat_combo[] = { KC_C,  KC_D,    COMBO_END };
+const uint16_t PROGMEM tab_combo[]    = { KC_C,  KC_D,    COMBO_END };
 
 const uint16_t PROGMEM cln_combo[]    = { KC_L,  KC_U,    COMBO_END };
 const uint16_t PROGMEM scln_combo[]   = { KC_U,  KC_Y,    COMBO_END };
@@ -146,9 +146,9 @@ combo_t key_combos[] = {
     COMBO(caps_combo,   CW_TOGG),
 
     COMBO(gui_combo,    KC_LGUI),
-    COMBO(ctrlg_combo,  LCTL(KC_G)),
-    COMBO(esc_combo,    KC_ESC),
     COMBO(repeat_combo, QK_REP),
+    COMBO(esc_combo,    KC_ESC),
+    COMBO(tab_combo,    KC_TAB),
 
     COMBO(cln_combo,   LSFT(KC_SCLN)),
     COMBO(scln_combo,  KC_SCLN),

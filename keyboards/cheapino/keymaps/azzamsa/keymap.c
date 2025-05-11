@@ -2,19 +2,14 @@
 
 #include "features/oneshot.h"
 
-// GUI
-#define HOME G(KC_LEFT)
-#define END G(KC_RGHT)
-#define FWD G(KC_RBRC)
-#define BACK G(KC_LBRC)
-#define TAB_L G(S(KC_LBRC))
-#define TAB_R G(S(KC_RBRC))
-// Alt
-#define SPACE_L A(G(KC_LEFT))
-#define SPACE_R A(G(KC_RGHT))
-// Momentarily
+// aliases - mostly to keep the format/style consistent
+#define XXX KC_NO
+#define ___ KC_TRANSPARENT
+
 #define LA_SYM MO(_SYM)
 #define LA_NAV MO(_NAV)
+
+#define SW_WIN A(KC_TAB)
 
 enum layers {
     _BASE,
@@ -29,14 +24,7 @@ enum keycodes {
     OS_CTRL,
     OS_ALT,
     OS_GUI,
-
-    SW_WIN,  // Switch to next window         (cmd-tab)
-    SW_LANG, // Switch to next input language (ctl-spc)
 };
-
-// aliases - mostly to keep the format/style consistent
-#define XXX KC_NO
-#define ___ KC_TRANSPARENT
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
@@ -47,16 +35,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,    KC_ENT, KC_BSPC, KC_TAB,  KC_ESC,     MS_BTN4, KC_HOME, KC_PGDN, KC_PGUP, XXX,
-        OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_VOLD,    MS_BTN5, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-        XXX,    XXX,    XXX,     XXX,     KC_MPLY,    KC_DEL,  KC_BSPC, KC_ENT,  KC_TAB,  KC_ESC,
-                        ___,     ___,     XXX,        XXX,     ___,     ___
+        XXX,    SW_WIN, XXX,     KC_PSCR, XXX,    MS_BTN4, KC_HOME, KC_PGDN, KC_PGUP, XXX,
+        OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, XXX,    MS_BTN5, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+        XXX,    XXX,    XXX,     XXX,     XXX,    KC_DEL,  KC_BSPC, KC_ENT,  KC_TAB,  KC_ESC,
+                        ___,     ___,     XXX,    XXX,     ___,     ___
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
         XXX,     KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, XXX,
-        KC_SCLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
-        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_GRV,  KC_AMPR, KC_QUES, KC_BSLS,
+        KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
+        KC_SCLN, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_TILD, KC_AMPR, KC_QUES, KC_BSLS,
                           ___,     ___,     XXX,        XXX,     ___,     ___
     ),
 
@@ -156,7 +144,7 @@ combo_t key_combos[] = {
     // Corners
     COMBO(q_combo,       KC_Q),
     COMBO(quote_combo,   KC_QUOT),
-    COMBO(dquote_combo,  LSFT(KC_QUOT)),
+    COMBO(dquote_combo,  KC_DQT),
     COMBO(end_combo,     KC_END),
     COMBO(grv_combo,     KC_GRV),
 

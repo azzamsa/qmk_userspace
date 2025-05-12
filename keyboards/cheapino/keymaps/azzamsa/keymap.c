@@ -35,16 +35,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,    SW_WIN, XXX,     KC_PSCR, KC_PSTE,    MS_BTN5, KC_HOME, KC_PGDN, KC_PGUP, XXX,
+        XXX,    SW_WIN, XXX,     KC_PSCR, KC_PSTE,    MS_BTN5, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
         OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_COPY,    MS_BTN4, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-        XXX,    XXX,    XXX,     XXX,     XXX,        KC_DEL,  KC_BSPC, KC_ENT,  KC_TAB,  KC_ESC,
+        KC_TAB, KC_ESC, KC_ENT,  KC_BSPC, KC_DEL,     KC_DEL,  KC_BSPC, KC_ENT,  KC_ESC,  KC_TAB,
                         ___,     ___,     XXX,        XXX,     ___,     ___
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        XXX,     KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, XXX,
+        KC_TILD, KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
         KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
-        KC_SCLN, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_TILD, KC_AMPR, KC_QUES, KC_BSLS,
+        KC_SCLN, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_UNDS, KC_AMPR, KC_QUES, KC_BSLS,
                           ___,     ___,     XXX,        XXX,     ___,     ___
     ),
 
@@ -139,6 +139,7 @@ const uint16_t PROGMEM ent_combo[]      = { KC_H,  KC_COMM, COMBO_END };
 // Convenience
 const uint16_t PROGMEM caps_combo[]     = { KC_SPC, KC_LSFT, COMBO_END };
 const uint16_t PROGMEM repeat_combo[]   = { KC_F,   KC_P,    COMBO_END };
+const uint16_t PROGMEM cbspc_combo[]    = { KC_E,   KC_H,    COMBO_END };
 
 combo_t key_combos[] = {
     // Corners
@@ -157,4 +158,6 @@ combo_t key_combos[] = {
     // Convenience
     COMBO(caps_combo,    CW_TOGG),
     COMBO(repeat_combo,  QK_REP),
+    COMBO(cbspc_combo,   LCTL(KC_BSPC)),
+
 };

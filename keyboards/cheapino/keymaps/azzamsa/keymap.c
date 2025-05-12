@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,    SW_WIN, XXX,     KC_PSCR, KC_PSTE,    MS_BTN5, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX,    SW_WIN, QK_REP,  KC_PSCR, KC_PSTE,    MS_BTN5, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
         OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_COPY,    MS_BTN4, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
         KC_TAB, KC_ESC, KC_ENT,  KC_BSPC, KC_DEL,     KC_DEL,  KC_BSPC, KC_ENT,  KC_ESC,  KC_TAB,
                         ___,     ___,     XXX,        XXX,     ___,     ___
@@ -116,48 +116,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 //
 // Combos
-
-// Corners (base)
-const uint16_t PROGMEM q_combo[]        = { KC_W,    KC_F,    COMBO_END };
-
-const uint16_t PROGMEM quote_combo[]    = { KC_U,     KC_Y,   COMBO_END };
-const uint16_t PROGMEM dquote_combo[]   = { KC_E,     KC_I,   COMBO_END };
-
-// Corners (nav)
-const uint16_t PROGMEM end_combo[]      = { KC_PGDN, KC_PGUP, COMBO_END };
-
-// Corners (sym)
-const uint16_t PROGMEM grv_combo[]      = { KC_LBRC, KC_LCBR, COMBO_END };
-
-// Needs dedicated key
-const uint16_t PROGMEM esc_combo[]      = { KC_S,  KC_T,    COMBO_END };
-const uint16_t PROGMEM tab_combo[]      = { KC_C,  KC_D,    COMBO_END };
-
-const uint16_t PROGMEM bspc_combo[]     = { KC_N,  KC_E,    COMBO_END };
-const uint16_t PROGMEM ent_combo[]      = { KC_H,  KC_COMM, COMBO_END };
-
-// Convenience
 const uint16_t PROGMEM caps_combo[]     = { KC_SPC, KC_LSFT, COMBO_END };
-const uint16_t PROGMEM repeat_combo[]   = { KC_F,   KC_P,    COMBO_END };
-const uint16_t PROGMEM cbspc_combo[]    = { KC_E,   KC_H,    COMBO_END };
 
 combo_t key_combos[] = {
-    // Corners
-    COMBO(q_combo,       KC_Q),
-    COMBO(quote_combo,   KC_QUOT),
-    COMBO(dquote_combo,  KC_DQT),
-    COMBO(end_combo,     KC_END),
-    COMBO(grv_combo,     KC_GRV),
-
-    // Needs dedicated key
-    COMBO(esc_combo,     KC_ESC),
-    COMBO(tab_combo,     KC_TAB),
-    COMBO(ent_combo,     KC_ENT),
-    COMBO(bspc_combo,    KC_BSPC),
-
-    // Convenience
     COMBO(caps_combo,    CW_TOGG),
-    COMBO(repeat_combo,  QK_REP),
-    COMBO(cbspc_combo,   LCTL(KC_BSPC)),
-
 };

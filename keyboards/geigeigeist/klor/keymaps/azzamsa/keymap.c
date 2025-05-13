@@ -2,19 +2,14 @@
 
 #include "features/oneshot.h"
 
-// GUI
-#define HOME G(KC_LEFT)
-#define END G(KC_RGHT)
-#define FWD G(KC_RBRC)
-#define BACK G(KC_LBRC)
-#define TAB_L G(S(KC_LBRC))
-#define TAB_R G(S(KC_RBRC))
-// Alt
-#define SPACE_L A(G(KC_LEFT))
-#define SPACE_R A(G(KC_RGHT))
-// Momentarily
+// aliases - mostly to keep the format/style consistent
+#define XXX KC_NO
+#define ___ KC_TRANSPARENT
+
 #define LA_SYM MO(_SYM)
 #define LA_NAV MO(_NAV)
+
+#define SW_WIN A(KC_TAB)
 
 enum layers {
     _BASE,
@@ -29,18 +24,7 @@ enum keycodes {
     OS_CTRL,
     OS_ALT,
     OS_GUI,
-
-    SW_WIN,  // Switch to next window         (cmd-tab)
-    SW_LANG, // Switch to next input language (ctl-spc)
 };
-
-// aliases - mostly to keep the format/style consistent
-#define XXX KC_NO
-#define ___ KC_TRANSPARENT
-
-// aliases - mostly to keep the format/style consistent
-#define XXX KC_NO
-#define ___ KC_TRANSPARENT
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -51,25 +35,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            XXX,   LA_NAV, KC_SPC, XXX,    XXX, KC_LSFT, LA_SYM, XXX
     ),
 
-    [_SYM] = LAYOUT(
-             KC_ESC,  KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,               KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
-        XXX, KC_MINS, KC_ASTR, KC_EQL,  KC_UNDS, KC_DLR,                KC_HASH, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
-        XXX, KC_PLUS, KC_PIPE, KC_AT,   KC_SCLN, KC_PERC, ___,     ___, XXX,     KC_BSLS, KC_AMPR, KC_QUES, KC_EXLM, XXX,
-                               XXX,     ___,     ___,     XXX,     XXX, ___, ___,      XXX
+    [_NAV] = LAYOUT(
+             XXX,    SW_WIN, QK_REP,  KC_PSCR, MS_BTN5,               KC_PSTE, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, MS_BTN4,               KC_COPY, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, KC_TAB, KC_ESC, KC_ENT,  KC_BSPC, KC_DEL,  ___,     ___, KC_DEL,  KC_BSPC, KC_ENT,  KC_ESC,  KC_TAB,  XXX,
+                             XXX,     ___,     ___,     XXX,     XXX, ___,     ___,     XXX
     ),
 
-    [_NAV] = LAYOUT(
-             KC_TAB,  SW_WIN,  TAB_L,   KC_PSCR, KC_VOLU,                KC_DEL,  KC_CAPS, CW_TOGG, XXX,     XXX,
-        XXX, OS_GUI,  OS_ALT,  OS_CTRL, OS_SHFT, KC_VOLD,                KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, QK_BOOT, SPACE_R, BACK,    FWD,     KC_MPLY,  ___,     ___, KC_ENT,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
-                               XXX,     ___,     ___,      XXX,     XXX, ___,     ___,     XXX
+    [_SYM] = LAYOUT(
+             KC_TILD, KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,               KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
+        XXX, KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,               KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
+        XXX, KC_SCLN, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE, ___,     ___, KC_UNDS, KC_UNDS, KC_AMPR, KC_QUES, KC_BSLS, XXX,
+                               XXX,     ___,     ___,     XXX,     XXX, ___,     ___,     XXX
     ),
 
     [_NUM] = LAYOUT(
-             KC_1,   KC_2,   KC_3,    KC_4,    KC_5,                KC_6,   KC_7,    KC_8,    KC_9,    KC_0,
-        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_F11,              KC_F12, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI, XXX,
-        XXX, KC_F1,  KC_F2,  KC_F3,   KC_F4,   KC_F5,  ___,    ___, KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10, XXX,
-                             XXX,     ___,     ___,    XXX,    XXX, ___,    ___,     XXX
+             XXX,  KC_7, KC_8, KC_9, XXX,                  KC_F12, KC_F7, KC_F8, KC_F9, KC_VOLU,
+        XXX, KC_0, KC_4, KC_5, KC_6, XXX,                  KC_F11, KC_F4, KC_F5, KC_F6, KC_VOLD, XXX,
+        XXX, XXX,  KC_1, KC_2, KC_3, QK_BOOT, ___,    ___, KC_F10, KC_F1, KC_F2, KC_F3, KC_MPLY, XXX,
+                         XXX,  ___,  ___,     XXX,    XXX, ___,    ___,   XXX
     ),
 
 
@@ -134,31 +118,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _SYM, _NAV, _NUM);
 }
 
+//
 // Combos
-const uint16_t PROGMEM caps_combo[]   = { KC_SPC,  KC_LSFT,    COMBO_END };
-
-const uint16_t PROGMEM gui_combo[]    = { KC_R,  KC_S,    COMBO_END };
-const uint16_t PROGMEM ctrlg_combo[]  = { KC_F,  KC_P,    COMBO_END };
-const uint16_t PROGMEM esc_combo[]    = { KC_S,  KC_T,    COMBO_END };
-const uint16_t PROGMEM repeat_combo[] = { KC_C,  KC_D,    COMBO_END };
-
-const uint16_t PROGMEM cln_combo[]    = { KC_L,  KC_U,    COMBO_END };
-const uint16_t PROGMEM scln_combo[]   = { KC_U,  KC_Y,    COMBO_END };
-const uint16_t PROGMEM bspc_combo[]   = { KC_N,  KC_E,    COMBO_END };
-const uint16_t PROGMEM cbspc_combo[]  = { KC_M,  KC_N,    COMBO_END };
-const uint16_t PROGMEM ent_combo[]    = { KC_H,  KC_COMM, COMBO_END };
+const uint16_t PROGMEM caps_combo[]     = { KC_SPC, KC_LSFT, COMBO_END };
 
 combo_t key_combos[] = {
-    COMBO(caps_combo,   CW_TOGG),
-
-    COMBO(gui_combo,    KC_LGUI),
-    COMBO(ctrlg_combo,  LCTL(KC_G)),
-    COMBO(esc_combo,    KC_ESC),
-    COMBO(repeat_combo, QK_REP),
-
-    COMBO(cln_combo,   LSFT(KC_SCLN)),
-    COMBO(scln_combo,  KC_SCLN),
-    COMBO(bspc_combo,  KC_BSPC),
-    COMBO(cbspc_combo, LCTL(KC_BSPC)),
-    COMBO(ent_combo,   KC_ENT),
+    COMBO(caps_combo,    CW_TOGG),
 };

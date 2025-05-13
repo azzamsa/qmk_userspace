@@ -42,9 +42,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_TILD, KC_LBRC, KC_LCBR, KC_LPRN, KC_ASTR,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
-        KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,    KC_MINS, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
-        KC_SCLN, KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,    KC_UNDS, KC_UNDS, KC_AMPR, KC_QUES, KC_BSLS,
+        KC_TILD, KC_LBRC, KC_LCBR, KC_LPRN, KC_PLUS,    KC_EQL,  KC_RPRN, KC_RCBR, KC_RBRC, KC_GRV,
+        KC_COLN, KC_DLR,  KC_PERC, KC_CIRC, KC_MINS,    KC_ASTR, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,
+        KC_SCLN, KC_EXLM, KC_AT,   KC_HASH, KC_UNDS,    KC_PIPE, XXX,     KC_AMPR, KC_QUES, KC_BSLS,
                           ___,     ___,     XXX,        XXX,     ___,     ___
     ),
 

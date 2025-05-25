@@ -5,8 +5,9 @@
 #define ___ KC_TRANSPARENT
 
 // Layer aliases
-#define LA_EXT MO(_EXT)
-#define LA_SYM MO(_SYM)
+#define LA_EXT  MO(_EXT)
+#define LA_SYM  MO(_SYM)
+#define LA_FUNC MO(_FUNC)
 
 // Oneshot aliases
 #define OS_GUI  OSM(MOD_LGUI)
@@ -20,19 +21,10 @@
 enum layers {
     _BASE,
     _EXT,
-    _FUNC,
     _SYM,
     _NUM,
+    _FUNC,
 };
-
-/* enum keycodes { */
-/*     // Custom oneshot mod implementation with no timers. */
-/*     OS_SHFT = SAFE_RANGE, */
-/*     OS_CTRL, */
-/*     OS_ALT, */
-/*     OS_GUI, */
-/* }; */
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
@@ -43,30 +35,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             KC_ESC,  XXX,    QK_REP,  KC_PSCR, KC_INS,                 MS_BTN5,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, MS_BTN4,                MS_BTN4,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, KC_UNDO, KC_CUT, KC_COPY, KC_LGUI, KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_ENT,  KC_TAB,  KC_ESC,  XXX,
-                              XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   ___,     XXX
+             KC_ESC, KC_ESC, KC_TAB,  KC_DEL,  XXX,                   KC_AGIN, KC_PASTE, KC_COPY, KC_PGUP, KC_UNDO,
+        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_LGUI,               KC_CAPS, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, XXX,    QK_REP, XXX,     KC_APP,  XXX,     ___,     ___, KC_INS,  KC_HOME,  KC_PGDN, KC_PGUP, KC_END,  XXX,
+                             XXX,     ___,     ___,     XXX,     XXX, KC_ENT,  KC_BSPC,  XXX
     ),
 
     [_SYM] = LAYOUT(
              KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PLUS,               KC_EQL,  KC_GRV,  KC_COLN, KC_SCLN, KC_PLUS,
-        XXX, KC_TILD, KC_LPRN, KC_LCBR, KC_LBRC, KC_MINS,               KC_CIRC, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
-        XXX, KC_ASTR, KC_RPRN, KC_RCBR, KC_RBRC, KC_UNDS, ___,     ___, KC_AMPR, XXX,     KC_AMPR, KC_QUES, KC_BSLS, XXX,
-                               XXX,     ___,     ___,     XXX,     XXX, ___,     ___,     XXX
+        XXX, KC_ASTR, KC_LPRN, KC_LCBR, KC_LBRC, KC_MINS,               KC_CIRC, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
+        XXX, KC_TILD, KC_RPRN, KC_RCBR, KC_RBRC, KC_UNDS, ___,     ___, XXX,     XXX,     KC_BSLS, KC_PIPE, KC_AMPR, XXX,
+                               XXX,     ___,     LA_FUNC, XXX,     XXX, ___,     ___,     XXX
     ),
 
     [_NUM] = LAYOUT(
-             KC_EQL,  KC_7, KC_8, KC_9, KC_MINS,              KC_F12,  KC_F7,   KC_F8,   KC_F9,  KC_VOLU,
-        XXX, KC_ASTR, KC_4, KC_5, KC_6, KC_MINS,              KC_ALGR, OS_SHFT, OS_CTRL, OS_ALT, OS_GUI,  XXX,
-        XXX, KC_0,    KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, KC_F10,  KC_F1,   KC_F2,   KC_F3,  KC_MPLY, XXX,
+             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              XXX, XXX,     XXX,     XXX,    XXX,
+        XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX, OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
+        XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX, XXX,     XXX,     XXX,    XXX,    XXX,
                       XXX,  ___,  ___,  XXX,     XXX,    ___,    ___,   XXX
     ),
 
     [_FUNC] = LAYOUT(
-             KC_F12, KC_F7, KC_F8, KC_F9, XXX,                  KC_BRIU, KC_MNXT, KC_MPLY, KC_MPRV, KC_MSTP,
+             KC_F12, KC_F7, KC_F8, KC_F9, KC_PSCR,              KC_BRIU, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP,
         XXX, KC_F11, KC_F4, KC_F5, KC_F6, XXX,                  KC_BRID, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
-        XXX, KC_F10, KC_F1, KC_F2, KC_F3, QK_BOOT, ___,    ___, KC_F10,  KC_VOLU, KC_F2,   KC_VOLD, KC_MUTE, XXX,
+        XXX, KC_F10, KC_F1, KC_F2, KC_F3, QK_BOOT, ___,    ___, XXX,     KC_VOLU, KC_VOLD, KC_VOLU, KC_MUTE, XXX,
                             XXX,   ___,   ___,     XXX,    XXX, ___,    ___,   XXX
     ),
 
@@ -74,15 +66,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Combos
 const uint16_t PROGMEM caps_combo[]   = { KC_SPC, KC_LSFT, COMBO_END };
-const uint16_t PROGMEM esc_combo[]    = { KC_X,   KC_C,    COMBO_END };
 
-const uint16_t PROGMEM bspc_combo[]   = { KC_U,   KC_Y,    COMBO_END };
-const uint16_t PROGMEM ent_combo[]    = { KC_DOT, KC_COMM, COMBO_END };
+const uint16_t PROGMEM esc_combo[]    = { KC_F, KC_P, COMBO_END };
+const uint16_t PROGMEM tab_combo[]    = { KC_W, KC_F, COMBO_END };
+const uint16_t PROGMEM bspc_combo[]   = { KC_L, KC_U, COMBO_END };
+const uint16_t PROGMEM ent_combo[]    = { KC_U, KC_Y, COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(caps_combo,  CW_TOGG),
-    COMBO(esc_combo,   KC_ESC),
 
+    COMBO(esc_combo,   KC_ESC),
+    COMBO(tab_combo,   KC_TAB),
     COMBO(bspc_combo,  KC_BSPC),
     COMBO(ent_combo,   KC_ENT),
 };

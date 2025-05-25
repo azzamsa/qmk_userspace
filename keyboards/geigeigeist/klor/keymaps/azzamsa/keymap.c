@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             KC_ESC, KC_ESC, KC_TAB,  KC_DEL,  XXX,                   KC_AGIN, KC_PASTE, KC_COPY, KC_PGUP, KC_UNDO,
+             KC_ESC, KC_ESC, KC_TAB,  KC_DEL,  XXX,                   KC_AGIN, KC_PASTE, KC_COPY, KC_CUT,  KC_UNDO,
         XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_LGUI,               KC_CAPS, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT, XXX,
         XXX, XXX,    QK_REP, XXX,     KC_APP,  XXX,     ___,     ___, KC_INS,  KC_HOME,  KC_PGDN, KC_PGUP, KC_END,  XXX,
                              XXX,     ___,     ___,     XXX,     XXX, KC_ENT,  KC_BSPC,  XXX
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              XXX, XXX,     XXX,     XXX,    XXX,
         XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX, OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
         XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX, XXX,     XXX,     XXX,    XXX,    XXX,
-                      XXX,  ___,  ___,  XXX,     XXX,    ___,    ___,   XXX
+                            XXX,  ___,  ___,     XXX,    XXX, ___, ___,     XXX
     ),
 
     [_FUNC] = LAYOUT(

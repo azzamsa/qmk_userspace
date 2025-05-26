@@ -18,6 +18,8 @@
 
 // Other aliases
 #define DEL_WORD LCTL(KC_BSPC)
+#define SAVE     LCTL(KC_S)
+#define SEL_ALL  LCTL(KC_A)
 
 enum layers {
     _BASE,
@@ -36,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             KC_ESC,  KC_ESC, XXX,     XXX,     XXX,                    KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, KC_LGUI,                KC_CAPS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+             KC_ESC,  KC_ESC, SEL_ALL, XXX,     KC_LGUI,                KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, SAVE,                   KC_CAPS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
         XXX, KC_UNDO, KC_CUT, KC_COPY, KC_TAB,  KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_DEL,  XXX,     XXX,     XXX,
                               XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   ___,     XXX
     ),
@@ -68,16 +70,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Combos
 const uint16_t PROGMEM caps_combo[]   = { KC_G, KC_M, COMBO_END };
 
-const uint16_t PROGMEM esc_combo[]    = { KC_C, KC_D,     COMBO_END };
-const uint16_t PROGMEM tab_combo[]    = { KC_F, KC_P,     COMBO_END };
-const uint16_t PROGMEM bspc_combo[]   = { KC_L, KC_U,     COMBO_END };
-const uint16_t PROGMEM ent_combo[]    = { KC_H, KC_COMMA, COMBO_END };
+const uint16_t PROGMEM esc_combo[]    = { KC_F, KC_P, COMBO_END };
+const uint16_t PROGMEM tab_combo[]    = { KC_W, KC_F, COMBO_END };
+const uint16_t PROGMEM ent_combo[]    = { KC_L, KC_U, COMBO_END };
+const uint16_t PROGMEM bspc_combo[]   = { KC_U, KC_Y, COMBO_END };
+
+const uint16_t PROGMEM save_combo[]   = { KC_U, KC_Y, COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(caps_combo,  CW_TOGG),
 
     COMBO(esc_combo,   KC_ESC),
     COMBO(tab_combo,   KC_TAB),
-    COMBO(bspc_combo,  KC_BSPC),
     COMBO(ent_combo,   KC_ENT),
+    COMBO(bspc_combo,  KC_BSPC),
 };

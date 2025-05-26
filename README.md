@@ -10,10 +10,10 @@ Configurations for my keyboards.
 
 ## History
 
-- Custom, June 2021 - Feb 2022 (Sofle 58)
-- Miryoku, Feb 2022 - Jan 2025 (Sofle 36)
-- Miryoku sm_td, Jan 2022 - May 2025 (KLOR 36, Cheapino 36)
-- Seniply, May 2025 - Current (KLOR 34)
+- **Custom**: June 2021 - Feb 2022, (Sofle 58), 8 months
+- **Miryoku**: Feb 2022 - Jan 2025, (Sofle 36), 3 years
+- **Miryoku sm_td**: Jan 2025 - May 2025, (KLOR 36, Cheapino 36), 5 months
+- **Seniply**: May 2025 - Current, (KLOR 34)
 
 ## Keymap Inspirations
 

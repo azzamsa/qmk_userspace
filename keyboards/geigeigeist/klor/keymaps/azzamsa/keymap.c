@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             MS_BTN5, KC_ESC, XXX,     MS_BTN4, KC_INS,                 KC_CAPS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+             MS_BTN5, KC_ESC, QK_REP,  MS_BTN4, KC_INS,                 CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
         XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, OS_RALT,                KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
         XXX, KC_UNDO, KC_CUT, KC_COPY, KC_LGUI, KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  SAVE,    SEL_ALL, XXX,
                               XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   ___,     XXX
@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUM] = LAYOUT(
-             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              XXX, XXX,     XXX,     XXX,    XXX,
-        XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX, OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
-        XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX, XXX,     XXX,     XXX,    XXX,    XXX,
+             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              KC_CAPS, XXX,     XXX,     XXX,    XXX,
+        XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX,     OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
+        XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX,     XXX,     XXX,     XXX,    XXX,    XXX,
                             XXX,  ___,  ___,     XXX,    XXX, ___, ___,     XXX
     ),
 
@@ -66,21 +66,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             XXX,   ___,   ___,     XXX,    XXX, ___,    ___,   XXX
     ),
 
-};
-
-// Combos
-const uint16_t PROGMEM caps_combo[]   = { KC_G, KC_M, COMBO_END };
-
-const uint16_t PROGMEM esc_combo[]    = { KC_F, KC_P, COMBO_END };
-const uint16_t PROGMEM tab_combo[]    = { KC_W, KC_F, COMBO_END };
-const uint16_t PROGMEM ent_combo[]    = { KC_L, KC_U, COMBO_END };
-const uint16_t PROGMEM bspc_combo[]   = { KC_U, KC_Y, COMBO_END };
-
-combo_t key_combos[] = {
-    COMBO(caps_combo,  CW_TOGG),
-
-    COMBO(esc_combo,   KC_ESC),
-    COMBO(tab_combo,   KC_TAB),
-    COMBO(ent_combo,   KC_ENT),
-    COMBO(bspc_combo,  KC_BSPC),
 };

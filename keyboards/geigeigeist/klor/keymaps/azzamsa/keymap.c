@@ -7,6 +7,7 @@
 // Layer aliases
 #define LA_EXT  MO(_EXT)
 #define LA_SYM  MO(_SYM)
+#define LA_NUM  MO(_NUM)
 #define LA_FUNC MO(_FUNC)
 
 // Oneshot aliases
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PLUS,               KC_EQL,  KC_GRV,  KC_COLN, KC_SCLN, KC_PLUS,
         XXX, KC_ASTR, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS,               KC_CIRC, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
         XXX, KC_TILD, KC_RCBR, KC_RPRN, KC_RBRC, KC_UNDS, ___,     ___, XXX,     XXX,     KC_BSLS, KC_PIPE, KC_AMPR, XXX,
-                               XXX,     ___,     LA_FUNC, XXX,     XXX, ___,     ___,     XXX
+                               XXX,     LA_NUM,  LA_FUNC, XXX,     XXX, ___,     ___,     XXX
     ),
 
     [_NUM] = LAYOUT(
@@ -65,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // Combos
-const uint16_t PROGMEM caps_combo[]   = { KC_SPC, KC_LSFT, COMBO_END };
+const uint16_t PROGMEM caps_combo[]   = { KC_G, KC_M, COMBO_END };
 
 const uint16_t PROGMEM esc_combo[]    = { KC_F, KC_P, COMBO_END };
 const uint16_t PROGMEM tab_combo[]    = { KC_W, KC_F, COMBO_END };
@@ -80,9 +81,3 @@ combo_t key_combos[] = {
     COMBO(bspc_combo,  KC_BSPC),
     COMBO(ent_combo,   KC_ENT),
 };
-
-
-// Layers
-layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _EXT, _SYM, _NUM);
-}

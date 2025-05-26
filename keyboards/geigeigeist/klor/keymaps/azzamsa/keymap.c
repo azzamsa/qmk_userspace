@@ -53,16 +53,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUM] = LAYOUT(
-             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              KC_CAPS, XXX,     XXX,     XXX,    XXX,
+             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              KC_CAPS, KC_PSCR, XXX,     XXX,    XXX,
         XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX,     OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
         XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX,     XXX,     XXX,     XXX,    XXX,    XXX,
                             XXX,  ___,  ___,     XXX,    XXX, ___, ___,     XXX
     ),
 
     [_FUNC] = LAYOUT(
-             KC_F12, KC_F7, KC_F8, KC_F9, KC_PSCR,              KC_BRIU, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP,
+             KC_F12, KC_F7, KC_F8, KC_F9, XXX,                  KC_BRIU, KC_MNXT, KC_MPLY, KC_MPRV, KC_MSTP,
         XXX, KC_F11, KC_F4, KC_F5, KC_F6, XXX,                  KC_BRID, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
-        XXX, KC_F10, KC_F1, KC_F2, KC_F3, QK_BOOT, ___,    ___, XXX,     KC_VOLU, KC_VOLD, KC_VOLU, KC_MUTE, XXX,
+        XXX, KC_F10, KC_F1, KC_F2, KC_F3, QK_BOOT, ___,    ___, XXX,     KC_VOLU, XXX,     KC_VOLD, KC_MUTE, XXX,
                             XXX,   ___,   ___,     XXX,    XXX, ___,    ___,   XXX
     ),
 

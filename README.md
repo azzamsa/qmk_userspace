@@ -1,17 +1,35 @@
 # QMK Userspace
 
-## Keyboards
+Configurations for my keyboards.
 
-- [josefadamcik/SofleKeyboard](https://github.com/josefadamcik/SofleKeyboard)
-- [duckyb/eternal-keypad](https://github.com/duckyb/eternal-keypad)
-- [GEIGEIGEIST/KLOR](https://github.com/GEIGEIGEIST/KLOR)
+## Layout
+
+<div align="center">
+<img src='https://github.com/user-attachments/assets/d1f68f35-153b-479f-827b-2459a9818d1c' width=250px />
+</div>
+
+## History
+
+- Custom, June 2021 - Feb 2022 (Sofle 58)
+- Miryoku, Feb 2022 - Jan 2025 (Sofle 36)
+- Miryoku sm_td, Jan 2022 - May 2025 (KLOR 36, Cheapino 36)
+- Seniply, May 2025 - Current (KLOR 34)
 
 ## Keymap Inspirations
 
+- [Colemak-DH Seniply](https://stevep99.github.io/seniply/)
+- [duckyb/urchin-zmk-firmware](https://github.com/duckyb/urchin-zmk-firmware)
 - [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference)
 - [Beakl Keyboard Layout](http://xahlee.info/kbd/beakl_layout.html)
-- [Colemak-DH Seniply](https://stevep99.github.io/seniply/)
-- [A keyboard layer system for 34 keys | KeymapDB](https://keymapdb.com/keymaps/kkga/)
+
+## Keyboards
+
+- [josefadamcik/SofleKeyboard](https://github.com/josefadamcik/SofleKeyboard), June 2021
+- [pashutk/chocofi](https://github.com/pashutk/chocofi), May 2023
+- [sadekbaroudi/sweep36](https://github.com/sadekbaroudi/sweep36), Sept 2023
+- [duckyb/eternal-keypad](https://github.com/duckyb/eternal-keypad), Sept 2023
+- [GEIGEIGEIST/KLOR](https://github.com/GEIGEIGEIST/KLOR), Sept 2023
+- [tompi/cheapino](https://github.com/tompi/cheapino), Nov 2024
 
 ## References
 

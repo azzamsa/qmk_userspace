@@ -15,6 +15,7 @@
 #define OS_ALT  OSM(MOD_LALT)
 #define OS_CTRL OSM(MOD_LCTL)
 #define OS_SHFT OSM(MOD_LSFT)
+#define OS_RALT OSM(MOD_RALT)
 
 // Other aliases
 #define DEL_WORD LCTL(KC_BSPC)
@@ -38,9 +39,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             KC_LGUI, KC_ESC, SEL_ALL, XXX,     KC_INS,                 KC_CAPS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, SAVE,                   KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, KC_UNDO, KC_CUT, KC_COPY, XXX,     KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  XXX,     XXX,     XXX,
+             MS_BTN5, KC_ESC, XXX,     MS_BTN4, KC_INS,                 KC_CAPS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, OS_RALT,                KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, KC_UNDO, KC_CUT, KC_COPY, KC_LGUI, KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  SAVE,    SEL_ALL, XXX,
                               XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   ___,     XXX
     ),
 
@@ -74,8 +75,6 @@ const uint16_t PROGMEM esc_combo[]    = { KC_F, KC_P, COMBO_END };
 const uint16_t PROGMEM tab_combo[]    = { KC_W, KC_F, COMBO_END };
 const uint16_t PROGMEM ent_combo[]    = { KC_L, KC_U, COMBO_END };
 const uint16_t PROGMEM bspc_combo[]   = { KC_U, KC_Y, COMBO_END };
-
-const uint16_t PROGMEM save_combo[]   = { KC_U, KC_Y, COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(caps_combo,  CW_TOGG),

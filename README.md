@@ -15,5 +15,6 @@
 
 ## References
 
+- [Configuring QMK | QMK Firmware](https://docs.qmk.fm/config_options)
 - [Keycodes Overview | QMK Firmware](https://docs.qmk.fm/keycodes)
 - [US ANSI Shifted Symbols | QMK Firmware](https://docs.qmk.fm/keycodes_us_ansi_shifted)

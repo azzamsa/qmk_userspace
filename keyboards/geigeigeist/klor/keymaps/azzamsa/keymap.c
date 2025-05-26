@@ -36,10 +36,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             KC_ESC, KC_ESC, KC_TAB,  KC_DEL,  XXX,                   KC_AGIN, KC_CUT,  KC_COPY, KC_PASTE, KC_UNDO,
-        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, KC_LGUI,               KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, XXX,
-        XXX, XXX,    QK_REP, XXX,     KC_APP,  XXX,     ___,     ___, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  XXX,
-                             XXX,     ___,     ___,     XXX,     XXX, KC_ENT,  KC_BSPC, XXX
+             KC_ESC,  KC_ESC, XXX,     XXX,     XXX,                    KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, KC_LGUI,                KC_CAPS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, KC_UNDO, KC_CUT, KC_COPY, KC_TAB,  KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_DEL,  XXX,     XXX,     XXX,
+                              XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   ___,     XXX
     ),
 
     [_SYM] = LAYOUT(
@@ -68,10 +68,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Combos
 const uint16_t PROGMEM caps_combo[]   = { KC_G, KC_M, COMBO_END };
 
-const uint16_t PROGMEM esc_combo[]    = { KC_F, KC_P, COMBO_END };
-const uint16_t PROGMEM tab_combo[]    = { KC_W, KC_F, COMBO_END };
-const uint16_t PROGMEM bspc_combo[]   = { KC_L, KC_U, COMBO_END };
-const uint16_t PROGMEM ent_combo[]    = { KC_U, KC_Y, COMBO_END };
+const uint16_t PROGMEM esc_combo[]    = { KC_C, KC_D,     COMBO_END };
+const uint16_t PROGMEM tab_combo[]    = { KC_F, KC_P,     COMBO_END };
+const uint16_t PROGMEM bspc_combo[]   = { KC_L, KC_U,     COMBO_END };
+const uint16_t PROGMEM ent_combo[]    = { KC_H, KC_COMMA, COMBO_END };
 
 combo_t key_combos[] = {
     COMBO(caps_combo,  CW_TOGG),

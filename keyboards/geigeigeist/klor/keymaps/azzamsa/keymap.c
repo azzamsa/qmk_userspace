@@ -38,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             KC_ESC,  KC_ESC, SEL_ALL, XXX,     KC_LGUI,                KC_INS,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, SAVE,                   KC_CAPS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, KC_UNDO, KC_CUT, KC_COPY, KC_TAB,  KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_DEL,  XXX,     XXX,     XXX,
+             KC_LGUI, KC_ESC, SEL_ALL, XXX,     KC_INS,                 KC_CAPS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, SAVE,                   KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, KC_UNDO, KC_CUT, KC_COPY, XXX,     KC_PASTE, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  XXX,     XXX,     XXX,
                               XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   ___,     XXX
     ),
 

@@ -46,31 +46,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             XXX,     KC_ESC, QK_REP,  FLIP,    SEL_ALL,               CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+             XXX,     KC_ESC, FLIP,    QK_REP,  SEL_ALL,               CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
         XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, SAVE,                  KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, UNDO,    CUT,    COPY,    PASTE,   KC_LGUI, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  XXX,     KC_INS, XXX,
+        XXX, UNDO,    CUT,    COPY,    PASTE,   KC_LGUI, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  XXX,     KC_INS,  XXX,
                               XXX,     ___,     ___,     XXX,     XXX, KC_ENT,   LA_NUM,  XXX
     ),
 
     [_SYM] = LAYOUT(
-             KC_EXLM, KC_AT,  KC_HASH, KC_DLR,  KC_PERC,               KC_EQL,  KC_GRV,  KC_COLN, KC_SCLN, KC_PLUS,
-        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, KC_CIRC,               KC_ASTR, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS, XXX,
-        XXX, XXX,     XXX,    KC_BSLS, KC_PIPE, KC_AMPR, ___,     ___, KC_TILD, KC_RCBR, KC_RPRN, KC_RBRC, KC_UNDS, XXX,
-                              XXX,     LA_NUM,  LA_FUNC, XXX,     XXX, ___,     ___,     XXX
+             KC_TILD, KC_AT,   KC_HASH, KC_DLR,  KC_PLUS,               KC_PERC, KC_GRV,  KC_COLN, KC_SCLN, KC_EQL,
+        XXX, KC_ASTR, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS,               KC_CIRC, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
+        XXX, KC_EXLM, KC_RCBR, KC_RPRN, KC_RBRC, KC_UNDS, ___,     ___, KC_AMPR, XXX,     KC_BSLS, KC_PIPE, XXX,     XXX,
+                               XXX,     LA_NUM,  LA_FUNC, XXX,     XXX, ___,     ___,     XXX
     ),
 
     [_NUM] = LAYOUT(
-             XXX,    XXX,    XXX,     XXX,     KC_CAPS,              MS_BTN5, KC_7, KC_8, KC_9, XXX,
-        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, XXX,                  MS_BTN4, KC_4, KC_5, KC_6, KC_0, XXX,
-        XXX, XXX,    XXX,    XXX,     XXX,     XXX,     ___,    ___, XXX,     KC_1, KC_2, KC_3, XXX,  XXX,
-                             XXX,     ___,     ___,     XXX,    XXX, ___,     ___, XXX
+             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              KC_CAPS, KC_PSCR, XXX,     XXX,    XXX,
+        XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX,     OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
+        XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX,     XXX,     XXX,     XXX,    XXX,    XXX,
+                            XXX,  ___,  ___,     XXX,    XXX, ___, ___,     XXX
     ),
 
     [_FUNC] = LAYOUT(
-             XXX,     XXX,     KC_MPLY, KC_PSCR, KC_BRIU,              KC_F12, KC_F7, KC_F8, KC_F9, XXX,
-        XXX, OS_GUI,  OS_ALT,  OS_CTRL, OS_SHFT, KC_BRID,              KC_F11, KC_F4, KC_F5, KC_F6, XXX, XXX,
-        XXX, KC_MUTE, KC_VOLD, KC_MPLY, KC_VOLU, QK_BOOT, ___,    ___, KC_F10, KC_F1, KC_F2, KC_F3, XXX, XXX,
-                               XXX,     ___,     ___,     XXX,    XXX, ___,    ___,   XXX
+             KC_F12, KC_F7, KC_F8, KC_F9, XXX,                  KC_BRIU, KC_MNXT, KC_MPLY, KC_MPRV, KC_MSTP,
+        XXX, KC_F11, KC_F4, KC_F5, KC_F6, XXX,                  KC_BRID, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
+        XXX, KC_F10, KC_F1, KC_F2, KC_F3, QK_BOOT, ___,    ___, XXX,     KC_VOLU, XXX,     KC_VOLD, KC_MUTE, XXX,
+                            XXX,   ___,   ___,     XXX,    XXX, ___,    ___,   XXX
     ),
 
 };

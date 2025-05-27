@@ -26,7 +26,7 @@ Configurations for my keyboards.
 
 - [josefadamcik/SofleKeyboard](https://github.com/josefadamcik/SofleKeyboard), June 2021
 - [pashutk/chocofi](https://github.com/pashutk/chocofi), May 2023
-- [sadekbaroudi/sweep36](https://github.com/sadekbaroudi/sweep36), Sept 2023
+- [sadekbaroudi/Dweeeeep](https://github.com/sadekbaroudi/sweep36), Sept 2023
 - [duckyb/eternal-keypad](https://github.com/duckyb/eternal-keypad), Sept 2023
 - [GEIGEIGEIST/KLOR](https://github.com/GEIGEIGEIST/KLOR), Sept 2023
 - [tompi/cheapino](https://github.com/tompi/cheapino), Nov 2024

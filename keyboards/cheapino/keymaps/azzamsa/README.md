@@ -1,4 +1,4 @@
-# KLOR keymap
+# Cheapino keymap
 
 ```bash
 $ git checkout cheapinov2

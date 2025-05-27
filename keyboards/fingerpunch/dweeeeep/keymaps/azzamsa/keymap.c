@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT_split_3x5_3(
-        MS_BTN5, KC_ESC, QK_REP,  MS_BTN4, KC_INS,     CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX,     KC_ESC, QK_REP,  XXX,     KC_INS,     CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
         OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, OS_RALT,    KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
         UNDO,    CUT,    COPY,    PASTE,   KC_LGUI,    DEL_WORD, KC_BSPC, KC_TAB,  SAVE,    SEL_ALL,
                          ___,     ___,     XXX,        XXX,     KC_ENT,   LA_NUM
@@ -73,10 +73,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
-const key_override_t test_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_0, KC_A);
+/* const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS); */
+/* const key_override_t test_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_0, KC_A); */
 
-const key_override_t *key_overrides[] = {
-  &capsword_key_override,
-  &test_key_override
-};
+/* const key_override_t *key_overrides[] = { */
+/*   &capsword_key_override, */
+/*   &test_key_override */
+/* }; */

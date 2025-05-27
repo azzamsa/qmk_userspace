@@ -21,6 +21,10 @@
 #define DEL_WORD LCTL(KC_BSPC)
 #define SAVE     LCTL(KC_S)
 #define SEL_ALL  LCTL(KC_A)
+#define UNDO     LCTL(KC_Z)
+#define COPY     LCTL(KC_C)
+#define CUT      LCTL(KC_X)
+#define PASTE    LCTL(KC_V)
 
 #define SH_SHFT  SFT_T(KC_SPC)
 
@@ -41,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT(
-             MS_BTN5, KC_ESC, QK_REP,  MS_BTN4,  KC_INS,                CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT,  OS_RALT,               KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_LGUI, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  SAVE,    SEL_ALL, XXX,
-                              XXX,     ___,     ___,      XXX,     XXX, KC_ENT,   LA_NUM,  XXX
+             MS_BTN5, KC_ESC, QK_REP,  MS_BTN4, KC_INS,                CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX, OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, OS_RALT,               KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, UNDO,    CUT,    COPY,    PASTE,   KC_LGUI, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  SAVE,    SEL_ALL, XXX,
+                              XXX,     ___,     ___,     XXX,     XXX, KC_ENT,   LA_NUM,  XXX
     ),
 
     [_SYM] = LAYOUT(

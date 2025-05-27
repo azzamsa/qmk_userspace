@@ -15,8 +15,8 @@ comply: fmt
 check: fmt-check
 
 [doc('Clean')]
-run:
-    find . -type f \( -name '*.hex' -o -name '*.u2f' \) -delete
+clean:
+    fd -e uf2 -e hex --no-ignore --exec rm
 
 [doc('Format the codebase.')]
 fmt:

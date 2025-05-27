@@ -25,6 +25,7 @@
 #define COPY     LCTL(KC_C)
 #define CUT      LCTL(KC_X)
 #define PASTE    LCTL(KC_V)
+#define FLIP     LALT(KC_TAB) // Switch Window
 
 #define SH_SHFT  SFT_T(KC_SPC)
 
@@ -45,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EXT] = LAYOUT_split_3x5_3(
-        MS_BTN5, KC_ESC, QK_REP,  MS_BTN4, KC_INS,     CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, OS_RALT,    KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-        UNDO,    CUT,    COPY,    PASTE,   KC_LGUI,    DEL_WORD, KC_BSPC, KC_TAB,  SAVE,    SEL_ALL,
+        XXX,     KC_ESC, QK_REP,  FLIP,    SEL_ALL,    CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        OS_GUI,  OS_ALT, OS_CTRL, OS_SHFT, SAVE,       KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+        UNDO,    CUT,    COPY,    PASTE,   KC_LGUI,    DEL_WORD, KC_BSPC, KC_TAB,  XXX,     KC_INS,
                          ___,     ___,     XXX,        XXX,     KC_ENT,   LA_NUM
     ),
 
@@ -59,10 +60,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-        XXX,    XXX,    XXX,     XXX,     KC_CAPS,    XXX, KC_7, KC_8, KC_9, XXX,
-        OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, XXX,        XXX, KC_4, KC_5, KC_6, KC_0,
-        XXX,    XXX,    XXX,     XXX,     XXX,        XXX, KC_1, KC_2, KC_3, XXX,
-                       ___,   ___, XXX,     XXX,    ___,   ___
+        XXX,    XXX,    XXX,     XXX,     KC_CAPS,    MS_BTN5, KC_7, KC_8, KC_9, XXX,
+        OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, XXX,        MS_BTN4, KC_4, KC_5, KC_6, KC_0,
+        XXX,    XXX,    XXX,     XXX,     XXX,        XXX,     KC_1, KC_2, KC_3, XXX,
+                        ___,     ___,     XXX,        XXX,     ___,   ___
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(

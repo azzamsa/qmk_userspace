@@ -66,18 +66,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FUNC] = LAYOUT(
-             KC_F12, KC_F7, KC_F8, KC_F9, XXX,                  KC_BRIU, KC_MNXT, KC_MPLY, KC_MPRV, KC_MSTP,
-        XXX, KC_F11, KC_F4, KC_F5, KC_F6, XXX,                  KC_BRID, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
-        XXX, KC_F10, KC_F1, KC_F2, KC_F3, QK_BOOT, ___,    ___, XXX,     KC_VOLU, XXX,     KC_VOLD, KC_MUTE, XXX,
-                            XXX,   ___,   ___,     XXX,    XXX, ___,    ___,   XXX
+             KC_F12, KC_F7, KC_F8, KC_F9, KC_VOLU,                   MS_BTN4, XXX,     KC_MPLY, XXX,    XXX,
+        XXX, KC_F11, KC_F4, KC_F5, KC_F6, KC_VOLD,                   MS_BTN5, OS_SHFT, OS_CTRL, OS_ALT, OS_GUI,  XXX,
+        XXX, KC_F10, KC_F1, KC_F2, KC_F3, KC_MPLY, ___,    ___, XXX, QK_BOOT, XXX,     XXX,     XXX,    XXX,
+                            XXX,   ___,   ___,     XXX,    XXX, ___, ___,     XXX
     ),
 
-};
-
-const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
-const key_override_t test_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_0, KC_A);
-
-const key_override_t *key_overrides[] = {
-  &capsword_key_override,
-  &test_key_override
 };

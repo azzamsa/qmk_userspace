@@ -3,4 +3,8 @@
 #define BOOTMAGIC_ROW 0
 #define BOOTMAGIC_COLUMN 1
 
-#define ONESHOT_TIMEOUT 1000
+// homerow modifiers
+#undef TAPPING_TERM
+#define TAPPING_TERM 200
+#define FLOW_TAP_TERM 150
+#define CHORDAL_HOLD

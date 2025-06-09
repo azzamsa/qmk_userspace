@@ -5,7 +5,7 @@ Configurations for my keyboards.
 ## Layout
 
 <div align="center">
-<img src='https://github.com/user-attachments/assets/10010511-dfef-47ef-9835-38c262284364' width=250px />
+<img src='https://github.com/user-attachments/assets/066c33c0-c1bf-44b9-bde2-8008f1f80ba0' width=250px />
 </div>
 
 ## History

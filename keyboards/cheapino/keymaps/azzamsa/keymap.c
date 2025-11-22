@@ -26,6 +26,7 @@
 
 // Other aliases
 #define DL_WORD  LCTL(KC_BSPC)
+#define REDO     KC_AGIN
 #define UNDO     LCTL(KC_Z)
 #define COPY     LCTL(KC_C)
 #define CUT      LCTL(KC_X)
@@ -50,14 +51,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),
 
     [_MEDIA] = LAYOUT_split_3x5_3(
-      QK_BOOT, XXX,     XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
+      QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,         XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
       XXX,     XXX,     XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
                         XXX,     XXX,     XXX,         KC_MSTP, KC_MPLY, KC_MUTE
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-      XXX,     XXX,     XXX,     XXX,      XXX,        KC_AGIN, PASTE,    COPY,    CUT,     UNDO,
+      UNDO,    CUT,     COPY,    PASTE,    REDO,       REDO,    PASTE,    COPY,    CUT,     UNDO,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT,
       XXX,     XXX,     XXX,     XXX,      XXX,        KC_INS,  KC_HOME,  KC_PGDN, KC_PGUP, KC_END,
                         XXX,     XXX,      XXX,        KC_ENT,  KC_BSPC,  KC_DEL
@@ -71,15 +72,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-      KC_EXLM,  KC_AT,   KC_HASH, KC_DLR,  KC_AMPR,        XXX, XXX,     XXX,     XXX,     XXX,
-      KC_GRV,   KC_COLN, KC_LCBR, KC_LBRC, KC_CIRC,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-      KC_TILDE, KC_SCLN, KC_RCBR, KC_RBRC, KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
-                         KC_LPRN, KC_RPRN, KC_UNDS,        XXX, XXX,     XXX
+      KC_EXLM,  KC_LCBR, KC_RCBR, KC_SCLN, KC_AMPR,        XXX, XXX,     XXX,     XXX,     XXX,
+      KC_HASH,  KC_CIRC, KC_UNDS, KC_DLR,  KC_ASTR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+      KC_TILDE, KC_PIPE, KC_MINS, KC_PERC, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
+                         KC_LPRN, KC_RPRN, KC_AT,          XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-      XXX,     KC_7, KC_8,    KC_9, KC_PLUS,              XXX, XXX,     XXX,     XXX,     XXX,
-      KC_ASTR, KC_4, KC_5,    KC_6, KC_EQL,               XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+      KC_LBRC, KC_7, KC_8,    KC_9, KC_RBRC,              XXX, XXX,     XXX,     XXX,     XXX,
+      KC_GRV,  KC_4, KC_5,    KC_6, KC_EQL,               XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
       XXX,     KC_1, KC_2,    KC_3, KC_BSLS,              XXX, XXX,     XXX,     XXX,     XXX,
                      KC_PERC, KC_0, KC_MINS,              XXX, XXX,     XXX
     ),
@@ -91,3 +92,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_APP, KC_SPC, KC_TAB,            XXX, XXX,     XXX
     ),
 };
+
+
+//
+// Combos
+enum combo_events {
+  // Reboot Even If System Utterly Broken
+  // https://wiki.archlinux.org/title/Keyboard_shortcuts#Rebooting
+  REISUB,
+};
+
+const uint16_t PROGMEM reisub_combo[]     = { KC_Q, KC_W, KC_F, COMBO_END };
+
+combo_t key_combos[] = {
+  [REISUB] = COMBO_ACTION(reisub_combo),
+};
+
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch (combo_index) {
+  case REISUB:
+    if (pressed) {
+      // Hold Alt + SysRq
+      // Then tap R,E,I,S,U,B
+      register_code(KC_LALT);
+      register_code(KC_SYRQ);
+      tap_code(KC_R);
+      tap_code(KC_E);
+      tap_code(KC_I);
+      tap_code(KC_S);
+      tap_code(KC_U);
+      tap_code(KC_B);
+      unregister_code(KC_SYRQ);
+      unregister_code(KC_LALT);
+    }
+    break;
+  }
+}

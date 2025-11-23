@@ -8,6 +8,19 @@ Configurations for my keyboards.
 <img src='https://github.com/user-attachments/assets/066c33c0-c1bf-44b9-bde2-8008f1f80ba0' width=250px />
 </div>
 
+## Setup
+
+```bash
+$ cd qmk_firmware
+$ qmk setup --home $(pwd)
+
+$ cd qmk_userspace
+$ qmk config user.overlay_dir=$(pwd)
+
+$ # flash your favourite keyboard!
+$ qmk compile --clean --keyboard cheapino --keymap azzamsa
+```
+
 ## History
 
 - **Custom**: June 2021 - Feb 2022, (Sofle 58), 8 months.

@@ -18,7 +18,7 @@ $ cd qmk_userspace
 $ qmk config user.overlay_dir=$(pwd)
 
 $ # flash your favourite keyboard!
-$ qmk compile --clean --keyboard cheapino --keymap azzamsa
+$ qmk compile --keyboard cheapino --keymap azzamsa
 ```
 
 ## History

@@ -4,8 +4,6 @@
 #define XXX KC_NO
 #define ___ KC_TRANSPARENT
 
-#define NIGHT      DF(_NIGHT)
-
 #define LT_ESC     LT(_MEDIA, KC_ESC)
 #define LT_SPACE   LT(_NAV,   KC_SPACE)
 #define LT_TAB     LT(_MOUSE, KC_TAB)
@@ -15,29 +13,51 @@
 #define LT_DEL     LT(_FUNC, KC_DEL)
 
 // Left-hand Mod-Tap aliases
-#define MT_A   LGUI_T(KC_A)
-#define MT_R   LALT_T(KC_R)
-#define MT_S   LCTL_T(KC_S)
-#define MT_T   LSFT_T(KC_T)
+#define MT_A LGUI_T(KC_A)
+#define MT_R LALT_T(KC_R)
+#define MT_S LCTL_T(KC_S)
+#define MT_T LSFT_T(KC_T)
 
 // Right-hand regular and Mod-Tap aliases
-#define MT_N   LSFT_T(KC_N)
-#define MT_E   LCTL_T(KC_E)
-#define MT_I   LALT_T(KC_I)
-#define MT_O   LGUI_T(KC_O)
+#define MT_N LSFT_T(KC_N)
+#define MT_E LCTL_T(KC_E)
+#define MT_I LALT_T(KC_I)
+#define MT_O LGUI_T(KC_O)
 
+//
 // Night
-#define MT_H   LCTL_T(KC_H)
-#define MT_C   LSFT_T(KC_C)
+//
+
+#define NIGHT DF(_NIGHT)
+
+#define LT1_ESC  LT(_MEDIA, KC_ESC)
+#define LT1_R    LT(_NAV, KC_R)
+#define LT1_BSPC LT(_MOUSE, KC_BSPC)
+
+#define LT1_ENT   LT(_SYM, KC_ENT)
+#define LT1_SPACE LT(_NUM, KC_SPACE)
+#define LT1_TAB   LT(_FUNC, KC_TAB)
+
+// Left-hand Mod-Tap aliases
+#define MT1_N LGUI_T(KC_N)
+#define MT1_S LALT_T(KC_S)
+#define MT1_H LCTL_T(KC_H)
+#define MT1_T LSFT_T(KC_T)
+
+// Right-hand regular and Mod-Tap aliases
+#define MT1_C LSFT_T(KC_C)
+#define MT1_A LCTL_T(KC_A)
+#define MT1_E LALT_T(KC_E)
+#define MT1_I LGUI_T(KC_I)
 
 // Other aliases
-#define DL_WORD  LCTL(KC_BSPC)
-#define REDO     KC_AGIN
-#define UNDO     LCTL(KC_Z)
-#define COPY     LCTL(KC_C)
-#define CUT      LCTL(KC_X)
-#define PASTE    LCTL(KC_V)
-#define SF_G     LSFT_T(KC_G)
+#define DL_WORD LCTL(KC_BSPC)
+#define REDO KC_AGIN
+#define UNDO LCTL(KC_Z)
+#define COPY LCTL(KC_C)
+#define CUT LCTL(KC_X)
+#define PASTE LCTL(KC_V)
+#define SF_G LSFT_T(KC_G)
 
 enum layer_names {
     _BASE,
@@ -59,10 +79,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),
 
     [_NIGHT] = LAYOUT_split_3x5_3(
-      KC_B,  KC_F,  KC_L,    KC_K,     KC_Q,            KC_P,    KC_G,    KC_O,    KC_U,    KC_DOT,
-      MT_N,  MT_S,  MT_H,    MT_T,     KC_M,            KC_Y,    MT_C,    MT_A,    MT_E,    MT_I,
-      KC_X,  KC_V,  KC_J,    KC_D,     KC_Z,            KC_QUOT, KC_W,    KC_SLSH, KC_SCLN, KC_COMM,
-                    LT_ESC,  KC_R,     LT_SPACE,        LT_ENT,  LT_BSPC, LT_DEL
+      KC_B,  KC_F,  KC_L,    KC_K,     KC_Q,            KC_P,    KC_G,      KC_O,    KC_U,    KC_DOT,
+      MT1_N, MT1_S, MT1_H,   MT1_T,    KC_M,            KC_Y,    MT1_C,     MT1_A,   MT1_E,   MT1_I,
+      KC_X,  KC_V,  KC_J,    KC_D,     KC_Z,            KC_QUOT, KC_W,      KC_SLSH, KC_SCLN, KC_COMM,
+                    LT1_ESC, LT1_R,    LT1_BSPC,        LT1_ENT, LT1_SPACE, LT1_TAB
+      
      ),
 
     [_MEDIA] = LAYOUT_split_3x5_3(
@@ -108,43 +129,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-
 //
 // Combos
 enum combo_events {
-  // Reboot Even If System Utterly Broken
-  // https://wiki.archlinux.org/title/Keyboard_shortcuts#Rebooting
-  REISUB,
+    // Reboot Even If System Utterly Broken
+    // https://wiki.archlinux.org/title/Keyboard_shortcuts#Rebooting
+    REISUB,
 
-  TAB,
+    DEL,
 };
 
-const uint16_t PROGMEM reisub_combo[]  = { KC_Q, KC_W, KC_F, COMBO_END };
-const uint16_t PROGMEM tab_combo[]     = { KC_W, KC_SLSH,    COMBO_END };
+const uint16_t PROGMEM reisub_combo[] = {KC_Q, KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM del_combo[]    = {KC_W, KC_SLSH, COMBO_END};
 
 combo_t key_combos[] = {
-  [REISUB] = COMBO_ACTION(reisub_combo),
-  [TAB]    = COMBO(tab_combo, KC_TAB),
+    [REISUB] = COMBO_ACTION(reisub_combo),
+    [DEL]    = COMBO(del_combo, KC_DEL),
 };
 
-
 void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch (combo_index) {
-  case REISUB:
-    if (pressed) {
-      // Hold Alt + SysRq
-      // Then tap R,E,I,S,U,B
-      register_code(KC_LALT);
-      register_code(KC_SYRQ);
-      tap_code(KC_R);
-      tap_code(KC_E);
-      tap_code(KC_I);
-      tap_code(KC_S);
-      tap_code(KC_U);
-      tap_code(KC_B);
-      unregister_code(KC_SYRQ);
-      unregister_code(KC_LALT);
+    switch (combo_index) {
+        case REISUB:
+            if (pressed) {
+                // Hold Alt + SysRq
+                // Then tap R,E,I,S,U,B
+                register_code(KC_LALT);
+                register_code(KC_SYRQ);
+                tap_code(KC_R);
+                tap_code(KC_E);
+                tap_code(KC_I);
+                tap_code(KC_S);
+                tap_code(KC_U);
+                tap_code(KC_B);
+                unregister_code(KC_SYRQ);
+                unregister_code(KC_LALT);
+            }
+            break;
     }
-    break;
-  }
 }

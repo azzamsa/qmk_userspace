@@ -132,38 +132,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //
 // Combos
 enum combo_events {
-    // Reboot Even If System Utterly Broken
-    // https://wiki.archlinux.org/title/Keyboard_shortcuts#Rebooting
-    REISUB,
-
     DEL,
 };
 
-const uint16_t PROGMEM reisub_combo[] = {KC_Q, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM del_combo[]    = {KC_W, KC_SLSH, COMBO_END};
 
 combo_t key_combos[] = {
-    [REISUB] = COMBO_ACTION(reisub_combo),
     [DEL]    = COMBO(del_combo, KC_DEL),
 };
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-    switch (combo_index) {
-        case REISUB:
-            if (pressed) {
-                // Hold Alt + SysRq
-                // Then tap R,E,I,S,U,B
-                register_code(KC_LALT);
-                register_code(KC_SYRQ);
-                tap_code(KC_R);
-                tap_code(KC_E);
-                tap_code(KC_I);
-                tap_code(KC_S);
-                tap_code(KC_U);
-                tap_code(KC_B);
-                unregister_code(KC_SYRQ);
-                unregister_code(KC_LALT);
-            }
-            break;
-    }
-}

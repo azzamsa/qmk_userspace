@@ -5,6 +5,7 @@
 
 // homerow modifiers
 #undef TAPPING_TERM
-#define TAPPING_TERM 150
-#define FLOW_TAP_TERM 150
+#define TAPPING_TERM 240
+#define FLOW_TAP_TERM 100
 #define CHORDAL_HOLD
+#define PERMISSIVE_HOLD

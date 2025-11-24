@@ -5,7 +5,7 @@ Configurations for my keyboards.
 ## Layout
 
 <div align="center">
-<img src='https://github.com/user-attachments/assets/066c33c0-c1bf-44b9-bde2-8008f1f80ba0' width=250px />
+<img src='https://github.com/user-attachments/assets/5b06afdf-b475-4add-8ff3-879051bf7fde' width=250px />
 </div>
 
 ## Setup
@@ -23,18 +23,19 @@ $ qmk compile --keyboard cheapino --keymap azzamsa
 
 ## History
 
-- **Custom**: June 2021 - Feb 2022, (Sofle 58), 8 months.
-- **Miryoku**: Feb 2022 - Jan 2025, (Sofle 36), 3 years.
-- Custom **Miryoku** with `sm_td`: Jan 2025 - May 2025, (KLOR 36, Cheapino 36), 5 months.
-- **Seniply**: May 2025 - June 2025, (KLOR 34), 1 month.
-- Custom **Miryoku** with `flow tap` and `chordal hold`: June 2025 - Current, (Cheapino 36)
+| Period                 | Duration | Alpha      | Symbol           | Keyboard             | Features               |
+| ---------------------- | -------- | ---------- | ---------------- | -------------------- | ---------------------- |
+| Jun 2021 – Feb 2022    | 8 months | Qwerty     | Custom           | Sofle 58             | n.a                    |
+| Feb 2022 – Jan 2025    | 3 years  | Colemak-DH | Miryoku          | Sofle 36             | n.a                    |
+| Jan 2025 – May 2025    | 5 months | Colemak-DH | Miryoku inspired | KLOR 36, Cheapino 36 | sm_td                  |
+| May 2025 – Jun 2025    | 1 month  | Colemak-DH | Seniply inspired | KLOR 34              | n.a                    |
+| Jun 2025 - 24 Nov 2025 | 6 months | Colemak-DH | Seniply inspired | Cheapino 36          | chordal hold, flow tap |
+| 24 Nov 2025 - today    | ongoing  | Colemak-DH | Sunaku inspired  | Cheapino 36          | chordal hold, flow tap |
 
 ## Keymap Inspirations
 
-- [Colemak-DH Seniply](https://stevep99.github.io/seniply/)
-- [duckyb/urchin-zmk-firmware](https://github.com/duckyb/urchin-zmk-firmware)
-- [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference)
-- [Beakl Keyboard Layout](http://xahlee.info/kbd/beakl_layout.html)
+- Alpha: [Colemak-DH](https://colemakmods.github.io/mod-dh/)
+- Symbol: [Sunaku's Keymap](https://github.com/sunaku/glove80-keymaps)
 
 ## Keyboards
 

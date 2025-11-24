@@ -24,44 +24,17 @@
 #define MT_I LALT_T(KC_I)
 #define MT_O LGUI_T(KC_O)
 
-//
-// Night
-//
-
-#define NIGHT DF(_NIGHT)
-
-#define LT1_ESC  LT(_MEDIA, KC_ESC)
-#define LT1_R    LT(_NAV, KC_R)
-#define LT1_BSPC LT(_MOUSE, KC_BSPC)
-
-#define LT1_ENT   LT(_SYM, KC_ENT)
-#define LT1_SPACE LT(_NUM, KC_SPACE)
-#define LT1_TAB   LT(_FUNC, KC_TAB)
-
-// Left-hand Mod-Tap aliases
-#define MT1_N LGUI_T(KC_N)
-#define MT1_S LALT_T(KC_S)
-#define MT1_H LCTL_T(KC_H)
-#define MT1_T LSFT_T(KC_T)
-
-// Right-hand regular and Mod-Tap aliases
-#define MT1_C LSFT_T(KC_C)
-#define MT1_A LCTL_T(KC_A)
-#define MT1_E LALT_T(KC_E)
-#define MT1_I LGUI_T(KC_I)
-
 // Other aliases
 #define DL_WORD LCTL(KC_BSPC)
-#define REDO KC_AGIN
-#define UNDO LCTL(KC_Z)
-#define COPY LCTL(KC_C)
-#define CUT LCTL(KC_X)
-#define PASTE LCTL(KC_V)
-#define SF_G LSFT_T(KC_G)
+#define REDO    KC_AGIN
+#define UNDO    LCTL(KC_Z)
+#define COPY    LCTL(KC_C)
+#define CUT     LCTL(KC_X)
+#define PASTE   LCTL(KC_V)
+#define SF_G    LSFT_T(KC_G)
 
 enum layer_names {
     _BASE,
-    _NIGHT,
     _NAV,
     _MEDIA,
     _MOUSE,
@@ -78,16 +51,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     LT_ESC,  LT_SPACE, LT_TAB,          LT_ENT,  LT_BSPC,  LT_DEL
      ),
 
-    [_NIGHT] = LAYOUT_split_3x5_3(
-      KC_B,  KC_F,  KC_L,    KC_K,     KC_Q,            KC_P,    KC_G,      KC_O,    KC_U,    KC_DOT,
-      MT1_N, MT1_S, MT1_H,   MT1_T,    KC_M,            KC_Y,    MT1_C,     MT1_A,   MT1_E,   MT1_I,
-      KC_X,  KC_V,  KC_J,    KC_D,     KC_Z,            KC_QUOT, KC_W,      KC_SLSH, KC_SCLN, KC_COMM,
-                    LT1_ESC, LT1_R,    LT1_BSPC,        LT1_ENT, LT1_SPACE, LT1_TAB
-      
-     ),
-
     [_MEDIA] = LAYOUT_split_3x5_3(
-      QK_BOOT, KC_SYRQ, NIGHT,   XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
+      QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,         XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
       XXX,     XXX,     XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
                         XXX,     XXX,     XXX,         KC_MSTP, KC_MPLY, KC_MUTE
@@ -127,16 +92,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_F10, KC_F1, KC_F2,  KC_F3,  KC_PAUS,           XXX, XXX,     XXX,     XXX,     XXX,
                      KC_APP, KC_SPC, KC_TAB,            XXX, XXX,     XXX
     ),
-};
-
-//
-// Combos
-enum combo_events {
-    DEL,
-};
-
-const uint16_t PROGMEM del_combo[]    = {KC_W, KC_SLSH, COMBO_END};
-
-combo_t key_combos[] = {
-    [DEL]    = COMBO(del_combo, KC_DEL),
 };

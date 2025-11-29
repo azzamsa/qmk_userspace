@@ -33,8 +33,36 @@
 #define PASTE   LCTL(KC_V)
 #define SF_G    LSFT_T(KC_G)
 
+
+//
+// Alt
+//
+
+#define ALT      DF(_ALT)
+
+#define LT1_ESC  LT(_MEDIA, KC_ESC)
+#define LT1_R    LT(_NAV,   KC_R)
+#define LT1_ENT  LT(_MOUSE, KC_ENT)
+
+#define LT1_BSPC  LT(_SYM,  KC_BSPC)
+#define LT1_SPACE LT(_NUM,  KC_SPACE)
+#define LT1_TAB   LT(_FUNC, KC_TAB)
+
+// Left-hand Mod-Tap aliases
+#define MT1_S LGUI_T(KC_S)
+#define MT1_N LALT_T(KC_N)
+#define MT1_T LCTL_T(KC_T)
+#define MT1_H LSFT_T(KC_H)
+
+// Right-hand regular and Mod-Tap aliases
+#define MT1_A LSFT_T(KC_A)
+#define MT1_E LCTL_T(KC_E)
+#define MT1_I LALT_T(KC_I)
+#define MT1_C LGUI_T(KC_C)
+
 enum layer_names {
     _BASE,
+    _ALT,
     _NAV,
     _MEDIA,
     _MOUSE,
@@ -51,8 +79,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     LT_ESC,  LT_SPACE, LT_TAB,          LT_ENT,  LT_BSPC,  LT_DEL
      ),
 
+    [_ALT] = LAYOUT_split_3x5_3(
+      KC_F,  KC_P,  KC_D,    KC_L,     KC_X,            KC_SCLN,    KC_U,     KC_O,    KC_Y,    KC_B,
+      MT1_S, MT1_N, MT1_T,   MT1_H,    KC_K,            KC_COMM,    MT1_A,    MT1_E,  MT1_I,   MT1_C,
+      KC_V,  KC_W,  KC_G,    KC_M,     KC_J,            KC_MINS,    KC_DOT, KC_QUOT, KC_EQL, KC_SLSH,
+                    LT1_ESC, LT1_R,    LT1_ENT,         LT1_BSPC, LT1_SPACE, LT1_TAB
+    ),
+
     [_MEDIA] = LAYOUT_split_3x5_3(
-      QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
+      QK_BOOT, KC_SYRQ, ALT,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,         XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
       XXX,     XXX,     XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
                         XXX,     XXX,     XXX,         KC_MSTP, KC_MPLY, KC_MUTE
@@ -92,4 +127,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_F10, KC_F1, KC_F2,  KC_F3,  KC_PAUS,           XXX, XXX,     XXX,     XXX,     XXX,
                      KC_APP, KC_SPC, KC_TAB,            XXX, XXX,     XXX
     ),
+};
+
+//
+// Combos
+enum combo_events {
+    DEL,
+    Q,
+    Z,
+};
+
+const uint16_t PROGMEM del_combo[]  = {KC_DOT, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM q_combo[]    = {KC_G,   KC_M,    COMBO_END};
+const uint16_t PROGMEM z_combo[]    = {KC_W,   KC_G,    COMBO_END};
+
+combo_t key_combos[] = {
+    [DEL]    = COMBO(del_combo, KC_DEL),
+    [Q]      = COMBO(q_combo,   KC_Q),
+    [Z]      = COMBO(z_combo,   KC_Z),
 };

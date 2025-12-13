@@ -4,25 +4,26 @@
 #define XXX KC_NO
 #define ___ KC_TRANSPARENT
 
-#define LT_ESC     LT(_MEDIA, KC_ESC)
-#define LT_SPACE   LT(_NAV,   KC_SPACE)
-#define LT_TAB     LT(_MOUSE, KC_TAB)
+#define LT_ESC  LT(_MEDIA, KC_ESC)
+#define LT_R    LT(_NAV,   KC_R)
+#define LT_ENT  LT(_MOUSE, KC_ENT)
 
-#define LT_ENT     LT(_SYM,  KC_ENT)
-#define LT_BSPC    LT(_NUM,  KC_BSPC)
-#define LT_DEL     LT(_FUNC, KC_DEL)
+#define LT_BSPC  LT(_SYM,  KC_BSPC)
+#define LT_SPACE LT(_NUM,  KC_SPACE)
+#define LT_TAB   LT(_FUNC, KC_TAB)
 
 // Left-hand Mod-Tap aliases
-#define MT_A LGUI_T(KC_A)
-#define MT_R LALT_T(KC_R)
-#define MT_S LCTL_T(KC_S)
-#define MT_T LSFT_T(KC_T)
+#define MT_S LGUI_T(KC_S)
+#define MT_N LALT_T(KC_N)
+#define MT_T LCTL_T(KC_T)
+#define MT_H LSFT_T(KC_H)
 
 // Right-hand regular and Mod-Tap aliases
-#define MT_N LSFT_T(KC_N)
+#define MT_A LSFT_T(KC_A)
 #define MT_E LCTL_T(KC_E)
 #define MT_I LALT_T(KC_I)
-#define MT_O LGUI_T(KC_O)
+#define MT_C LGUI_T(KC_C)
+
 
 // Other aliases
 #define DL_WORD LCTL(KC_BSPC)
@@ -33,36 +34,8 @@
 #define PASTE   LCTL(KC_V)
 #define SF_G    LSFT_T(KC_G)
 
-
-//
-// Alt
-//
-
-#define ALT      DF(_ALT)
-
-#define LT1_ESC  LT(_MEDIA, KC_ESC)
-#define LT1_R    LT(_NAV,   KC_R)
-#define LT1_ENT  LT(_MOUSE, KC_ENT)
-
-#define LT1_BSPC  LT(_SYM,  KC_BSPC)
-#define LT1_SPACE LT(_NUM,  KC_SPACE)
-#define LT1_TAB   LT(_FUNC, KC_TAB)
-
-// Left-hand Mod-Tap aliases
-#define MT1_S LGUI_T(KC_S)
-#define MT1_N LALT_T(KC_N)
-#define MT1_T LCTL_T(KC_T)
-#define MT1_H LSFT_T(KC_H)
-
-// Right-hand regular and Mod-Tap aliases
-#define MT1_A LSFT_T(KC_A)
-#define MT1_E LCTL_T(KC_E)
-#define MT1_I LALT_T(KC_I)
-#define MT1_C LGUI_T(KC_C)
-
 enum layer_names {
     _BASE,
-    _ALT,
     _NAV,
     _MEDIA,
     _MOUSE,
@@ -73,21 +46,14 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
-      KC_Q,  KC_W,  KC_F,    KC_P,     KC_B,            KC_J,    KC_L,     KC_U,    KC_Y,   KC_QUOT,
-      MT_A,  MT_R,  MT_S,    MT_T,     KC_G,            KC_M,    MT_N,     MT_E,    MT_I,   MT_O,
-      KC_Z,  KC_X,  KC_C,    KC_D,     KC_V,            KC_K,    KC_H,     KC_COMM, KC_DOT, KC_SLSH,
-                    LT_ESC,  LT_SPACE, LT_TAB,          LT_ENT,  LT_BSPC,  LT_DEL
+      KC_F, KC_P, KC_D,   KC_L, KC_X,            KC_SCLN, KC_U,     KC_O,    KC_Y,   KC_B,
+      MT_S, MT_N, MT_T,   MT_H, KC_K,            KC_COMM, MT_A,     MT_E,    MT_I,   MT_C,
+      KC_V, KC_W, KC_G,   KC_M, KC_J,            KC_MINS, KC_DOT,   KC_QUOT, KC_EQL, KC_SLSH,
+                  LT_ESC, LT_R, LT_ENT,          LT_BSPC, LT_SPACE, LT_TAB
      ),
 
-    [_ALT] = LAYOUT_split_3x5_3(
-      KC_F,  KC_P,  KC_D,    KC_L,     KC_X,            KC_SCLN,    KC_U,     KC_O,    KC_Y,    KC_B,
-      MT1_S, MT1_N, MT1_T,   MT1_H,    KC_K,            KC_COMM,    MT1_A,    MT1_E,  MT1_I,   MT1_C,
-      KC_V,  KC_W,  KC_G,    KC_M,     KC_J,            KC_MINS,    KC_DOT, KC_QUOT, KC_EQL, KC_SLSH,
-                    LT1_ESC, LT1_R,    LT1_ENT,         LT1_BSPC, LT1_SPACE, LT1_TAB
-    ),
-
     [_MEDIA] = LAYOUT_split_3x5_3(
-      QK_BOOT, KC_SYRQ, ALT,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
+      QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,         XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
       XXX,     XXX,     XXX,     XXX,     XXX,         XXX,     XXX,     XXX,     XXX,     XXX,
                         XXX,     XXX,     XXX,         KC_MSTP, KC_MPLY, KC_MUTE

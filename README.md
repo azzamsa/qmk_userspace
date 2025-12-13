@@ -23,14 +23,14 @@ $ qmk compile --keyboard cheapino --keymap azzamsa
 
 ## History
 
-| Period                 | Duration | Alpha      | Symbol           | Keyboard             | Features               |
-| ---------------------- | -------- | ---------- | ---------------- | -------------------- | ---------------------- |
-| Jun 2021 – Feb 2022    | 8 months | Qwerty     | Custom           | Sofle 58             | n.a                    |
-| Feb 2022 – Jan 2025    | 3 years  | Colemak-DH | Miryoku          | Sofle 36             | n.a                    |
-| Jan 2025 – May 2025    | 5 months | Colemak-DH | Miryoku inspired | KLOR 36, Cheapino 36 | sm_td                  |
-| May 2025 – Jun 2025    | 1 month  | Colemak-DH | Seniply inspired | KLOR 34              | n.a                    |
-| Jun 2025 - 24 Nov 2025 | 6 months | Colemak-DH | Seniply inspired | Cheapino 36          | chordal hold, flow tap |
-| 24 Nov 2025 - today    | ongoing  | Colemak-DH | Sunaku inspired  | Cheapino 36          | chordal hold, flow tap |
+| Period                   | Duration         | Alpha      | Symbol           | Keyboard             | Features               |
+| ------------------------ | ---------------- | ---------- | ---------------- | -------------------- | ---------------------- |
+| 20 Jun 2021 – 2 Aug 2021 | 2 months         | Qwerty     | Custom           | Sofle 58             | n.a                    |
+| 3 Aug 2021 – Jan 2025    | 3 years 5 months | Colemak-DH | Miryoku          | Sofle 36             | n.a                    |
+| Jan 2025 – May 2025      | 5 months         | Colemak-DH | Miryoku inspired | KLOR 36, Cheapino 36 | sm_td                  |
+| May 2025 – Jun 2025      | 1 month          | Colemak-DH | Seniply inspired | KLOR 34              | n.a                    |
+| Jun 2025 - 24 Nov 2025   | 6 months         | Colemak-DH | Seniply inspired | Cheapino 36          | chordal hold, flow tap |
+| 24 Nov 2025 - today      | ongoing          | Colemak-DH | Sunaku inspired  | Cheapino 36          | chordal hold, flow tap |
 
 ## Keymap Inspirations
 

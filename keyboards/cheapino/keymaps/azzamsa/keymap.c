@@ -32,7 +32,7 @@
 #define COPY    LCTL(KC_C)
 #define CUT     LCTL(KC_X)
 #define PASTE   LCTL(KC_V)
-#define SF_G    LSFT_T(KC_G)
+#define SF_G    LSFT(KC_G)
 
 enum layer_names {
     _BASE,
@@ -46,9 +46,9 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
-      KC_F, KC_P, KC_D,   KC_L, KC_X,            KC_SCLN, KC_U,     KC_O,    KC_Y,   KC_B,
-      MT_S, MT_N, MT_T,   MT_H, KC_K,            KC_COMM, MT_A,     MT_E,    MT_I,   MT_C,
-      KC_V, KC_W, KC_G,   KC_M, KC_J,            KC_MINS, KC_DOT,   KC_QUOT, KC_EQL, KC_SLSH,
+      KC_F, KC_P, KC_D,   KC_L, KC_X,            KC_COLN, KC_U,     KC_O,   KC_Y,    KC_B,
+      MT_S, MT_N, MT_T,   MT_H, KC_K,            KC_MINS, MT_A,     MT_E,   MT_I,    MT_C,
+      KC_V, KC_W, KC_G,   KC_M, KC_J,            KC_HASH, KC_COMM,  KC_DOT, KC_QUOT, KC_SLSH,
                   LT_ESC, LT_R, LT_ENT,          LT_BSPC, LT_SPACE, LT_TAB
      ),
 
@@ -74,17 +74,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-      KC_EXLM,  KC_LCBR, KC_RCBR, KC_HASH, KC_AMPR,        XXX, XXX,     XXX,     XXX,     XXX,
-      KC_SCLN,  KC_CIRC, KC_UNDS, KC_DLR,  KC_ASTR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-      KC_TILDE, KC_PIPE, KC_MINS, KC_PERC, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
-                         KC_LPRN, KC_RPRN, KC_AT,          XXX, XXX,     XXX
+      KC_GRV,   KC_LCBR, KC_RCBR, KC_DLR,  KC_AMPR,        XXX, XXX,     XXX,     XXX,     XXX,
+      KC_EXLM,  KC_LBRC, KC_RBRC, KC_CIRC, KC_ASTR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+      KC_TILDE, KC_PIPE, KC_AT,   KC_PERC, KC_EQL,         XXX, XXX,     XXX,     XXX,     XXX,
+                         KC_LPRN, KC_RPRN, KC_SCLN,        XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-      KC_LBRC, KC_7, KC_8,   KC_9, KC_RBRC,              SF_G, XXX,     XXX,     XXX,     XXX,
-      KC_COLN, KC_4, KC_5,   KC_6, KC_EQL,               KC_K, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-      KC_GRV,  KC_1, KC_2,   KC_3, KC_BSLS,              KC_J, XXX,     XXX,     XXX,     XXX,
-                     KC_DOT, KC_0, KC_COMM,              XXX,  XXX,     XXX
+      KC_ASTR, KC_7, KC_8,    KC_9, SF_G,              XXX, XXX,     XXX,     XXX,     XXX,
+      KC_PERC, KC_4, KC_5,    KC_6, KC_K,              XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+      KC_BSLS, KC_1, KC_2,    KC_3, KC_J,              XXX, XXX,     XXX,     XXX,     XXX,
+                     KC_MINS, KC_0, KC_PLUS,           XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
@@ -108,7 +108,7 @@ const uint16_t PROGMEM q_combo[]    = {KC_G,   KC_M,    COMBO_END};
 const uint16_t PROGMEM z_combo[]    = {KC_W,   KC_G,    COMBO_END};
 
 combo_t key_combos[] = {
-    [DEL]    = COMBO(del_combo, KC_DEL),
-    [Q]      = COMBO(q_combo,   KC_Q),
-    [Z]      = COMBO(z_combo,   KC_Z),
+    [DEL]    = COMBO(del_combo,  KC_DEL),
+    [Q]      = COMBO(q_combo,    KC_Q),
+    [Z]      = COMBO(z_combo,    KC_Z),
 };

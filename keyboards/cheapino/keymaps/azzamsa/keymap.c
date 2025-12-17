@@ -24,7 +24,6 @@
 #define MT_I LALT_T(KC_I)
 #define MT_C LGUI_T(KC_C)
 
-
 // Other aliases
 #define DL_WORD LCTL(KC_BSPC)
 #define REDO    KC_AGIN
@@ -74,17 +73,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-      KC_GRV,   KC_LCBR, KC_RCBR, KC_DLR,  KC_AMPR,        XXX, XXX,     XXX,     XXX,     XXX,
+      KC_GRV,   KC_LCBR, KC_RCBR, KC_DLR,  KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
       KC_EXLM,  KC_LBRC, KC_RBRC, KC_CIRC, KC_ASTR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-      KC_TILDE, KC_PIPE, KC_AT,   KC_PERC, KC_EQL,         XXX, XXX,     XXX,     XXX,     XXX,
+      KC_TILDE, KC_AMPR, KC_COLN, KC_PERC, KC_HASH,        XXX, XXX,     XXX,     XXX,     XXX,
                          KC_LPRN, KC_RPRN, KC_SCLN,        XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-      KC_ASTR, KC_7, KC_8,    KC_9, SF_G,              XXX, XXX,     XXX,     XXX,     XXX,
-      KC_PERC, KC_4, KC_5,    KC_6, KC_K,              XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-      KC_BSLS, KC_1, KC_2,    KC_3, KC_J,              XXX, XXX,     XXX,     XXX,     XXX,
-                     KC_MINS, KC_0, KC_PLUS,           XXX, XXX,     XXX
+      KC_PERC, KC_7, KC_8,    KC_9, KC_PLUS,           XXX, XXX,     XXX,     XXX,     XXX,
+      KC_ASTR, KC_4, KC_5,    KC_6, KC_EQL,            XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+      KC_BSLS, KC_1, KC_2,    KC_3, KC_MINS,           XXX, XXX,     XXX,     XXX,     XXX,
+                     KC_COMM, KC_0, KC_DOT,            XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
@@ -95,21 +94,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-//
 // Combos
 enum combo_events {
-    HASH,
-    COLN,
+    AT,
     DEL,
 };
 
-const uint16_t PROGMEM hash_combo[] = {KC_W,    KC_G,    COMBO_END};
-const uint16_t PROGMEM coln_combo[] = {KC_G,    KC_M,    COMBO_END};
 // left
-const uint16_t PROGMEM del_combo[]  = {KC_COMM, KC_DOT,  COMBO_END};
+const uint16_t PROGMEM at_combo[]  = {KC_W,    KC_G,    COMBO_END};
+// right
+const uint16_t PROGMEM del_combo[] = {KC_COMM, KC_DOT,  COMBO_END};
 
 combo_t key_combos[] = {
-    [HASH]   = COMBO(hash_combo, KC_HASH),
-    [COLN]   = COMBO(coln_combo, KC_COLN),
-    [DEL]    = COMBO(del_combo,  KC_DEL),
+    [AT]   = COMBO(at_combo,  KC_AT),
+    [DEL]  = COMBO(del_combo, KC_DEL),
 };

@@ -46,9 +46,9 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
-      KC_F, KC_P, KC_D,   KC_L, KC_X,            KC_COLN, KC_U,     KC_O,   KC_Y,    KC_B,
-      MT_S, MT_N, MT_T,   MT_H, KC_K,            KC_MINS, MT_A,     MT_E,   MT_I,    MT_C,
-      KC_V, KC_W, KC_G,   KC_M, KC_J,            KC_HASH, KC_COMM,  KC_DOT, KC_QUOT, KC_SLSH,
+      KC_F, KC_P, KC_D,   KC_L, KC_X,            KC_Z,    KC_U,     KC_O,   KC_Y,    KC_B,
+      MT_S, MT_N, MT_T,   MT_H, KC_K,            KC_Q,    MT_A,     MT_E,   MT_I,    MT_C,
+      KC_V, KC_W, KC_G,   KC_M, KC_J,            KC_MINS, KC_COMM,  KC_DOT, KC_QUOT, KC_SLSH,
                   LT_ESC, LT_R, LT_ENT,          LT_BSPC, LT_SPACE, LT_TAB
      ),
 
@@ -98,17 +98,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //
 // Combos
 enum combo_events {
+    HASH,
+    COLN,
     DEL,
-    Q,
-    Z,
 };
 
-const uint16_t PROGMEM del_combo[]  = {KC_DOT, KC_QUOT, COMBO_END};
-const uint16_t PROGMEM q_combo[]    = {KC_G,   KC_M,    COMBO_END};
-const uint16_t PROGMEM z_combo[]    = {KC_W,   KC_G,    COMBO_END};
+const uint16_t PROGMEM hash_combo[] = {KC_W,    KC_G,    COMBO_END};
+const uint16_t PROGMEM coln_combo[] = {KC_G,    KC_M,    COMBO_END};
+// left
+const uint16_t PROGMEM del_combo[]  = {KC_COMM, KC_DOT,  COMBO_END};
 
 combo_t key_combos[] = {
+    [HASH]   = COMBO(hash_combo, KC_HASH),
+    [COLN]   = COMBO(coln_combo, KC_COLN),
     [DEL]    = COMBO(del_combo,  KC_DEL),
-    [Q]      = COMBO(q_combo,    KC_Q),
-    [Z]      = COMBO(z_combo,    KC_Z),
 };

@@ -4,8 +4,18 @@ Configurations for my keyboards.
 
 ## Layout
 
+I use Hands Down™ Promethium as base. For details, see [LAYOUT.md](LAYOUT.md)
+
+Symbol:
+
 <div align="center">
-<img src='https://github.com/user-attachments/assets/5b06afdf-b475-4add-8ff3-879051bf7fde' width=250px />
+<img width="250" alt="Symbol" src="https://github.com/user-attachments/assets/17eb30fb-a424-4276-aff7-65217796fb04" />
+</div>
+
+Numbers:
+
+<div align="center">
+<img width="250" alt="Numbers" src="https://github.com/user-attachments/assets/8911ce28-b861-4e51-a3a6-4c850fa7c5e1" />
 </div>
 
 ## Setup

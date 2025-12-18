@@ -2,74 +2,111 @@
 
 // Layer aliases
 #define XXX KC_NO
-#define ___ KC_TRANSPARENT
 
-// Layer aliases
-#define LA_EXT  MO(_EXT)
-#define LA_SYM  MO(_SYM)
-#define LA_NUM  MO(_NUM)
-#define LA_FUNC MO(_FUNC)
+#define LT_ESC  LT(_MEDIA, KC_ESC)
+#define LT_R    LT(_NAV,   KC_R)
+#define LT_ENT  LT(_MOUSE, KC_ENT)
 
-// Oneshot aliases
-#define OS_GUI  OSM(MOD_LGUI)
-#define OS_ALT  OSM(MOD_LALT)
-#define OS_CTRL OSM(MOD_LCTL)
-#define OS_SHFT OSM(MOD_LSFT)
-#define OS_RALT OSM(MOD_RALT)
+#define LT_BSPC  LT(_SYM,  KC_BSPC)
+#define LT_SPACE LT(_NUM,  KC_SPACE)
+#define LT_TAB   LT(_FUNC, KC_TAB)
+
+// Left-hand Mod-Tap aliases
+#define MT_S LGUI_T(KC_S)
+#define MT_N LALT_T(KC_N)
+#define MT_T LCTL_T(KC_T)
+#define MT_H LSFT_T(KC_H)
+
+// Right-hand regular and Mod-Tap aliases
+#define MT_A LSFT_T(KC_A)
+#define MT_E LCTL_T(KC_E)
+#define MT_I LALT_T(KC_I)
+#define MT_C LGUI_T(KC_C)
 
 // Other aliases
-#define DEL_WORD LCTL(KC_BSPC)
-#define SAVE     LCTL(KC_S)
-#define SEL_ALL  LCTL(KC_A)
-#define UNDO     LCTL(KC_Z)
-#define COPY     LCTL(KC_C)
-#define CUT      LCTL(KC_X)
-#define PASTE    LCTL(KC_V)
+#define DL_WORD LCTL(KC_BSPC)
+#define REDO    KC_AGIN
+#define UNDO    LCTL(KC_Z)
+#define COPY    LCTL(KC_C)
+#define CUT     LCTL(KC_X)
+#define PASTE   LCTL(KC_V)
+#define SF_G    LSFT(KC_G)
 
-#define SH_SHFT  SFT_T(KC_SPC)
-
-enum layers {
+enum layer_names {
     _BASE,
-    _EXT,
-    _SYM,
-    _NUM,
+    _NAV,
+    _MEDIA,
+    _MOUSE,
     _FUNC,
+    _NUM,
+    _SYM,
 };
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-             KC_Q,  KC_W,  KC_F,  KC_P,   KC_B,                 KC_J,    KC_L,   KC_U,    KC_Y,   KC_QUOT,
-        XXX, KC_A,  KC_R,  KC_S,  KC_T,   KC_G,                 KC_M,    KC_N,   KC_E,    KC_I,   KC_O,    XXX,
-        XXX, KC_Z,  KC_X,  KC_C,  KC_D,   KC_V,    ___,    ___, KC_K,    KC_H,   KC_COMM, KC_DOT, KC_SLSH, XXX,
-                           XXX,   LA_EXT, SH_SHFT, XXX,    XXX, KC_LSFT, LA_SYM, XXX
+             KC_F, KC_P, KC_D, KC_L,   KC_X,                     KC_Z,     KC_U,    KC_O,   KC_Y,    KC_B,
+        XXX, MT_S, MT_N, MT_T, MT_H,   KC_K,                     KC_Q,     MT_A,    MT_E,   MT_I,    MT_C,    XXX,
+        XXX, KC_V, KC_W, KC_G, KC_M,   KC_J, XXX,       XXX,     KC_MINS,  KC_COMM, KC_DOT, KC_QUOT, KC_SLSH, XXX,
+                         XXX,  LT_ESC, LT_R, LT_ENT,    LT_BSPC, LT_SPACE, LT_TAB, XXX
     ),
 
-    [_EXT] = LAYOUT(
-             XXX,    KC_ESC, SAVE,    QK_REP,  SEL_ALL,               CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        XXX, OS_GUI, OS_ALT, OS_CTRL, OS_SHFT, XXX,                   KC_DEL,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, UNDO,   CUT,    COPY,    PASTE,   KC_LGUI, ___,     ___, DEL_WORD, KC_BSPC, KC_TAB,  XXX,     KC_INS,  XXX,
-                              XXX,     ___,     ___,    XXX,     XXX, KC_ENT,   LA_NUM,  XXX
+    [_MEDIA] = LAYOUT(
+             QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,                  XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+                               XXX,     XXX,     XXX, XXX,    KC_MSTP, KC_MPLY, KC_MUTE, XXX
+    ),
+
+    [_NAV] = LAYOUT(
+             UNDO,    CUT,     COPY,    PASTE,   REDO,                REDO,    PASTE,    COPY,    CUT,     UNDO,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                 CW_TOGG, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,    KC_INS,  KC_HOME,  KC_PGDN, KC_PGUP, KC_END,  XXX,
+                               XXX,     XXX,     XXX, XXX,    KC_ENT, KC_BSPC, KC_DEL,   XXX
+     ),
+
+    [_MOUSE] = LAYOUT(
+             XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXX,
+                               XXX,     XXX,     XXX, XXX,    MS_BTN3, MS_BTN1, MS_BTN2, XXX
     ),
 
     [_SYM] = LAYOUT(
-             KC_TILD, KC_AT,   KC_HASH, KC_DLR,  KC_PLUS,               KC_PERC, KC_GRV,  KC_COLN, KC_SCLN, KC_EQL,
-        XXX, KC_ASTR, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS,               KC_CIRC, OS_SHFT, OS_CTRL, OS_ALT,  OS_GUI,  XXX,
-        XXX, KC_EXLM, KC_RCBR, KC_RPRN, KC_RBRC, KC_UNDS, ___,     ___, KC_AMPR, XXX,     KC_BSLS, KC_PIPE, XXX,     XXX,
-                               XXX,     LA_NUM,  LA_FUNC, XXX,     XXX, ___,     ___,     XXX
+             KC_EXLM,  KC_LCBR, KC_RCBR, KC_DLR,  KC_PIPE,                  XXX, XXX,     XXX,     XXX,     XXX,
+        XXX, KC_GRV,   KC_LBRC, KC_RBRC, KC_CIRC, KC_ASTR,                  XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_TILDE, KC_AMPR, KC_COLN, KC_PERC, KC_HASH, XXX,        XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                                XXX,     KC_LPRN, KC_RPRN, KC_SCLN,    XXX, XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT(
-             KC_EQL,  KC_7, KC_8, KC_9, KC_PLUS,              KC_CAPS, KC_PSCR, XXX,     XXX,    XXX,
-        XXX, KC_0,    KC_4, KC_5, KC_6, KC_MINS,              XXX,     OS_SHFT, OS_CTRL, OS_ALT, OS_GUI, XXX,
-        XXX, KC_ASTR, KC_1, KC_2, KC_3, KC_SLSH, ___,    ___, XXX,     XXX,     XXX,     XXX,    XXX,    XXX,
-                            XXX,  ___,  ___,     XXX,    XXX, ___, ___,     XXX
+             KC_PERC, KC_7, KC_8, KC_9,    KC_PLUS,                 XXX, XXX,     XXX,     XXX,     XXX,
+        XXX, KC_ASTR, KC_4, KC_5, KC_6,    KC_EQL,                  XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_BSLS, KC_1, KC_2, KC_3,    KC_MINS, XXX,       XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                            XXX,  KC_COMM, KC_0,    KC_DOT,    XXX, XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT(
-             KC_F12, KC_F7, KC_F8, KC_F9, KC_VOLU,                   MS_BTN4, XXX,     KC_MPLY, XXX,    XXX,
-        XXX, KC_F11, KC_F4, KC_F5, KC_F6, KC_VOLD,                   MS_BTN5, OS_SHFT, OS_CTRL, OS_ALT, OS_GUI,  XXX,
-        XXX, KC_F10, KC_F1, KC_F2, KC_F3, KC_MPLY, ___,    ___, XXX, QK_BOOT, XXX,     XXX,     XXX,    XXX,
-                            XXX,   ___,   ___,     XXX,    XXX, ___, ___,     XXX
+             KC_F12, KC_F7, KC_F8, KC_F9,  KC_PSCR,                XXX, XXX,     KC_MPLY, XXX,     XXX,
+        XXX, KC_F11, KC_F4, KC_F5, KC_F6,  KC_SCRL,                XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_F10, KC_F1, KC_F2, KC_F3,  KC_PAUS, XXX,      XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                            XXX,   KC_APP, KC_SPC,  KC_TAB,   XXX, XXX, XXX,     XXX
     ),
 
+};
+
+// Combos
+enum combo_events {
+    AT,
+    DEL,
+};
+
+// left
+const uint16_t PROGMEM at_combo[]  = {KC_W,    KC_G,    COMBO_END};
+// right
+const uint16_t PROGMEM del_combo[] = {KC_COMM, KC_DOT,  COMBO_END};
+
+combo_t key_combos[] = {
+    [AT]   = COMBO(at_combo,  KC_AT),
+    [DEL]  = COMBO(del_combo, KC_DEL),
 };

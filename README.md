@@ -28,11 +28,11 @@ Numbers:
 
 ## Daily Drivers
 
-- [josefadamcik/SofleKeyboard](https://github.com/josefadamcik/SofleKeyboard), 12 June 2021
-- [pashutk/chocofi](https://github.com/pashutk/chocofi), 06 May 2023
-- [sadekbaroudi/Dweeeeep](https://github.com/sadekbaroudi/sweep36), 03 Sept 2023
-- [GEIGEIGEIST/KLOR](https://github.com/GEIGEIGEIST/KLOR): 03 Sept 2023
 - [tompi/cheapino](https://github.com/tompi/cheapino): 13 Nov 2024
+- [GEIGEIGEIST/KLOR](https://github.com/GEIGEIGEIST/KLOR): 03 Sept 2023
+- [sadekbaroudi/Dweeeeep](https://github.com/sadekbaroudi/sweep36): 03 Sept 2023
+- [pashutk/chocofi](https://github.com/pashutk/chocofi): 06 May 2023
+- [josefadamcik/SofleKeyboard](https://github.com/josefadamcik/SofleKeyboard): 12 June 2021
 
 ## Other Keyboards
 

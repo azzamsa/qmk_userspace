@@ -11,7 +11,7 @@ layers:
     D,
     L,
     X,
-    Z,
+    ";",
     U,
     O,
     Y,
@@ -21,7 +21,7 @@ layers:
     { h: Ctrl, t: T },
     { h: Shift, t: H },
     K,
-    Q,
+    ",",
     { h: Shift, t: A },
     { h: Ctrl, t: E },
     { h: Alt, t: I },
@@ -32,9 +32,9 @@ layers:
     M,
     J,
     "-",
-    ",",
     ".",
     "'",
+    "=",
     "/",
     { h: MEDIA, t: ESC },
     { h: NAV, t: R },
@@ -162,7 +162,7 @@ layers:
   ]
 
   SYM: [
-    "`",
+    "!",
     "{",
     "}",
     "$",
@@ -172,7 +172,7 @@ layers:
     null,
     null,
     null,
-    "!",
+    "`",
     "[",
     "]",
     "^",
@@ -279,5 +279,7 @@ layers:
   ]
 
 combos:
-  - { tk: [W, G], k: "@", l: [BASE] }
-  - { tk: [",", "."], k: DEL, l: [BASE] }
+  - { tk: [W, G], k: "Z", l: [BASE] }
+  - { tk: [G, M], k: "Q", l: [BASE] }
+  - { tk: [".", "'"], k: DEL, l: [BASE] }
+  - { tk: ["'", "="], k: "@", l: [BASE] }

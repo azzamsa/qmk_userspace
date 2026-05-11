@@ -1,0 +1,81 @@
+[tools]
+typos = "latest"
+dprint = "latest"
+actionlint = "latest"
+zizmor = "latest"
+shellcheck = "latest"
+"pipx:qmk" = "latest"
+
+[tasks.setup]
+hide = true
+confirm = "⚠️ This command will alter your system. Continue?"
+description = "Setup the project"
+depends = ["hooks"]
+
+[tasks.audit]
+# Extras, deep, thorough checks. Should be run locally.
+hide = true
+description = "Exhaustive quality check"
+depends = ["check", "audit:*"]
+
+[tasks.fix]
+# Apply automatic fixes, then check.
+# Intended for use before commit or push.
+description = "Enforce rules"
+depends = ["fmt", "check"]
+
+[tasks.check]
+# Quality check. Primarily used in CI.
+hide = true
+description = "Quality check"
+depends = "lint"
+
+[tasks.lint]
+# Minimal, fast feedback checks.
+hide = true
+description = "Lint"
+run = [
+    # format
+    "dprint check",
+]
+
+[tasks.fmt]
+hide = true
+description = "Format"
+run = "dprint fmt"
+
+[tasks.clean]
+hide = true
+description = "Clean buildt"
+run = "fd -e uf2 -e hex --no-ignore --exec rm"
+
+[tasks."compile"]
+hide = true
+interactive = true
+description = "Compile keyboard"
+usage = 'arg "<keyboard>" help="Keyboard name" { choices "cheapino" "eternal_keypad" "dweeeeep" "klor" "sofle" }'
+run = ".mise/tasks/qmk ${usage_keyboard?} compile"
+
+[tasks."flash"]
+hide = true
+interactive = true
+description = "Flash keyboard"
+usage = 'arg "<keyboard>" help="Keyboard name" { choices "cheapino" "eternal_keypad" "dweeeeep" "klor" "sofle" }'
+run = ".mise/tasks/qmk ${usage_keyboard?} flash"
+
+[tasks.up]
+hide = true
+description = "Upgrade dependencies"
+run = "dprint config update"
+
+[tasks."audit:extras"]
+hide = true
+interactive = true
+description = "Dependency analysis"
+run = [
+    # Dependencies
+    "pnpx actions-up",
+    # GitHub CI
+    "actionlint",
+    "zizmor .github/workflows/*",
+]

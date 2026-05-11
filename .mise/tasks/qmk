@@ -1,0 +1,43 @@
+#!/usr/bin/env -S nu --stdin
+#MISE description="Flash the keyboards"
+#MISE interactive=true
+
+const KEYMAP = "azzamsa"
+const KEYBOARDS = {
+    cheapino:      { branch: cheapinov2,          keyboard: cheapino,            bootloader: null    }
+    eternal_keypad:{ branch: master,               keyboard: eternal_keypad,      bootloader: avrdude }
+    dweeeeep:      { branch: develop_fingerpunch,  keyboard: "fingerpunch/dweeeeep", bootloader: null }
+    klor:          { branch: master,               keyboard: "geigeigeist/klor",  bootloader: avrdude }
+    sofle:         { branch: master,               keyboard: sofle,               bootloader: null    }
+}
+
+def check-branch [keyboard: string]: nothing -> nothing {
+    let required = ($KEYBOARDS | get --optional $keyboard).branch
+    let branch = (git rev-parse --abbrev-ref HEAD | str trim)
+    if $branch != $required {
+        error make {msg: $"Wrong branch: '($branch)'. Checkout '($required)' first."}
+    }
+}
+
+def main [
+    keyboard: string # Keyboard name (cheapino, eternal_keypad, dweeeeep, klor, sofle)
+    action?: string  # Action to perform: compile or flash (default: compile)
+]: nothing -> nothing {
+    cd ~/labs/forks/qmk_firmware
+    let config = $KEYBOARDS | get --optional $keyboard
+    if $config == null {
+        error make {msg: $"Unknown keyboard: '($keyboard)'. Known: ($KEYBOARDS | columns | str join ', ')"}
+    }
+    check-branch $keyboard
+    let keymap = $KEYMAP
+    let flags = [--keyboard $config.keyboard --keymap $keymap --clean]
+    match ($action | default "compile") {
+        "compile" => { qmk compile ...$flags }
+        "flash"   => {
+            print "Flashing the keyboard..."
+            let extra = if $config.bootloader != null { [--bootloader $config.bootloader] } else { [] }
+            qmk flash ...$flags ...$extra
+        }
+        _ => { error make {msg: $"Unknown action: ($action)"} }
+    }
+}

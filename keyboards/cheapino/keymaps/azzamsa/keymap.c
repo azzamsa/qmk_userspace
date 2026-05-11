@@ -59,10 +59,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-      UNDO,    CUT,     COPY,    PASTE,    REDO,       REDO,    PASTE,    COPY,    CUT,     UNDO,
-      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT,
-      XXX,     XXX,     XXX,     XXX,      XXX,        KC_INS,  KC_HOME,  KC_PGDN, KC_PGUP, KC_END,
-                        XXX,     XXX,      XXX,        KC_ENT,  KC_BSPC,  KC_DEL
+      UNDO,    CUT,     COPY,    PASTE,    REDO,       KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP,
+      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,
+      XXX,     XXX,     XXX,     XXX,      XXX,        REDO,    PASTE,   COPY,    CUT,     UNDO,
+                        XXX,     XXX,      XXX,        KC_ENT,  KC_BSPC, KC_DEL
      ),
 
     [_MOUSE] = LAYOUT_split_3x5_3(

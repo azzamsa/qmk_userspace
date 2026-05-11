@@ -59,10 +59,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT(
-             UNDO,    CUT,     COPY,    PASTE,   REDO,                REDO,    PASTE,    COPY,    CUT,     UNDO,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                 CW_TOGG, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,    KC_INS,  KC_HOME,  KC_PGDN, KC_PGUP, KC_END,  XXX,
-                               XXX,     XXX,     XXX, XXX,    KC_ENT, KC_BSPC, KC_DEL,   XXX
+             UNDO,    CUT,     COPY,    PASTE,   REDO,                KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                 CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,    REDO,    PASTE,   COPY,    CUT,     UNDO,    XXX,
+                               XXX,     XXX,     XXX, XXX,    KC_ENT, KC_BSPC, KC_DEL,  XXX
      ),
 
     [_MOUSE] = LAYOUT(
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FUNC] = LAYOUT(
-             KC_F12, KC_F7, KC_F8, KC_F9,  KC_PSCR,                XXX, XXX,     KC_MPLY, XXX,     XXX,
+             KC_F12, KC_F7, KC_F8, KC_F9,  KC_PSCR,                XXX, XXX,     XXX,     XXX,     XXX,
         XXX, KC_F11, KC_F4, KC_F5, KC_F6,  KC_SCRL,                XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
         XXX, KC_F10, KC_F1, KC_F2, KC_F3,  KC_PAUS, XXX,      XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
                             XXX,   KC_APP, KC_SPC,  KC_TAB,   XXX, XXX, XXX,     XXX

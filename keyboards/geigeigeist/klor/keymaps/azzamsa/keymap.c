@@ -56,9 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MEDIA] = LAYOUT(
-             QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,                  XXX,     XXX,     XXX,     XXX,     XXX,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
+             QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,                  XXX,     XXX,     KC_VOLU, XXX,     XXX,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     KC_MPRV, KC_VOLD, KC_MNXT, XXX, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     XXX,     XXX,     XXX,     XXX, XXX,
                                XXX,     XXX,     XXX, XXX,    KC_MSTP, KC_MPLY, KC_MUTE, XXX
     ),
 
@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),
 
     [_MOUSE] = LAYOUT(
-             XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXX,
+             XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_WHLL, MS_UP,   MS_WHLR, MS_WHLU,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLD, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_BTN4, XXX,     MS_BTN5, XXX,     XXX,
                                XXX,     XXX,     XXX, XXX,    MS_BTN3, MS_BTN1, MS_BTN2, XXX
     ),
 

@@ -11,6 +11,9 @@
 #define LT_SPACE LT(_NUM,  KC_SPACE)
 #define LT_TAB   LT(_FUNC, KC_TAB)
 
+#define LT_V      LT(_BTN, KC_V)
+#define LT_SLSH   LT(_BTN, KC_SLSH)
+
 // Left-hand Mod-Tap aliases
 #define MT_S LGUI_T(KC_S)
 #define MT_N LALT_T(KC_N)
@@ -40,6 +43,7 @@ enum layer_names {
     _FUNC,
     _NUM,
     _SYM,
+    _BTN,
 };
 
 
@@ -47,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
              KC_F, KC_P, KC_D, KC_L,   KC_X,                     KC_SCLN,  KC_U,   KC_O,    KC_Y,   KC_B,
         XXX, MT_S, MT_N, MT_T, MT_H,   KC_K,                     KC_COMM,  MT_A,   MT_E,    MT_I,   MT_C,    XXX,
-        XXX, KC_V, KC_W, KC_G, KC_M,   KC_J, XXX,       XXX,     KC_MINS,  KC_DOT, KC_QUOT, KC_EQL, KC_SLSH, XXX,
+        XXX, LT_V, KC_W, KC_G, KC_M,   KC_J, XXX,       XXX,     KC_MINS,  KC_DOT, KC_QUOT, KC_EQL, LT_SLSH, XXX,
                          XXX,  LT_ESC, LT_R, LT_ENT,    LT_BSPC, LT_SPACE, LT_TAB, XXX
     ),
 
@@ -91,6 +95,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXX, KC_F11, KC_F4, KC_F5, KC_F6,  KC_SCRL,                XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
         XXX, KC_F10, KC_F1, KC_F2, KC_F3,  KC_PAUS, XXX,      XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
                             XXX,   KC_APP, KC_SPC,  KC_TAB,   XXX, XXX, XXX,     XXX
+    ),
+
+    [_BTN] = LAYOUT(
+             UNDO,    CUT,     COPY,    PASTE,   REDO,                         REDO,    PASTE,   COPY,    CUT,     UNDO,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                          XXX,     KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, UNDO,    CUT,     COPY,    PASTE,   REDO,    XXX,        XXX,     REDO,    PASTE,   COPY,    CUT,     UNDO,    XXX,
+                               XXX,     MS_BTN2, MS_BTN3, MS_BTN1,    MS_BTN1, MS_BTN3, MS_BTN2, XXX
     ),
 
 };

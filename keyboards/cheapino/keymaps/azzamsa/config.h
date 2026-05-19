@@ -1,8 +1,5 @@
 #pragma once
 
-#define BOOTMAGIC_ROW 0
-#define BOOTMAGIC_COLUMN 1
-
 #undef TAPPING_TERM
 #define TAPPING_TERM 200 // default
 

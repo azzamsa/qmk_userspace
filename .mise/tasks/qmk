@@ -4,11 +4,11 @@
 
 const KEYMAP = "azzamsa"
 const KEYBOARDS = {
-    cheapino:      { branch: cheapinov2,          keyboard: cheapino,            bootloader: null    }
-    eternal_keypad:{ branch: master,               keyboard: eternal_keypad,      bootloader: avrdude }
-    dweeeeep:      { branch: develop_fingerpunch,  keyboard: "fingerpunch/dweeeeep", bootloader: null }
-    klor:          { branch: master,               keyboard: "geigeigeist/klor",  bootloader: avrdude }
-    sofle:         { branch: master,               keyboard: sofle,               bootloader: null    }
+    cheapino:      { branch: add-cheapino-to-upstream, keyboard: cheapino,               bootloader: null    }
+    eternal_keypad:{ branch: master,                   keyboard: eternal_keypad,         bootloader: avrdude }
+    dweeeeep:      { branch: develop_fingerpunch,      keyboard: "fingerpunch/dweeeeep", bootloader: null    }
+    klor:          { branch: master,                   keyboard: "geigeigeist/klor",     bootloader: avrdude }
+    sofle:         { branch: master,                   keyboard: sofle,                  bootloader: null    }
 }
 
 def check-branch [keyboard: string]: nothing -> nothing {

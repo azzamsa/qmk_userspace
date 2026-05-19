@@ -4,27 +4,16 @@ Configurations for my keyboards.
 
 ## Layout
 
-Base:
-
-I use Hands Down™ Promethium as base. For details, see [LAYOUT.md](LAYOUT.md)
-
-Symbol:
-
 <div align="center">
-<img width="250" alt="Symbol" src="https://github.com/user-attachments/assets/a322978e-b7c1-4909-8bf9-8f6435776d6a" />
-</div>
-
-Numbers:
-
-<div align="center">
-<img width="250" alt="Numbers" src="https://github.com/user-attachments/assets/8911ce28-b861-4e51-a3a6-4c850fa7c5e1" />
+<img width="250" alt="Symbol" src="https://github.com/user-attachments/assets/8ee2c0b7-807c-44c8-a1b4-0c70e81ae0c9" />
 </div>
 
 ## Alphas
 
 - **Qwerty**: 12 Jun 2021 – 2 Aug 2021 (2 months)
 - **Colemak-DH**: 3 Aug 2021 – 14 Dec 2025 (~4 years 4 months)
-- **HD™ Promethium**: 14 Dec 2025 – today (ongoing)
+- **HD™ Promethium**: 14 Dec 2025 – 19 May 2026 (~5 months)
+- **Birdie**: 19 May 2026 – today (ongoing)
 
 ## Keyboards
 

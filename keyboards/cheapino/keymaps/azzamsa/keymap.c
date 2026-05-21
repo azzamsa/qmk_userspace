@@ -61,15 +61,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,      XXX,    KC_PGUP, KC_HOME, KC_UP,   KC_END,  XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_CAPS,
+        XXX,     XXX,     XXX,     XXX,      XXX,    CW_TOGG, KC_HOME, KC_UP,   KC_END,  XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,
         XXX,     XXX,     XXX,     XXX,      XXX,    REDO,    PASTE,   COPY,    CUT,     UNDO,
                           XXX,     XXX,      XXX,    XXX,     XXX,     KC_DEL
     ),
 
     [_MOUSE] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,     XXX,    MS_WHLU, MS_WHLL, MS_UP,   MS_WHLR, XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,    MS_WHLD, MS_LEFT, MS_DOWN, MS_RGHT, XXX,
+        XXX,     XXX,     XXX,     XXX,     XXX,    XXX,     MS_WHLL, MS_UP,   MS_WHLR, XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,    MS_WHLD, MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLU,
         XXX,     XXX,     XXX,     XXX,     XXX,    XXX,     MS_BTN4, XXX,     MS_BTN5, XXX,
                           XXX,     XXX,     XXX,    MS_BTN3, MS_BTN1, MS_BTN2
     ),
@@ -96,10 +96,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BTN] = LAYOUT_split_3x5_3(
-        XXX,  XXX,   XXX,  XXX,   XXX,     XXX,  XXX,   XXX,  XXX, XXX,
-        XXX,  KC_AT, XXX,  XXX,   XXX,     XXX,  XXX,   XXX,  XXX, XXX,
-        REDO, CUT,   COPY, PASTE, UNDO,    UNDO, PASTE, COPY, CUT, REDO,
-                     XXX,  XXX,   XXX,     XXX,  XXX,   XXX
+        XXX,  XXX,   XXX,  XXX,   XXX,     XXX,     XXX,   XXX,  XXX, XXX,
+        XXX,  KC_AT, XXX,  XXX,   XXX,     KC_CAPS, XXX,   XXX,  XXX, XXX,
+        REDO, CUT,   COPY, PASTE, UNDO,    UNDO,    PASTE, COPY, CUT, REDO,
+                     XXX,  XXX,   XXX,     XXX,     XXX,   XXX
     ),
 };
 

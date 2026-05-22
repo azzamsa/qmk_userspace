@@ -79,23 +79,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           XXX,     XXX,     XXX,        MS_BTN3, MS_BTN1, MS_BTN2
     ),
 
-     // `/`, `-` are on base layer on bigger keyboards. It has to be on the home row.
-    // Rolling: `();`, `[]`, `{}`
-    // Vim pairs `^ $`, `/ ?`
+     // `-`, `/` are on base layer on bigger keyboards. It has to be on the home row.
+    // Rolling: `()`, `[]`, `{}`
+    // Vim pairs `^ $`, `# *`, `/ ?`
     [_SYM] = LAYOUT_split_3x5_3(
-        XXX,     KC_LCBR,  KC_RCBR, KC_QUES, KC_EXLM,        XXX, XXX,     XXX,     XXX,     XXX,
-        KC_MINS, KC_LBRC,  KC_RBRC, KC_SLSH, KC_AMPR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_CIRC, KC_TILDE, KC_GRV,  KC_DLR,  KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
-                           KC_LPRN, KC_RPRN, KC_SCLN,        XXX, XXX,     XXX
+        XXX,     KC_LCBR, KC_RCBR, KC_QUES, KC_EXLM,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_SCLN, KC_LBRC, KC_RBRC, KC_SLSH, KC_AMPR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_CIRC, KC_HASH, KC_ASTR, KC_DLR,  KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
+                          KC_LPRN, KC_RPRN, KC_MINS,        XXX, XXX,     XXX
     ),
 
     // Vim pairs `# *`
-    // `:` mirrors previous layer.
+    // mirrors `: _`
     [_NUM] = LAYOUT_split_3x5_3(
-        XXX,     KC_7, KC_8,    KC_9, KC_EQL,         XXX, XXX,     XXX,     XXX,     XXX,
-        KC_HASH, KC_4, KC_5,    KC_6, KC_ASTR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_PERC, KC_1, KC_2,    KC_3, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
-                       KC_UNDS, KC_0, KC_COLN,        XXX, XXX,     XXX
+        XXX,     KC_7, KC_8,   KC_9, KC_TILDE,       XXX, XXX,     XXX,     XXX,     XXX,
+        KC_COLN, KC_4, KC_5,   KC_6, KC_GRV,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_PERC, KC_1, KC_2,   KC_3, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
+                       KC_EQL, KC_0, KC_UNDS,        XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
@@ -106,10 +106,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BTN] = LAYOUT_split_3x5_3(
-        XXX,   XXX, XXX,  XXX,   XXX,         XXX,  XXX,   XXX,     XXX,     XXX,
-        KC_AT, XXX, XXX,  XXX,   XXX,         XXX,  XXX,   KC_MINS, KC_PLUS, XXX,
-        REDO,  CUT, COPY, PASTE, UNDO,        UNDO, PASTE, COPY,    CUT,     REDO,
-                    XXX,  XXX,   XXX,         XXX,  XXX,   XXX
+        XXX,   XXX, XXX,  XXX,     XXX,         XXX,  XXX,   XXX,     XXX,     XXX,
+        KC_AT, XXX, XXX,  KC_BSLS, XXX,         XXX,  XXX,   KC_MINS, KC_PLUS, XXX,
+        REDO,  CUT, COPY, PASTE,   UNDO,        UNDO, PASTE, COPY,    CUT,     REDO,
+                    XXX,  XXX,     XXX,         XXX,  XXX,   XXX
     ),
 };
 

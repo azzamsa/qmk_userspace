@@ -30,6 +30,5 @@ $ qmk compile --keyboard cheapino --keymap azzamsa
 ## Inspirations
 
 - [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference)
-- [getreuer's keymap](https://github.com/getreuer/qmk-keymap#my-keymap)
 - [sunaku's keymaps](https://sunaku.github.io/moergo-glove80-keyboard.html#layers)
-- [Seniply](https://stevep99.github.io/seniply/)
+- [getreuer's keymap](https://github.com/getreuer/qmk-keymap#my-keymap)

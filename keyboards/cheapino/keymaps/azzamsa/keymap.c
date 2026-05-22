@@ -46,60 +46,70 @@ enum layer_names {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    // comma, dot, and quote are most used symbols.
     [_BASE] = LAYOUT_split_3x5_3(
-        XXX,  KC_L, KC_P,   KC_D, KC_F,    KC_QUOT, KC_W,     KC_O,    KC_U,   XXX,
-        MT_T, MT_S, MT_N,   MT_H, KC_M,    KC_G,    MT_C,     MT_A,    MT_I,   MT_E,
-        LT_V, KC_Z, KC_B,   KC_K, KC_Q,    KC_X,    KC_Y,     KC_COMM, KC_DOT, LT_J,
-                    LT_ESC, LT_R, LT_ENT,  LT_BSPC, LT_SPACE, LT_TAB
+        XXX,  KC_L, KC_P,   KC_D, KC_F,        KC_QUOT, KC_W,     KC_O,    KC_U,   XXX,
+        MT_T, MT_S, MT_N,   MT_H, KC_M,        KC_G,    MT_C,     MT_A,    MT_I,   MT_E,
+        LT_V, KC_Z, KC_B,   KC_K, KC_Q,        KC_X,    KC_Y,     KC_COMM, KC_DOT, LT_J,
+                    LT_ESC, LT_R, LT_ENT,      LT_BSPC, LT_SPACE, LT_TAB
     ),
 
     [_MEDIA] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,     XXX,    XXX,     XXX,     KC_VOLU, XXX,     XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,    XXX,     KC_MPRV, KC_VOLD, KC_MNXT, XXX,
-        QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,    XXX,     XXX,     XXX,     XXX,     XXX,
-                          XXX,     XXX,     XXX,    KC_MSTP, KC_MPLY, KC_MUTE
+        XXX,     XXX,     XXX,     XXX,     XXX,        XXX,     XXX,     XXX,     XXX,     XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,        XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
+        QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,        XXX,     XXX,     XXX,     XXX,     XXX,
+                          XXX,     XXX,     XXX,        KC_MSTP, KC_MPLY, KC_MUTE
     ),
 
+    // Arrow keys are better on home row. This reduces finger travel significantly.
+    // As I rely on them instead of hjkl.
+    // Inverted-T also places `pgdn` and `pgup` on hard to reach or awkward positions.
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,      XXX,    CW_TOGG, KC_HOME, KC_UP,   KC_END,  XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,
-        XXX,     XXX,     XXX,     XXX,      XXX,    REDO,    PASTE,   COPY,    CUT,     UNDO,
-                          XXX,     XXX,      XXX,    XXX,     XXX,     KC_DEL
+        XXX,     XXX,     XXX,     XXX,      XXX,        UNDO,    PASTE,   COPY,    CUT,     XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+        XXX,     XXX,     XXX,     XXX,      XXX,        REDO,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+                          XXX,     XXX,      XXX,        KC_ENT,  KC_BSPC, KC_DEL
     ),
 
+    // `BTN4` / `BTN5` is miroring `UNDO` / `REDO`.
     [_MOUSE] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,     XXX,    XXX,     MS_WHLL, MS_UP,   MS_WHLR, XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,    MS_WHLD, MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLU,
-        XXX,     XXX,     XXX,     XXX,     XXX,    XXX,     MS_BTN4, XXX,     MS_BTN5, XXX,
-                          XXX,     XXX,     XXX,    MS_BTN3, MS_BTN1, MS_BTN2
+        XXX,     XXX,     XXX,     XXX,     XXX,        MS_BTN4, XXX,     XXX,     XXX,     XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,        XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,
+        XXX,     XXX,     XXX,     XXX,     XXX,        MS_BTN5, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR,
+                          XXX,     XXX,     XXX,        MS_BTN3, MS_BTN1, MS_BTN2
     ),
 
+    // Rolling: `();`, `[]`, `{}`
+    // Vim `^ $`, `# *` mirroring the arrow keys.
     [_SYM] = LAYOUT_split_3x5_3(
-        XXX,      KC_LCBR, KC_RCBR, KC_DLR,  KC_PIPE,    XXX, XXX,     XXX,     XXX,     XXX,
-        KC_GRV,   KC_LBRC, KC_RBRC, KC_CIRC, KC_ASTR,    XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_TILDE, KC_EXLM, KC_BSLS, KC_AMPR, KC_HASH,    XXX, XXX,     XXX,     XXX,     XXX,
-                           KC_LPRN, KC_RPRN, KC_SCLN,    XXX, XXX,     XXX
+        XXX,     KC_LCBR,  KC_RCBR, KC_QUES, KC_EXLM,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_CIRC, KC_LBRC,  KC_RBRC, KC_DLR,  KC_AMPR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_HASH, KC_TILDE, KC_GRV,  KC_ASTR, KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
+                           KC_LPRN, KC_RPRN, KC_SCLN,        XXX, XXX,     XXX
     ),
 
+     // `/` is frequently used for silverbullet.
+    // Vim `0 =`, `%`, `/`
+    // `:` mirrors previous layer.
     [_NUM] = LAYOUT_split_3x5_3(
-        XXX,     KC_7, KC_8,    KC_9,    KC_PLUS,    XXX, XXX,     XXX,     XXX,     XXX,
-        KC_0,    KC_4, KC_5,    KC_6,    KC_EQL,     XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_PERC, KC_1, KC_2,    KC_3,    KC_LT,      XXX, XXX,     XXX,     XXX,     XXX,
-                       KC_UNDS, KC_MINS, KC_GT,      XXX, XXX,     XXX
+        XXX,     KC_7, KC_8,    KC_9,    KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_0,    KC_4, KC_5,    KC_6,    KC_EQL,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_PERC, KC_1, KC_2,    KC_3,    KC_BSLS,        XXX, XXX,     XXX,     XXX,     XXX,
+                       KC_MINS, KC_SLSH, KC_COLN,        XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
-        XXX,    KC_F7, KC_F8,   KC_F9,   KC_PSCR,    XXX, XXX,     XXX,     XXX,     XXX,
-        KC_F11, KC_F4, KC_F5,   KC_F6,   KC_APP,     XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_F10, KC_F1, KC_F2,   KC_F3,   KC_INS,     XXX, XXX,     XXX,     XXX,     XXX,
-                       KC_QUES, KC_SLSH, KC_COLN,    XXX, XXX,     XXX
+        XXX,    KC_F7, KC_F8, KC_F9,   KC_CAPS,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_F11, KC_F4, KC_F5, KC_F6,   KC_PSCR,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_F10, KC_F1, KC_F2, KC_F3,   KC_F12,         XXX, XXX,     XXX,     XXX,     XXX,
+                       KC_LT, KC_UNDS, KC_GT,          XXX, XXX,     XXX
     ),
 
     [_BTN] = LAYOUT_split_3x5_3(
-        XXX,  XXX,   XXX,  XXX,   XXX,     XXX,     XXX,   XXX,  XXX, XXX,
-        XXX,  KC_AT, XXX,  XXX,   XXX,     KC_CAPS, XXX,   XXX,  XXX, XXX,
-        REDO, CUT,   COPY, PASTE, UNDO,    UNDO,    PASTE, COPY, CUT, REDO,
-                     XXX,  XXX,   XXX,     XXX,     XXX,   XXX
+        XXX,   XXX, XXX,  XXX,   XXX,         XXX,  XXX,   XXX,  XXX, XXX,
+        KC_AT, XXX, XXX,  XXX,   XXX,         XXX,  XXX,   XXX,  XXX, XXX,
+        REDO,  CUT, COPY, PASTE, UNDO,        UNDO, PASTE, COPY, CUT, REDO,
+                    XXX,  XXX,   XXX,         XXX,  XXX,   XXX
     ),
 };
 

@@ -33,6 +33,7 @@
 #define COPY    LCTL(KC_C)
 #define CUT     LCTL(KC_X)
 #define PASTE   LCTL(KC_V)
+#define TIMES   LSFT(KC_X)
 
 enum layer_names {
     _BASE,
@@ -82,10 +83,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Bigrams: `()`, `[]`, `{}`
     // Vim pairs `^ $`, `# *`
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_GRV,  KC_LCBR, KC_RCBR, KC_QUES, KC_AT,        XXX, XXX,     XXX,     XXX,     XXX,
-        KC_MINS, KC_LBRC, KC_RBRC, KC_AMPR, KC_EXLM,      XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_CIRC, KC_HASH, KC_ASTR, KC_DLR,  KC_PIPE,      XXX, XXX,     XXX,     XXX,     XXX,
-                          KC_LPRN, KC_PERC, KC_RPRN,      XXX, XXX,     XXX
+        KC_GRV,  KC_LCBR, KC_RCBR, KC_EXLM, KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_MINS, KC_LBRC, KC_RBRC, KC_AMPR, KC_TILD,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_CIRC, KC_HASH, KC_ASTR, KC_DLR,  KC_AT,          XXX, XXX,     XXX,     XXX,     XXX,
+                          KC_LPRN, KC_PERC, KC_RPRN,        XXX, XXX,     XXX
     ),
 
     // mirrors `_`
@@ -93,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUM] = LAYOUT_split_3x5_3(
         KC_PLUS, KC_7, KC_8,    KC_9, KC_BSLS,        XXX, XXX,     XXX,     XXX,     XXX,
         KC_UNDS, KC_4, KC_5,    KC_6, KC_EQL,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_MINS, KC_1, KC_2,    KC_3, KC_TILD,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_MINS, KC_1, KC_2,    KC_3, TIMES,          XXX, XXX,     XXX,     XXX,     XXX,
                        KC_SLSH, KC_0, KC_ASTR,        XXX, XXX,     XXX
     ),
 

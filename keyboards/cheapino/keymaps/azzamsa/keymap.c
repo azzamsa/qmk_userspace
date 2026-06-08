@@ -35,6 +35,12 @@
 #define PASTE   LCTL(KC_V)
 #define TIMES   LSFT(KC_X)
 
+// Game layer
+#define BASE  TG(_BASE)
+#define GAME  TG(_GAME)
+#define LT_G_GAME LT(_GAME_NUM,  KC_G)
+#define LT_B_GAME LT(_GAME_FUNC, KC_B)
+
 enum layer_names {
     _BASE,
     _NAV,
@@ -44,6 +50,10 @@ enum layer_names {
     _NUM,
     _SYM,
     _BTN,
+    // Game layers
+    _GAME,
+    _GAME_NUM,
+    _GAME_FUNC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -56,10 +66,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MEDIA] = LAYOUT_split_3x5_3(
-        QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,        XXX,     XXX,     XXX,     XXX,     XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,        XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
-        XXX,     XXX,     XXX,     XXX,     XXX,        XXX,     XXX,     XXX,     XXX,     XXX,
-                          XXX,     XXX,     XXX,        KC_MSTP, KC_MPLY, KC_MUTE
+        GAME,    XXX,     XXX,     XXX,     XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,       XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
+        QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
+                          XXX,     XXX,     XXX,       KC_MSTP, KC_MPLY, KC_MUTE
     ),
 
     // Arrow keys are better on home row. This reduces finger travel significantly.
@@ -111,4 +121,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         UNDO, CUT,   COPY, PASTE,   REDO,        REDO, PASTE, COPY,    CUT,     UNDO,
                      XXX,  XXX,     XXX,         XXX,  XXX,   XXX
     ),
+
+    [_GAME] = LAYOUT_split_3x5_3(
+        KC_T,      KC_Q, KC_W,    KC_E,   KC_R,           XXX, XXX, XXX, XXX, XXX,
+        LT_G_GAME, KC_A, KC_S,    KC_D,   KC_F,           XXX, XXX, XXX, XXX, XXX,
+        LT_B_GAME, KC_Z, KC_X,    KC_C,   KC_V,           XXX, XXX, XXX, XXX, XXX,
+                         KC_LCTL, KC_SPC, KC_LSFT,        XXX, XXX, XXX
+    ),
+
+    [_GAME_NUM] = LAYOUT_split_3x5_3(
+        XXX, KC_7, KC_8,   KC_9, XXX,           XXX, XXX,     XXX,     XXX,     XXX,
+        XXX, KC_4, KC_5,   KC_6, XXX,           XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        XXX, KC_1, KC_2,   KC_3, XXX,           XXX, XXX,     XXX,     XXX,     XXX,
+                   KC_ENT, KC_0, KC_TAB,        XXX, XXX,     XXX
+     ),
+
+     [_GAME_FUNC] = LAYOUT_split_3x5_3(
+         GAME, KC_F7, KC_F8,   KC_F9,   KC_F12,        XXX, XXX,     XXX,     XXX,     XXX,
+         XXX,  KC_F4, KC_F5,   KC_F6,   KC_F11,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+         XXX,  KC_F1, KC_F2,   KC_F3,   KC_F10,        XXX, XXX,     XXX,     XXX,     XXX,
+                      KC_LGUI, KC_PSCR, KC_BSPC,       XXX, XXX,     XXX
+      ),
 };

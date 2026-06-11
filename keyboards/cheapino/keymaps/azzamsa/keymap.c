@@ -130,16 +130,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_GAME_NUM] = LAYOUT_split_3x5_3(
-        XXX, KC_7, KC_8,   KC_9, XXX,           XXX, XXX,     XXX,     XXX,     XXX,
-        XXX, KC_4, KC_5,   KC_6, XXX,           XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        XXX, KC_1, KC_2,   KC_3, XXX,           XXX, XXX,     XXX,     XXX,     XXX,
-                   KC_ENT, KC_0, KC_TAB,        XXX, XXX,     XXX
+        KC_ESC, KC_7, KC_8, KC_9, KC_BSPC,           XXX, XXX,     XXX,     XXX,     XXX,
+        XXX,    KC_4, KC_5, KC_6, KC_TAB,            XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        XXX,    KC_1, KC_2, KC_3, KC_PSCR,           XXX, XXX,     XXX,     XXX,     XXX,
+                      KC_3, KC_1, KC_2,              XXX, XXX,     XXX
      ),
 
      [_GAME_FUNC] = LAYOUT_split_3x5_3(
-         GAME, KC_F7, KC_F8,   KC_F9,   KC_F12,        XXX, XXX,     XXX,     XXX,     XXX,
-         XXX,  KC_F4, KC_F5,   KC_F6,   KC_F11,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-         XXX,  KC_F1, KC_F2,   KC_F3,   KC_F10,        XXX, XXX,     XXX,     XXX,     XXX,
-                      KC_LGUI, KC_PSCR, KC_BSPC,       XXX, XXX,     XXX
+         GAME, KC_F7,   KC_F8,  KC_F9,   KC_F12,        XXX, XXX,     XXX,     XXX,     XXX,
+         XXX,  KC_F4,   KC_F5,  KC_F6,   KC_F11,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+         XXX,  KC_LGUI, KC_ENT, KC_LALT, KC_F10,        XXX, XXX,     XXX,     XXX,     XXX,
+                        KC_F3,  KC_F1,   KC_F2,         XXX, XXX,     XXX
       ),
 };

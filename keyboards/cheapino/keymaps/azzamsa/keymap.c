@@ -38,8 +38,9 @@
 // Game layer
 #define BASE  TG(_BASE)
 #define GAME  TG(_GAME)
-#define LT_G_GAME LT(_GAME_NUM,  KC_G)
-#define LT_B_GAME LT(_GAME_FUNC, KC_B)
+#define LT_T_GAME LT(_GAME_MIROR, KC_T)
+#define LT_G_GAME LT(_GAME_NUM,   KC_G)
+#define LT_B_GAME LT(_GAME_FUNC,  KC_B)
 
 enum layer_names {
     _BASE,
@@ -54,6 +55,7 @@ enum layer_names {
     _GAME,
     _GAME_NUM,
     _GAME_FUNC,
+    _GAME_MIROR,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -123,10 +125,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_GAME] = LAYOUT_split_3x5_3(
-        KC_T,      KC_Q, KC_W,    KC_E,   KC_R,           XXX, XXX, XXX, XXX, XXX,
-        LT_G_GAME, KC_A, KC_S,    KC_D,   KC_F,           XXX, XXX, XXX, XXX, XXX,
-        LT_B_GAME, KC_Z, KC_X,    KC_C,   KC_V,           XXX, XXX, XXX, XXX, XXX,
-                         KC_LCTL, KC_SPC, KC_LSFT,        XXX, XXX, XXX
+        LT_T_GAME, KC_Q, KC_W,    KC_E,   KC_R,           KC_Y,    KC_U,     KC_I,     KC_O,   KC_P,
+        LT_G_GAME, KC_A, KC_S,    KC_D,   KC_F,           KC_H,    KC_J,     KC_K,     KC_L,   KC_SCLN,
+        LT_B_GAME, KC_Z, KC_X,    KC_C,   KC_V,           KC_N,    KC_M,     KC_COMMA, KC_DOT, KC_SLASH,
+                         KC_LCTL, KC_SPC, KC_LSFT,        KC_BSPC, KC_SPACE, KC_TAB
     ),
 
     [_GAME_NUM] = LAYOUT_split_3x5_3(
@@ -134,12 +136,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXX,    KC_4, KC_5, KC_6, KC_TAB,            XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         XXX,    KC_1, KC_2, KC_3, KC_PSCR,           XXX, XXX,     XXX,     XXX,     XXX,
                       KC_3, KC_1, KC_2,              XXX, XXX,     XXX
-     ),
+    ),
 
-     [_GAME_FUNC] = LAYOUT_split_3x5_3(
-         GAME, KC_F7,   KC_F8,  KC_F9,   KC_F12,        XXX, XXX,     XXX,     XXX,     XXX,
-         XXX,  KC_F4,   KC_F5,  KC_F6,   KC_F11,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-         XXX,  KC_LGUI, KC_ENT, KC_LALT, KC_F10,        XXX, XXX,     XXX,     XXX,     XXX,
-                        KC_F3,  KC_F1,   KC_F2,         XXX, XXX,     XXX
-      ),
+    [_GAME_FUNC] = LAYOUT_split_3x5_3(
+        GAME, KC_F7,   KC_F8,  KC_F9,   KC_F12,        XXX, XXX,     XXX,     XXX,     XXX,
+        XXX,  KC_F4,   KC_F5,  KC_F6,   KC_F11,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        XXX,  KC_LGUI, KC_ENT, KC_LALT, KC_F10,        XXX, XXX,     XXX,     XXX,     XXX,
+                        KC_F3, KC_F1,   KC_F2,         XXX, XXX,     XXX
+    ),
+
+    [_GAME_MIROR] = LAYOUT_split_3x5_3(
+        XXX,  KC_U, KC_I, KC_O,    KC_P,       XXX, XXX, XXX, XXX, XXX,
+        KC_H, KC_J, KC_K, KC_L,    KC_Y,       XXX, XXX, XXX, XXX, XXX,
+        KC_N, KC_M, XXX,  XXX,     XXX,        XXX, XXX, XXX, XXX, XXX,
+                    XXX,  KC_PSCR, XXX,        XXX, XXX, XXX
+    ),
 };

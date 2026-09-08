@@ -68,28 +68,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MEDIA] = LAYOUT_split_3x5_3(
-        GAME,    XXX,     XXX,     XXX,     XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,       XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
-        QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
-                          XXX,     XXX,     XXX,       KC_MSTP, KC_MPLY, KC_MUTE
+        GAME,    XXX,     XXX, XXX, XXX,       XXX,     XXX,     KC_VOLU, XXX,     XXX,
+        XXX,     XXX,     XXX, XXX, XXX,       XXX,     KC_MPRV, KC_VOLD, KC_MNXT, XXX,
+        QK_BOOT, KC_SYRQ, XXX, XXX, XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
+                          XXX, XXX, XXX,       KC_MSTP, KC_MPLY, KC_MUTE
     ),
 
     // Arrow keys are better on home row. This reduces finger travel significantly.
     // As I rely on them instead of hjkl.
     // Inverted-T also places `pgdn` and `pgup` on hard to reach or awkward positions.
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,      XXX,        REDO,    PASTE,   COPY,    CUT,     UNDO,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-        XXX,     XXX,     XXX,     XXX,      XXX,        XXX,     KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX,     XXX,     XXX,     XXX,      XXX,        REDO,    PASTE,   KC_UP,   CUT,      UNDO,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT,  KC_PGUP,
+        XXX,     XXX,     XXX,     XXX,      XXX,        KC_CAPS, KC_HOME, KC_INS,  KC_END,   KC_PGDN,
                           XXX,     XXX,      XXX,        XXX,     XXX,     KC_DEL
     ),
 
     // `BTN4` / `BTN5` is miroring `UNDO` / `REDO`.
     [_MOUSE] = LAYOUT_split_3x5_3(
         XXX, XXX, OM_FAST, XXX, XXX,        XXX,     OM_HLDS, OM_U,    OM_RELS, OM_W_U,
-        XXX, XXX, OM_SLOW, XXX, XXX,        XXX,     OM_L,    OM_D,    OM_R,    OM_W_D,
-        XXX, XXX, XXX,     XXX, XXX,        XXX,     OM_W_L,  OM_SEL1, OM_W_R,  OM_W_R,
-                  XXX,     XXX, XXX,        OM_SEL2, OM_BTNS, OM_DBLS
+        XXX, XXX, OM_SLOW, XXX, XXX,        XXX,     OM_L,    OM_D,    OM_R,    OM_W_U,
+        XXX, XXX, XXX,     XXX, XXX,        XXX,     OM_W_L,  OM_SEL1, OM_W_R,  OM_W_D,
+                  XXX,     XXX, XXX,        OM_SEL2, OM_SEL1, OM_DBLS
     ),
 
     // Bigrams: `()`, `[]`, `{}`
@@ -118,9 +118,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BTN] = LAYOUT_split_3x5_3(
-        XXX,  XXX,   XXX,  XXX,     XXX,         XXX,  XXX,   XXX,     XXX,     XXX,
-        XXX,  XXX,   XXX,  XXX,     XXX,         XXX,  XXX,   KC_MINS, KC_PLUS, XXX,
-        UNDO, CUT,   COPY, PASTE,   REDO,        REDO, PASTE, COPY,    CUT,     UNDO,
+        XXX,  XXX,   XXX,  XXX,     XXX,         XXX,  XXX,   XXX,  XXX, XXX,
+        XXX,  XXX,   XXX,  XXX,     XXX,         XXX,  XXX,   XXX,  XXX, XXX,
+        UNDO, CUT,   COPY, PASTE,   REDO,        REDO, PASTE, COPY, CUT, UNDO,
                      XXX,  XXX,     XXX,         XXX,  XXX,   XXX
     ),
 

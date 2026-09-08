@@ -152,3 +152,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     XXX,  KC_PSCR, XXX,        XXX, XXX, XXX
     ),
 };
+
+// Combos
+enum combo_events {
+    X1,
+    X2,
+    DOT1,
+    DOT2,
+};
+
+const uint16_t PROGMEM x1_combo[]   = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM x2_combo[]   = {KC_L, KC_D, COMBO_END};
+const uint16_t PROGMEM dot1_combo[] = {KC_W, KC_SLASH, COMBO_END};
+const uint16_t PROGMEM dot2_combo[] = {KC_G, KC_O, COMBO_END};
+
+combo_t key_combos[] = {
+    [X1]   = COMBO(x1_combo,   KC_X),
+    [X2]   = COMBO(x2_combo,   KC_X),
+    [DOT1] = COMBO(dot1_combo, KC_DOT),
+    [DOT2] = COMBO(dot2_combo, KC_DOT),
+};

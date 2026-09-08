@@ -88,22 +88,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_TILD, KC_HASH, KC_EXLM, KC_ASTR, KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
-        KC_EQL,  KC_CIRC, KC_AMPR, KC_DLR,  KC_UNDS,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_MINS,        XXX, XXX,     XXX,     XXX,     XXX,
-                          KC_LPRN, KC_PERC, KC_RPRN,        XXX, XXX,     XXX
+        KC_LBRC, KC_HASH, KC_EXLM, KC_ASTR, KC_RBRC,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_UNDS, KC_CIRC, KC_AMPR, KC_DLR,  KC_PIPE,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_MINS, KC_LCBR, KC_PERC, KC_RCBR, KC_GRV,         XXX, XXX,     XXX,     XXX,     XXX,
+                          KC_LPRN, KC_EQL,  KC_RPRN,        XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-        KC_BSLS, KC_7, KC_8,    KC_9, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
-        KC_EQL,  KC_4, KC_5,    KC_6, KC_UNDS,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        TIMES,   KC_1, KC_2,    KC_3, KC_MINS,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_PLUS, KC_7, KC_8,    KC_9, TIMES,          XXX, XXX,     XXX,     XXX,     XXX,
+        KC_EQL,  KC_4, KC_5,    KC_6, KC_EQL,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_MINS, KC_1, KC_2,    KC_3, KC_BSLS,        XXX, XXX,     XXX,     XXX,     XXX,
                        KC_SLSH, KC_0, KC_ASTR,        XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
         KC_F12, KC_F7, KC_F8, KC_F9, KC_AT,          XXX, XXX,     XXX,     XXX,     XXX,
-        KC_F11, KC_F4, KC_F5, KC_F6, KC_GRV,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_F11, KC_F4, KC_F5, KC_F6, KC_TILD,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         KC_F10, KC_F1, KC_F2, KC_F3, XXX,            XXX, XXX,     XXX,     XXX,     XXX,
                        XXX,   XXX,   XXX,            XXX, XXX,     XXX
     ),

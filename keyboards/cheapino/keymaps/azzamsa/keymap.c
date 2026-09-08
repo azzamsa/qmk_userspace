@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // `BTN4` / `BTN5` is miroring `UNDO` / `REDO`.
     [_MOUSE] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,     XXX,        XXX,     MS_BTN5, XXX,     XXX,     MS_BTN4,
+        XXX,     XXX,     XXX,     XXX,     XXX,        XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
         KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,        XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,
         XXX,     XXX,     XXX,     XXX,     XXX,        XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR,
                           XXX,     XXX,     XXX,        MS_BTN3, MS_BTN1, MS_BTN2

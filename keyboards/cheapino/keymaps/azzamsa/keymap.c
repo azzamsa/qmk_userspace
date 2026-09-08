@@ -78,15 +78,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // As I rely on them instead of hjkl.
     // Inverted-T also places `pgdn` and `pgup` on hard to reach or awkward positions.
     [_NAV] = LAYOUT_split_3x5_3(
-        XXX,     XXX,     XXX,     XXX,      XXX,        REDO,    PASTE,   KC_UP,   CUT,      UNDO,
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT,  KC_PGUP,
-        XXX,     XXX,     XXX,     XXX,      XXX,        KC_CAPS, KC_HOME, KC_INS,  KC_END,   KC_PGDN,
-                          XXX,     XXX,      XXX,        XXX,     XXX,     KC_DEL
+        XXX,     XXX,     XXX,     XXX,      XXX,        KC_CAPS, KC_HOME, KC_UP,   KC_END,  XXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,
+        XXX,     XXX,     XXX,     XXX,      XXX,        KC_INS,  SELWBAK, SELLINE, SELWORD, KC_PGDN,
+                          XXX,     XXX,      XXX,        PASTE,   COPY,    CUT
     ),
 
     // `BTN4` / `BTN5` is miroring `UNDO` / `REDO`.
     [_MOUSE] = LAYOUT_split_3x5_3(
-        XXX, XXX, OM_FAST, XXX, XXX,        XXX,     OM_HLDS, OM_U,    OM_RELS, OM_W_U,
+        XXX, XXX, OM_FAST, XXX, XXX,        XXX,     OM_HLDS, OM_U,    OM_RELS, XXX,
         XXX, XXX, OM_SLOW, XXX, XXX,        XXX,     OM_L,    OM_D,    OM_R,    OM_W_U,
         XXX, XXX, XXX,     XXX, XXX,        XXX,     OM_W_L,  OM_SEL1, OM_W_R,  OM_W_D,
                   XXX,     XXX, XXX,        OM_SEL2, OM_SEL1, OM_DBLS
@@ -118,10 +118,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BTN] = LAYOUT_split_3x5_3(
-        XXX,  XXX,   XXX,  XXX,     XXX,         XXX,  XXX,   XXX,  XXX, XXX,
-        XXX,  XXX,   XXX,  XXX,     XXX,         XXX,  XXX,   XXX,  XXX, XXX,
-        UNDO, CUT,   COPY, PASTE,   REDO,        REDO, PASTE, COPY, CUT, UNDO,
-                     XXX,  XXX,     XXX,         XXX,  XXX,   XXX
+        UNDO, CUT, COPY,   PASTE, REDO,        REDO, PASTE, COPY, CUT, UNDO,
+        XXX,  XXX, XXX,    XXX,   XXX,         XXX,  XXX,   XXX,  XXX, XXX,
+        UNDO, CUT, COPY,   PASTE, REDO,        REDO, PASTE, COPY, CUT, UNDO,
+                   KC_DEL, XXX,   XXX,         XXX,  XXX,   KC_DEL
     ),
 
     [_GAME] = LAYOUT_split_3x5_3(

@@ -12,8 +12,8 @@
 #define LT_SPACE LT(_NUM,  KC_SPACE)
 #define LT_TAB   LT(_FUNC, KC_TAB)
 
-#define LT_B     LT(_BTN, KC_B)
-#define LT_COMMA LT(_BTN, KC_COMMA)
+#define LT_J     LT(_BTN, KC_J)
+#define LT_SLSH  LT(_BTN, KC_SLSH)
 
 // Left-hand Mod-Tap aliases
 #define MT_N LGUI_T(KC_N)
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_3(
         KC_X, KC_F, KC_L,   KC_D, KC_Q,        KC_P,    KC_G,     KC_O,    KC_U,    KC_DOT,
         MT_N, MT_S, MT_H,   MT_T, KC_M,        KC_Y,    MT_C,     MT_A,    MT_E,    MT_I,
-        LT_B, KC_V, KC_J,   KC_K, KC_Z,        KC_QUOT, KC_W,     KC_SLSH, KC_SCLN, LT_COMMA,
+        KC_B, KC_V, LT_J,   KC_K, KC_Z,        KC_QUOT, KC_W,     LT_SLSH, KC_SCLN, KC_COMMA,
                     LT_ESC, LT_R, LT_ENT,      LT_BSPC, LT_SPACE, LT_TAB
     ),
 

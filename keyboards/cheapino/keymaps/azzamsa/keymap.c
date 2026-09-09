@@ -30,9 +30,6 @@
 // Other aliases
 #define REDO    LCTL(LSFT(KC_Z))
 #define UNDO    LCTL(KC_Z)
-#define COPY    LCTL(KC_C)
-#define CUT     LCTL(KC_X)
-#define PASTE   LCTL(KC_V)
 #define TIMES   LSFT(KC_X)
 
 // Game layer
@@ -77,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXX,     XXX,     XXX,     XXX,      XXX,        KC_CAPS, KC_HOME, KC_UP,   KC_END,  KC_PSCR,
         KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,
         XXX,     XXX,     XXX,     XXX,      XXX,        KC_INS,  SELWBAK, SELLINE, SELWORD, KC_PGDN,
-                          XXX,     XXX,      XXX,        PASTE,   COPY,    CUT
+                          XXX,     XXX,      XXX,        XXX,     XXX,     XXX
     ),
 
     [_MOUSE] = LAYOUT_split_3x5_3(
@@ -88,31 +85,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_GRV,  KC_HASH, KC_EXLM, KC_ASTR, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_LBRC, KC_HASH, KC_EXLM, KC_ASTR, KC_RBRC,        XXX, XXX,     XXX,     XXX,     XXX,
         KC_MINS, KC_CIRC, KC_AMPR, KC_DLR,  KC_EQL,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_UNDS, KC_TILD, KC_LCBR, KC_RCBR, KC_MINS,        XXX, XXX,     XXX,     XXX,     XXX,
-                          KC_PERC, KC_LCBR, KC_RCBR,        XXX, XXX,     XXX
+        KC_UNDS, KC_LCBR, KC_TILD, KC_RCBR, KC_AT,          XXX, XXX,     XXX,     XXX,     XXX,
+                          KC_LPRN, KC_RPRN, KC_PERC,        XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT_split_3x5_3(
-        KC_BSLS, KC_7, KC_8,    KC_9,    KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
-        KC_0,    KC_4, KC_5,    KC_6,    KC_EQL,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_PERC, KC_1, KC_2,    KC_3,    KC_MINS,        XXX, XXX,     XXX,     XXX,     XXX,
-                       KC_SLSH, KC_LPRN, KC_RPRN,        XXX, XXX,     XXX
+        KC_BSLS, KC_7, KC_8,    KC_9, KC_PLUS,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_GRV,  KC_4, KC_5,    KC_6, KC_EQL,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_PIPE, KC_1, KC_2,    KC_3, KC_MINS,        XXX, XXX,     XXX,     XXX,     XXX,
+                       KC_SLSH, KC_0, TIMES,          XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
-        KC_F12, KC_F7, KC_F8, KC_F9, KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
-        KC_F11, KC_F4, KC_F5, KC_F6, KC_GRV,         XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_F10, KC_F1, KC_F2, KC_F3, KC_AT,          XXX, XXX,     XXX,     XXX,     XXX,
-                       XXX,   XXX,   XXX,            XXX, XXX,     XXX
+        KC_F12, KC_F7, KC_F8, KC_F9, XXX,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_F11, KC_F4, KC_F5, KC_F6, XXX,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+        KC_F10, KC_F1, KC_F2, KC_F3, XXX,        XXX, XXX,     XXX,     XXX,     XXX,
+                       XXX,   XXX,   XXX,        XXX, XXX,     XXX
     ),
 
     [_BTN] = LAYOUT_split_3x5_3(
-        UNDO, CUT, COPY,   PASTE, REDO,        REDO, PASTE, COPY, CUT, UNDO,
-        XXX,  XXX, XXX,    XXX,   XXX,         XXX,  XXX,   XXX,  XXX, XXX,
-        UNDO, CUT, COPY,   PASTE, REDO,        REDO, PASTE, COPY, CUT, UNDO,
-                   KC_DEL, XXX,   XXX,         XXX,  XXX,   KC_DEL
+        UNDO, KC_CUT, KC_COPY, KC_PSTE, REDO,        REDO, KC_PSTE, KC_COPY, KC_CUT, UNDO,
+        XXX,  XXX,    XXX,     XXX,     XXX,         XXX,  XXX,     XXX,     XXX,    XXX,
+        UNDO, KC_CUT, KC_COPY, KC_PSTE, REDO,        REDO, KC_PSTE, KC_COPY, KC_CUT, UNDO,
+                      KC_DEL,  XXX,     XXX,         XXX,  XXX,     KC_DEL
     ),
 
     [_GAME] = LAYOUT_split_3x5_3(
@@ -133,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         GAME, KC_F7,   KC_F8,  KC_F9,   KC_F12,        XXX, XXX,     XXX,     XXX,     XXX,
         XXX,  KC_F4,   KC_F5,  KC_F6,   KC_F11,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         XXX,  KC_LGUI, KC_ENT, KC_LALT, KC_F10,        XXX, XXX,     XXX,     XXX,     XXX,
-                        KC_F3, KC_F1,   KC_F2,         XXX, XXX,     XXX
+                       KC_F3,  KC_F1,   KC_F2,         XXX, XXX,     XXX
     ),
 
     [_GAME_MIROR] = LAYOUT_split_3x5_3(

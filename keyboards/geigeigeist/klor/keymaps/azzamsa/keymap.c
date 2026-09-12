@@ -15,7 +15,7 @@
 #define LT_DEL   LT(_BTN, KC_DEL)
 
 #define LT_J     LT(_BTN, KC_J)
-#define LT_SLSH  LT(_BTN, KC_SLSH)
+#define LT_SCLN  LT(_BTN, KC_SCLN)
 
 // Left-hand Mod-Tap aliases (same roles/order as klor: GUI, ALT, CTL, SFT)
 #define MT_N LGUI_T(KC_N)
@@ -65,9 +65,9 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-             KC_X, KC_F, KC_L,   KC_D,   KC_Q,                         KC_P,     KC_G,   KC_O,    KC_U,    KC_DOT,
-        XXX, MT_N, MT_S, MT_H,   MT_T,   KC_M,                         KC_Y,     MT_C,   MT_A,    MT_E,    MT_I,    XXX,
-        XXX, KC_B, KC_V, LT_J,   KC_K,   KC_Z, XXX,           XXX,     KC_QUOT,  KC_W,   LT_SLSH, KC_SCLN, KC_COMMA, XXX,
+             KC_X, KC_F, KC_L,   KC_K,   KC_Q,                         KC_P,     KC_G,   KC_O,    KC_U,    KC_DOT,
+        XXX, MT_N, MT_S, MT_H,   MT_T,   KC_M,                         KC_Y,     MT_C,   MT_A,    MT_E,    MT_I,     XXX,
+        XXX, KC_B, KC_V, LT_J,   KC_D,   KC_Z, XXX,           XXX,     KC_QUOT,  KC_W,   LT_SCLN, KC_SLSH, KC_COMMA, XXX,
                          KC_DEL, LT_ESC, LT_R, LT_ENT,        LT_BSPC, LT_SPACE, LT_TAB, KC_DEL
     ),
 
@@ -79,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT(
-             XXX,     XXX,     XXX,     XXX,     XXX,                  KC_CAPS, KC_HOME, KC_UP,   KC_END,  KC_PSCR,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,        XXX, KC_INS,  SELWBAK, SELLINE, SELWORD, KC_PGDN, XXX,
+             XXX,     XXX,     XXX,     XXX,     XXX,                  KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_CAPS,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,        XXX, SELALL,  SELWBAK, SELLINE, SELWORD, KC_INS,  XXX,
                                XXX,     XXX,     XXX, XXX,        XXX, XXX,     XXX,     KC_DEL
     ),
 

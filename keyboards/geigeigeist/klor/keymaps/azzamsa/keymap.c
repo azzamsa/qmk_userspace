@@ -37,6 +37,7 @@
 #define CUT     LCTL(KC_X)
 #define PASTE   LCTL(KC_V)
 #define TIMES   LSFT(KC_X)
+#define SELALL  LCTL(KC_A)
 
 // Game layer
 #define BASE  TG(_BASE)
@@ -85,10 +86,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MOUSE] = LAYOUT(
-             XXX, XXX,     OM_FAST, XXX,     XXX,                      XXX,     OM_BTN4, OM_U,    OM_BTN5, XXX,
-        XXX, XXX, OM_HLDS, OM_SLOW, OM_RELS, XXX,                      XXX,     OM_L,    OM_D,    OM_R,    OM_W_U,  XXX,
-        XXX, XXX, XXX,     XXX,     XXX,     XXX, XXX,        XXX,     XXX,     OM_W_L,  OM_DBLS, OM_W_R,  OM_W_D,  XXX,
-                           XXX,     XXX,     XXX, XXX,        OM_SEL2, OM_BTN1, OM_BTN3, XXX
+             XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_BTN4, MS_UP,   MS_BTN5, MS_WHLU,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLD, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_WHLL, XXX,     MS_WHLR, XXX,     XXX,
+                               XXX,     XXX,     XXX, XXX,    MS_BTN3, MS_BTN1, MS_BTN2, XXX
     ),
 
     [_SYM] = LAYOUT(

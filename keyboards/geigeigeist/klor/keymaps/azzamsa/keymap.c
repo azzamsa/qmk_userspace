@@ -36,7 +36,6 @@
 #define COPY    LCTL(KC_C)
 #define CUT     LCTL(KC_X)
 #define PASTE   LCTL(KC_V)
-#define TIMES   LSFT(KC_X)
 #define SELALL  LCTL(KC_A)
 
 // Game layer
@@ -68,42 +67,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_X, KC_F, KC_L,   KC_K,   KC_Q,                         KC_P,     KC_G,   KC_O,    KC_U,    KC_DOT,
         XXX, MT_N, MT_S, MT_H,   MT_T,   KC_M,                         KC_Y,     MT_C,   MT_A,    MT_E,    MT_I,     XXX,
         XXX, KC_B, KC_V, LT_J,   KC_D,   KC_Z, XXX,           XXX,     KC_QUOT,  KC_W,   LT_SCLN, KC_SLSH, KC_COMMA, XXX,
-                         KC_DEL, LT_ESC, LT_R, LT_ENT,        LT_BSPC, LT_SPACE, LT_TAB, KC_DEL
+                         QK_REP, LT_ESC, LT_R, LT_ENT,        LT_BSPC, LT_SPACE, LT_TAB, KC_DEL
     ),
 
     [_MEDIA] = LAYOUT(
-             GAME,    XXX,     XXX,     XXX,     XXX,                      XXX,     XXX,     KC_VOLU, XXX,     XXX,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                      XXX,     KC_MPRV, KC_VOLD, KC_MNXT, XXX, XXX,
-        XXX, QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX, XXX,        XXX,     XXX,     XXX,     XXX,     XXX,     XXX, XXX,
+             GAME,    XXX,     XXX,     XXX,     XXX,                      XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                      XXX,     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXX,
+        XXX, QK_BOOT, KC_SYRQ, XXX,     XXX,     XXX, XXX,        XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,
                                XXX,     XXX,     XXX, XXX,        KC_MSTP, KC_MPLY, KC_MUTE, XXX
     ),
 
     [_NAV] = LAYOUT(
-             XXX,     XXX,     XXX,     XXX,     XXX,                  KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_CAPS,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,        XXX, SELALL,  SELWBAK, SELLINE, SELWORD, KC_INS,  XXX,
-                               XXX,     XXX,     XXX, XXX,        XXX, XXX,     XXX,     KC_DEL
+             XXX,     XXX,     XXX,     XXX,     XXX,                  REDO,    PASTE,   COPY,    CUT,     UNDO,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  CW_TOGG, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,        XXX, KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
+                               XXX,     XXX,     XXX, XXX,        XXX, XXX,     XXX,     XXX
     ),
 
     [_MOUSE] = LAYOUT(
-             XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_BTN4, MS_UP,   MS_BTN5, MS_WHLU,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLD, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_WHLL, XXX,     MS_WHLR, XXX,     XXX,
+             XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
+        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, XXX,
+        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXX,
                                XXX,     XXX,     XXX, XXX,    MS_BTN3, MS_BTN1, MS_BTN2, XXX
     ),
 
     [_SYM] = LAYOUT(
-             KC_LBRC, KC_HASH, KC_EXLM, KC_ASTR, KC_RBRC,                      XXX, XXX,     XXX,     XXX,     XXX,
-        XXX, KC_MINS, KC_CIRC, KC_AMPR, KC_DLR,  KC_EQL,                       XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_UNDS, KC_LCBR, KC_TILD, KC_RCBR, KC_AT,   XXX,            XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
-                               XXX,     KC_LPRN, KC_RPRN, KC_PERC,        XXX, XXX, XXX,     XXX
+             KC_HASH, KC_EXLM, KC_AMPR, KC_ASTR, KC_TILD,                      XXX, XXX,     XXX,     XXX,     XXX,
+        XXX, KC_CIRC, KC_LPRN, KC_RPRN, KC_DLR,  KC_EQL,                       XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, KC_AT,   XXX,            XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                               XXX,     KC_MINS, KC_UNDS, KC_PERC,        XXX, XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT(
-             KC_BSLS, KC_7, KC_8, KC_9,    KC_PLUS,                    XXX, XXX,     XXX,     XXX,     XXX,
+             KC_SLSH, KC_7, KC_8, KC_9,    KC_ASTR,                    XXX, XXX,     XXX,     XXX,     XXX,
         XXX, KC_GRV,  KC_4, KC_5, KC_6,    KC_EQL,                     XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_PIPE, KC_1, KC_2, KC_3,    KC_MINS, XXX,          XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
-                            XXX,  KC_SLSH, KC_0,    TIMES,        XXX, XXX, XXX,     XXX
+        XXX, KC_PIPE, KC_1, KC_2, KC_3,    KC_BSLS, XXX,          XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                            XXX,  KC_MINS, KC_0,    KC_PLUS,      XXX, XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT(
@@ -114,10 +113,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BTN] = LAYOUT(
-             UNDO,    CUT,     COPY,    PASTE,   REDO,                  REDO, PASTE,   COPY,    CUT,     UNDO,
-        XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                   XXX,  KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, UNDO,    CUT,     COPY,    PASTE,   REDO, XXX,        XXX, REDO, PASTE,   COPY,    CUT,     UNDO,    XXX,
-                               XXX,     KC_DEL,  XXX,  XXX,        XXX, XXX,  KC_DEL,  XXX
+             UNDO,    CUT,    COPY,    PASTE,   REDO,                  REDO, PASTE,   COPY,    CUT,    UNDO,
+        XXX, SELWORD, SELALL, SELLINE, SELWBAK, XXX,                   XXX,  SELWBAK, SELLINE, SELALL, SELWORD, XXX,
+        XXX, UNDO,    CUT,    COPY,    PASTE,   REDO, XXX,        XXX, REDO, PASTE,   COPY,    CUT,    UNDO,    XXX,
+                              XXX,     KC_DEL,  XXX,  XXX,        XXX, XXX,  KC_DEL,  XXX
     ),
 
     [_GAME] = LAYOUT(

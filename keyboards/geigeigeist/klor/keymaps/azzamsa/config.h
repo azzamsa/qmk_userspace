@@ -3,6 +3,8 @@
 #define BOOTMAGIC_ROW 0
 #define BOOTMAGIC_COLUMN 1
 
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
 #undef TAPPING_TERM
 #define TAPPING_TERM 200 // default
 

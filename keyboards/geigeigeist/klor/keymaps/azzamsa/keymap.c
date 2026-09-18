@@ -64,10 +64,10 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-             KC_X, KC_F, KC_L,   KC_K,   KC_Q,                         KC_P,     KC_G,   KC_O,    KC_U,    KC_DOT,
-        XXX, MT_N, MT_S, MT_H,   MT_T,   KC_M,                         KC_Y,     MT_C,   MT_A,    MT_E,    MT_I,     XXX,
-        XXX, KC_B, KC_V, LT_J,   KC_D,   KC_Z, XXX,           XXX,     KC_QUOT,  KC_W,   LT_SCLN, KC_SLSH, KC_COMMA, XXX,
-                         QK_REP, LT_ESC, LT_R, LT_ENT,        LT_BSPC, LT_SPACE, LT_TAB, KC_DEL
+             KC_X, KC_F, KC_L, KC_K,   KC_Q,                         KC_P,     KC_G,   KC_O,    KC_U,    KC_DOT,
+        XXX, MT_N, MT_S, MT_H, MT_T,   KC_M,                         KC_Y,     MT_C,   MT_A,    MT_E,    MT_I,     XXX,
+        XXX, KC_B, KC_V, LT_J, KC_D,   KC_Z, XXX,           XXX,     KC_QUOT,  KC_W,   LT_SCLN, KC_SLSH, KC_COMMA, XXX,
+                         XXX,  LT_ESC, LT_R, LT_ENT,        LT_BSPC, LT_SPACE, LT_TAB, XXX
     ),
 
     [_MEDIA] = LAYOUT(
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT(
-             XXX,     XXX,     XXX,     XXX,     XXX,                  REDO,    PASTE,   COPY,    CUT,     UNDO,
+             XXX,     XXX,     XXX,     XXX,     XXX,                  KC_PSCR, QK_REP,  XXX,     XXX,     XXX,
         XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  CW_TOGG, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXX,
         XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,        XXX, KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXX,
                                XXX,     XXX,     XXX, XXX,        XXX, XXX,     XXX,     XXX
@@ -92,17 +92,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT(
-             KC_HASH, KC_EXLM, KC_AMPR, KC_ASTR, KC_TILD,                      XXX, XXX,     XXX,     XXX,     XXX,
-        XXX, KC_CIRC, KC_LPRN, KC_RPRN, KC_DLR,  KC_EQL,                       XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, KC_AT,   XXX,            XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
-                               XXX,     KC_MINS, KC_UNDS, KC_PERC,        XXX, XXX, XXX,     XXX
+             KC_HASH, KC_LPRN, KC_RPRN, KC_ASTR, KC_GRV,                      XXX, XXX,     XXX,     XXX,     XXX,
+        XXX, KC_CIRC, KC_EXLM, KC_AMPR, KC_DLR,  KC_TILD,                     XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_LBRC, KC_LCBR, KC_RCBR, KC_RBRC, KC_PIPE, XXX,           XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                               XXX,     KC_UNDS, KC_EQL, KC_PERC,        XXX, XXX, XXX,     XXX
     ),
 
     [_NUM] = LAYOUT(
-             KC_SLSH, KC_7, KC_8, KC_9,    KC_ASTR,                    XXX, XXX,     XXX,     XXX,     XXX,
-        XXX, KC_GRV,  KC_4, KC_5, KC_6,    KC_EQL,                     XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_PIPE, KC_1, KC_2, KC_3,    KC_BSLS, XXX,          XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
-                            XXX,  KC_MINS, KC_0,    KC_PLUS,      XXX, XXX, XXX,     XXX
+             KC_PLUS, KC_7, KC_8, KC_9,    KC_AT,                     XXX, XXX,     XXX,     XXX,     XXX,
+        XXX, KC_UNDS, KC_4, KC_5, KC_6,    KC_ASTR,                   XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_MINS, KC_1, KC_2, KC_3,    KC_BSLS, XXX,         XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+                            XXX,  KC_SLSH, KC_0,    KC_EQL,      XXX, XXX, XXX,     XXX
     ),
 
     [_FUNC] = LAYOUT(
@@ -113,16 +113,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BTN] = LAYOUT(
-             UNDO,    CUT,    COPY,    PASTE,   REDO,                  REDO, PASTE,   COPY,    CUT,    UNDO,
-        XXX, SELWORD, SELALL, SELLINE, SELWBAK, XXX,                   XXX,  SELWBAK, SELLINE, SELALL, SELWORD, XXX,
-        XXX, UNDO,    CUT,    COPY,    PASTE,   REDO, XXX,        XXX, REDO, PASTE,   COPY,    CUT,    UNDO,    XXX,
+             XXX,     XXX,    XXX,     XXX,     XXX,                   XXX,  XXX,     XXX,    XXX,     XXX,
+        XXX, REDO,    PASTE,  COPY,    CUT,     UNDO,                  REDO, PASTE,   COPY,   CUT,     UNDO,    XXX,
+        XXX, SELWBAK, SELALL, SELLINE, SELWORD, XXX,  XXX,        XXX, XXX,  SELWBAK, SELALL, SELLINE, SELWORD, XXX,
                               XXX,     KC_DEL,  XXX,  XXX,        XXX, XXX,  KC_DEL,  XXX
     ),
 
     [_GAME] = LAYOUT(
-             LT_T_GAME, KC_Q, KC_W, KC_E,    KC_R,                            KC_Y,    KC_U,     KC_I,     KC_O,   KC_P,
-        XXX, LT_G_GAME, KC_A, KC_S, KC_D,    KC_F,                            KC_H,    KC_J,     KC_K,     KC_L,   KC_SCLN, XXX,
-        XXX, LT_B_GAME, KC_Z, KC_X, KC_C,    KC_V,   XXX,            XXX,     KC_N,    KC_M,     KC_COMMA, KC_DOT, KC_SLASH, XXX,
+             LT_T_GAME, KC_Q, KC_W, KC_E,    KC_R,                            KC_Y,     KC_U,   KC_I,     KC_O,   KC_P,
+        XXX, LT_G_GAME, KC_A, KC_S, KC_D,    KC_F,                            KC_H,     KC_J,   KC_K,     KC_L,   KC_SCLN,  XXX,
+        XXX, LT_B_GAME, KC_Z, KC_X, KC_C,    KC_V,   XXX,            XXX,     KC_N,     KC_M,   KC_COMMA, KC_DOT, KC_SLASH, XXX,
                               XXX,  KC_LCTL, KC_SPC, KC_LSFT,        KC_BSPC, KC_SPACE, KC_TAB, KC_DEL
     ),
 
@@ -146,4 +146,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXX, KC_N, KC_M, XXX,  XXX,     XXX, XXX,          XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
                          XXX,  XXX, KC_PSCR, XXX,          XXX, XXX, XXX,     XXX
     ),
+};
+
+// Combos
+enum combo_events {
+    CAPS
+};
+
+const uint16_t PROGMEM caps_combo[] = {KC_D,    KC_W,    COMBO_END};
+
+combo_t key_combos[] = {
+    [CAPS] = COMBO(caps_combo, CW_TOGG),
 };

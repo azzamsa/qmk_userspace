@@ -4,7 +4,6 @@
 #define XXX KC_NO
 #define ___ KC_TRANSPARENT
 
-#define LT_DEL  LT(_BTN, KC_DEL)
 #define LT_ESC  LT(_MEDIA, KC_ESC)
 #define LT_R    LT(_NAV,   KC_R)
 #define LT_ENT  LT(_MOUSE, KC_ENT)
@@ -12,10 +11,8 @@
 #define LT_BSPC  LT(_SYM,  KC_BSPC)
 #define LT_SPACE LT(_NUM,  KC_SPACE)
 #define LT_TAB   LT(_FUNC, KC_TAB)
-#define LT_DEL   LT(_BTN, KC_DEL)
 
 #define LT_J     LT(_BTN, KC_J)
-#define LT_SCLN  LT(_BTN, KC_SCLN)
 
 // Left-hand Mod-Tap aliases (same roles/order as klor: GUI, ALT, CTL, SFT)
 #define MT_N LGUI_T(KC_N)
@@ -30,11 +27,11 @@
 #define MT_I LGUI_T(KC_I)
 
 // Other aliases
-// KC_PASTE doesn't work realibly on some apps.
 #define REDO    LCTL(LSFT(KC_Z))
 #define UNDO    LCTL(KC_Z)
 #define COPY    LCTL(KC_C)
 #define CUT     LCTL(KC_X)
+// KC_PASTE doesn't work reliably in some apps.
 #define PASTE   LCTL(KC_V)
 #define SELALL  LCTL(KC_A)
 
@@ -87,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOUSE] = LAYOUT(
              XXX,     XXX,     XXX,     XXX,     XXX,                  XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
         XXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,                  XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, XXX,
-        XXX, XXX,     XXX,     XXX,     XXX,     XXX, XXX,    XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXX,
+        XXX, XXX,     MS_BTN4, XXX,     MS_BTN5, XXX, XXX,    XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXX,
                                XXX,     XXX,     XXX, XXX,    MS_BTN3, MS_BTN1, MS_BTN2, XXX
     ),
 
@@ -100,8 +97,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUM] = LAYOUT(
              KC_PLUS, KC_7, KC_8, KC_9,    KC_AT,                     XXX, XXX,     XXX,     XXX,     XXX,
-        XXX, KC_UNDS, KC_4, KC_5, KC_6,    KC_ASTR,                   XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
-        XXX, KC_MINS, KC_1, KC_2, KC_3,    KC_BSLS, XXX,         XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
+        XXX, KC_MINS, KC_4, KC_5, KC_6,    KC_ASTR,                   XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXX,
+        XXX, KC_UNDS, KC_1, KC_2, KC_3,    KC_BSLS, XXX,         XXX, XXX, XXX,     XXX,     XXX,     XXX,     XXX,
                             XXX,  KC_SLSH, KC_0,    KC_EQL,      XXX, XXX, XXX,     XXX
     ),
 

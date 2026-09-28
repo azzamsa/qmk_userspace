@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     // Media and mouse operation
     [_MEDIA] = LAYOUT_split_3x5_3(
-        SELALL,  CUT,     COPY,    PASTE,   REDO,      QK_BOOT, XXX,     XXX,     XXX,     XXX,
+        QK_BOOT, CUT,     COPY,    PASTE,   REDO,      QK_BOOT, XXX,     XXX,     XXX,     XXX,
         MS_BTN4, MS_BTN1, MS_BTN2, MS_BTN5, XXX,       GAME,    KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
         KC_BSPC, MS_WHLU, MS_WHLD, KC_ENT,  XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
                           XXX,     XXX,     XXX,       KC_MSTP, KC_MPLY, KC_MUTE
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOUSE] = LAYOUT_split_3x5_3(
        UNDO,    CUT,     COPY,    PASTE,   REDO,    XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,     XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,
-       MS_BTN4, MS_BTN1, MS_BTN2, MS_BTN5, XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR,
+       MS_BTN4, MS_ACL0, MS_ACL1, MS_ACL2, XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR,
                          XXX,     XXX,     XXX,     MS_BTN2, MS_BTN1, MS_BTN3
     ),
 

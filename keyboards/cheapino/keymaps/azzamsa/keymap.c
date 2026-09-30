@@ -33,7 +33,6 @@
 #define PASTE   LCTL(KC_V)
 #define SELALL  LCTL(KC_A)
 
-// Game layer
 #define BASE  TG(_BASE)
 #define GAME  TG(_GAME)
 #define LT_T_GAME LT(_GAME_MIROR, KC_T)
@@ -64,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     // Media and mouse operation
     [_MEDIA] = LAYOUT_split_3x5_3(
-        QK_BOOT, CUT,     COPY,    PASTE,   REDO,      QK_BOOT, XXX,     XXX,     XXX,     XXX,
+        QK_BOOT, CUT,     COPY,    PASTE,   REDO,      XXX,     XXX,     XXX,     XXX,     XXX,
         MS_BTN4, MS_BTN1, MS_BTN2, MS_BTN5, XXX,       GAME,    KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
         KC_BSPC, MS_WHLU, MS_WHLD, KC_ENT,  XXX,       XXX,     XXX,     XXX,     XXX,     XXX,
                           XXX,     XXX,     XXX,       KC_MSTP, KC_MPLY, KC_MUTE
@@ -73,19 +72,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NAV] = LAYOUT_split_3x5_3(
         UNDO,    CUT,     COPY,    PASTE,    REDO,       REDO,    PASTE,   COPY,    CUT,     UNDO,
         KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  XXX,        CW_TOGG, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-        XXX,     XXX,     KC_SPC,  KC_DEL,   XXX,        KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXX,     XXX,     XXX,     XXX,      XXX,        KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
                           XXX,     XXX,      XXX,        XXX,     XXX,     KC_DEL
     ),
 
     [_MOUSE] = LAYOUT_split_3x5_3(
        UNDO,    CUT,     COPY,    PASTE,   REDO,    XXX,     MS_BTN4, XXX,     XXX,     MS_BTN5,
        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXX,     XXX,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,
-       MS_BTN4, MS_ACL0, MS_ACL1, MS_ACL2, XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR,
+       MS_BTN4, MS_ACL2, MS_ACL1, MS_ACL0, XXX,     XXX,     MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR,
                          XXX,     XXX,     XXX,     MS_BTN2, MS_BTN1, MS_BTN3
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        KC_HASH, KC_LPRN, KC_RPRN, KC_ASTR, KC_GRV,         XXX, XXX,     XXX,     XXX,     XXX,
+        KC_HASH, KC_LPRN, KC_RPRN, KC_ASTR, KC_GRV,         XXX, KC_AT,   KC_BSLS, XXX,     XXX,
         KC_CIRC, KC_EXLM, KC_AMPR, KC_DLR,  KC_TILD,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         KC_LBRC, KC_LCBR, KC_RCBR, KC_RBRC, KC_PIPE,        XXX, XXX,     XXX,     XXX,     XXX,
                           KC_UNDS, KC_EQL,  KC_PERC,        XXX, XXX,     XXX
@@ -99,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FUNC] = LAYOUT_split_3x5_3(
-        KC_F12, KC_F7, KC_F8, KC_F9, XXX,        XXX, XXX,     XXX,     XXX,     XXX,
+        KC_F12, KC_F7, KC_F8, KC_F9, KC_PSCR,    XXX, XXX,     XXX,     XXX,     XXX,
         KC_F11, KC_F4, KC_F5, KC_F6, XXX,        XXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         KC_F10, KC_F1, KC_F2, KC_F3, XXX,        XXX, XXX,     XXX,     XXX,     XXX,
                        XXX,   XXX,   XXX,        XXX, XXX,     XXX
@@ -134,17 +133,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+// shift functions
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == CW_TOGG && record->event.pressed) {
+        if (get_mods() & MOD_MASK_SHIFT) {
+            tap_code(KC_CAPS);   // Shift + CW_TOGG = real Caps Lock
+            return false;        // don't toggle Caps Word
+        }
+    }
+    return true;
+}
+
 // Combos
 enum combo_events {
     PSCR,
-    AT
+
+    SPC,
+    DEL,
 };
 
-const uint16_t PROGMEM pscr_combo[] = {KC_L,    KC_K,    COMBO_END};
-// Less frequently used key
-const uint16_t PROGMEM at_combo[]   = {KC_F,    KC_L,    COMBO_END};
+const uint16_t PROGMEM pscr_combo[]  = {KC_L,    KC_K,    COMBO_END};
+
+const uint16_t PROGMEM del_combo[]   = {KC_V,    KC_J,    COMBO_END};
+const uint16_t PROGMEM spc_combo[]   = {KC_J,    KC_D,    COMBO_END};
 
 combo_t key_combos[] = {
-    [PSCR] = COMBO(pscr_combo, KC_PSCR),
-    [AT]   = COMBO(at_combo, KC_AT),
+    [PSCR]  = COMBO(pscr_combo, KC_PSCR),
+
+    [DEL]  = COMBO(del_combo, KC_DEL),
+    [SPC]  = COMBO(spc_combo, KC_SPC),
 };
